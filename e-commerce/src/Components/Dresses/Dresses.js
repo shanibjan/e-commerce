@@ -1,35 +1,27 @@
 import React, { useEffect } from 'react'
 import './Dresses.css'
-import shoe from '../../images/shoe.jpeg'
-import coat from '../../images/coat.jpeg'
-import jacket from '../../images/jacket.jpeg'
-import dress from '../../images/dress.jpeg'
-import jeans from '../../images/jeans.jpeg'
-import tShirts from '../../images/t-shirts.jpeg'
-import { useState } from 'react'
 
 function Dresses() {
 
     useEffect(() => {
         let nodeDressSub = document.querySelectorAll('.dress-sub');
         console.log(nodeDressSub)
-        console.log(nodeDressSub.length)
-        for(let i=0;nodeDressSub.length-1;i++) {
-            console.log(nodeDressSub[0])
-            // let nodeImage = nodeDressSub[i].childNodes[0]
-            // console.log(nodeImage)
-            // let box = nodeDressSub[i].childNodes[1]
-            // let box2 = window.getComputedStyle(box, '::after')
+        console.log(nodeDressSub.length)        
+        for(let i=0;i<nodeDressSub.length;i++){
+            let nodeImage = nodeDressSub[i].childNodes[0]
+            console.log(nodeImage)
+            let box = nodeDressSub[i].childNodes[1]
+            let box2 = window.getComputedStyle(box, '::after')
 
-            // nodeDressSub[i].addEventListener('mouseenter', (event) => {
-            //     nodeImage.style.backgroundSize = "110%"
-            //     box.style.setProperty('--afterBack', 'scaleX(1)')
-            // })
+            nodeDressSub[i].addEventListener('mouseenter', (event) => {
+                nodeImage.style.backgroundSize = "110%"
+                box.style.setProperty('--afterBack', 'scaleX(1)')
+            })
 
-            // nodeDressSub[i].addEventListener('mouseleave', (event) => {
-            //     nodeImage.style.backgroundSize = "100%"
-            //     box.style.setProperty('--afterBack', 'scaleX(0)')
-            // })
+            nodeDressSub[i].addEventListener('mouseleave', (event) => {
+                nodeImage.style.backgroundSize = "100%"
+                box.style.setProperty('--afterBack', 'scaleX(0)')
+            })
         }
     })
 
