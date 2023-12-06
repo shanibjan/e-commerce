@@ -24,8 +24,7 @@ div.placeSearch input{
     font-weight: 800;
     font-size: 16px;
     margin: 1% 0;
-    font-family: 'Manrope', sans-serif;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gordita Light', sans-serif;
     
     
 }
@@ -118,8 +117,7 @@ a.lang p{
     display: block;
     margin-top: 15px;
     font-weight: 400;
-    font-family: 'Manrope', sans-serif;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gordita Light', sans-serif;
   }
   a.slide:hover{
     color:#48CAB2 ;

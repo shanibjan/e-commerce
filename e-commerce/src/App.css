@@ -2,7 +2,7 @@
   font-family: 'Gordita Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('GorditaRegular'), url('./fonts/gordita/Gordita\ Regular.woff') format('woff');
+  src: local('GorditaRegular'), url('./fonts/gordita/Gordita Regular.woff') format('woff');
 }
 @font-face {
       font-family: 'Gordita Light';
