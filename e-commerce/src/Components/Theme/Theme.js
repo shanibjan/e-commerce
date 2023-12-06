@@ -11,7 +11,43 @@ import product6 from '../../images/product-6.jpeg'
 
 
 function Theme() {
+    const yankaEnter=()=>{
+        let yanka = document.querySelector('.yanka-head')
+        let yankAfter =window.getComputedStyle(yanka,'::after')
+        yanka.style.setProperty('--afterBack','scaleX(1)')
+    }
+    const yankaLeave=()=>{
+        let yanka = document.querySelector('.yanka-head')
+        let yankAfter =window.getComputedStyle(yanka,'::after')
+        yanka.style.setProperty('--afterBack','scaleX(0)')
+    }
+    const lookEnter =()=>{
+        let look = document.querySelector('.look-head')
+        let lookAfter =window.getComputedStyle(look,'::after')
+        look.style.setProperty('--afterBack','scaleX(1)')
+        // document.querySelector('.look-sub').style.backgroundSize="110%"
+        
+    }
+    const lookLeave =()=>{
+        let look = document.querySelector('.look-head')
+        let lookAfter=window.getComputedStyle(look,'::after')
+        look.style.setProperty('--afterBack','scaleX(0)')
+        // document.querySelector('.look-sub').style.backgroundSize="100%"
+    }
+    const lookEnter2 =()=>{
+        let look = document.querySelector('.look-head-2')
+        let lookAfter =window.getComputedStyle(look,'::after')
+        look.style.setProperty('--afterBack','scaleX(1)')
+        // document.querySelector('.look-sub-2').style.backgroundSize="110%"
+    }
+    const lookLeave2 =()=>{
+        let look = document.querySelector('.look-head-2')
+        let lookAfter=window.getComputedStyle(look,'::after')
+        look.style.setProperty('--afterBack','scaleX(0)')
+        // document.querySelector('.look-sub-2').style.backgroundSize="100%"
+    }
   return (
+
     <div className='theme' >
       <div className="categories">
         <div className="heading">
@@ -279,12 +315,12 @@ function Theme() {
                                     </div>
                                 
                                     <div className="look">
-                                            <a className="look-sub">
-                                               <h2>Complete Your Look</h2>
+                                            <a onMouseOver={lookEnter} onMouseLeave={lookLeave} className="look-sub">
+                                               <h2 className='look-head' >Complete Your Look</h2>
                                                <p>The worlds most stylish women are buying right now</p>
                                             </a>
-                                            <a className="look-sub-2">
-                                               <h2>Complete Your Look</h2>
+                                            <a onMouseOver={lookEnter2} onMouseLeave={lookLeave2} className="look-sub-2">
+                                               <h2 className='look-head-2' >Complete Your Look</h2>
                                                <p>The worlds most stylish women are buying right now</p>
                                             </a>
                                     </div>
@@ -307,8 +343,8 @@ function Theme() {
                 <h2 className="second-one">Must-haves <br />for the Season</h2>
                 <p>Here to bring your life stylle to next level</p>
             </div>
-            <a className="second-product">
-                <h2>Yanka</h2>
+            <a onMouseOver={yankaEnter} onMouseLeave={yankaLeave} className="second-product">
+                <h2 className='yanka-head' >YANKA</h2>
                 <h3>Created to grow </h3>
                 <h3>Your Sale</h3>
             </a>
