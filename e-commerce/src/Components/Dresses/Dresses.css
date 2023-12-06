@@ -23,7 +23,7 @@ a.dress-sub h2.head,.head-2,.head-3,.head-4,.head-5{
 .head-6{
     margin: 8% 20%; 
 }
-h2.head::after,.head-2::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
+h2.head::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
     display:block;
     content: '';
     border-bottom: solid 2px #111212;  
@@ -31,7 +31,7 @@ h2.head::after,.head-2::after,.head-3::after,.head-4::after,.head-5::after,.head
     transition: transform 250ms ease-in-out;
 }
 
-div.image-1,.image-2,.image-3,.image-4,.image-5,.image-6{
+div.image-1 ,.image-2,.image-3,.image-4,.image-5,.image-6{
     background-size: 100%;
     transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-position: center;
