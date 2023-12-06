@@ -160,6 +160,7 @@ a.buy-theme:after {
     text-align: left;
     top: 42px;
     visibility: hidden;
+    opacity: 0;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
@@ -175,6 +176,7 @@ a.buy-theme:after {
     text-align: left;
     top: 42px;
     visibility: hidden;
+    opacity: 0;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
@@ -302,10 +304,7 @@ p.product-price{
     background-size: 100%;
     background-position: center; 
   }
-  a.look-sub:hover,a.look-sub-2:hover{
-    background-size: 105%;
-    /* transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
-  }
+  
   .look-head::after,.look-head-2::after{
     display:block;
     content: '';

@@ -25,26 +25,26 @@ function Theme() {
         let look = document.querySelector('.look-head')
         let lookAfter =window.getComputedStyle(look,'::after')
         look.style.setProperty('--afterBack','scaleX(1)')
-        // document.querySelector('.look-sub').style.backgroundSize="110%"
+        document.querySelector('.look-sub').style.backgroundSize="110%"
         
     }
     const lookLeave =()=>{
         let look = document.querySelector('.look-head')
         let lookAfter=window.getComputedStyle(look,'::after')
         look.style.setProperty('--afterBack','scaleX(0)')
-        // document.querySelector('.look-sub').style.backgroundSize="100%"
+        document.querySelector('.look-sub').style.backgroundSize="100%"
     }
     const lookEnter2 =()=>{
         let look = document.querySelector('.look-head-2')
         let lookAfter =window.getComputedStyle(look,'::after')
         look.style.setProperty('--afterBack','scaleX(1)')
-        // document.querySelector('.look-sub-2').style.backgroundSize="110%"
+        document.querySelector('.look-sub-2').style.backgroundSize="110%"
     }
     const lookLeave2 =()=>{
         let look = document.querySelector('.look-head-2')
         let lookAfter=window.getComputedStyle(look,'::after')
         look.style.setProperty('--afterBack','scaleX(0)')
-        // document.querySelector('.look-sub-2').style.backgroundSize="100%"
+        document.querySelector('.look-sub-2').style.backgroundSize="100%"
     }
   return (
 
