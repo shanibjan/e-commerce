@@ -9,119 +9,51 @@ import tShirts from '../../images/t-shirts.jpeg'
 
 
 function Dresses() {
-   
-    const coatEnt=()=>{
-        let box=document.querySelector('.head')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-1').style.backgroundSize="110%"
-        
 
-    }
-    const coatLeav=()=>{
-        let box=document.querySelector('.head')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-1').style.backgroundSize="100%"
-    }
-    const jacketEnt=()=>{
-        let box=document.querySelector('.head-2')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-2').style.backgroundSize="110%"
-        
+    const componentMouseEventDresses = (headClassName, imageClass, mouseEvent) => {
+        try {
+            let box = document.querySelector(headClassName)
+            let box2 = window.getComputedStyle(box, '::after')
+            if (mouseEvent == 'over') {
+                box.style.setProperty('--afterBack', 'scaleX(1)')
+                document.querySelector(imageClass).style.backgroundSize = "110%"
+            } else if (mouseEvent == 'leave') {
+                box.style.setProperty('--afterBack', 'scaleX(0)')
+                document.querySelector(imageClass).style.backgroundSize = "100%"
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-    }
-    const jacketLeav=()=>{
-        let box=document.querySelector('.head-2')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-2').style.backgroundSize="100%"
-    }
-    const dressEnt=()=>{
-        let box=document.querySelector('.head-3')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-3').style.backgroundSize="110%"
-        
-
-    }
-    const dressLeav=()=>{
-        let box=document.querySelector('.head-3')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-3').style.backgroundSize="100%"
-    }
-    const shoeEnt=()=>{
-        let box=document.querySelector('.head-4')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-4').style.backgroundSize="110%"
-        
-
-    }
-    const shoeLeav=()=>{
-        let box=document.querySelector('.head-4')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-4').style.backgroundSize="100%"
-    }
-    const jeansEnt=()=>{
-        let box=document.querySelector('.head-5')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-5').style.backgroundSize="110%"
-        
-
-    }
-    const jeansLeav=()=>{
-        let box=document.querySelector('.head-5')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-5').style.backgroundSize="100%"
-    }
-    const tEnt=()=>{
-        let box=document.querySelector('.head-6')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(1')
-        document.querySelector('.image-6').style.backgroundSize="110%"
-        
-
-    }
-    const tLeav=()=>{
-        let box=document.querySelector('.head-6')
-        let box2=window.getComputedStyle(box,'::after')
-        box.style.setProperty('--afterBack','scaleX(0')
-        document.querySelector('.image-6').style.backgroundSize="100%"
-    }
-  return (
-    <div className="dresses">
-        <a onMouseOver={coatEnt} onMouseLeave={coatLeav} className="dress-sub">
-            <div className="image-1"></div>
-            <h2 className='head' >Coats</h2>
-        </a>
-        <a onMouseOver={jacketEnt} onMouseLeave={jacketLeav} className="dress-sub">
-            <div className="image-2"></div>
-            <h2 className='head-2' >Jackets</h2>
-        </a>
-        <a onMouseOver={dressEnt} onMouseLeave={dressLeav} className="dress-sub">
-            <div className="image-3"></div>
-            <h2 className='head-3' >Dresses</h2>
-        </a>
-        <a onMouseOver={shoeEnt} onMouseLeave={shoeLeav} className="dress-sub">
-            <div className="image-4"></div>
-            <h2 className='head-4' >Shoes</h2>
-        </a>
-        <a onMouseOver={jeansEnt} onMouseLeave={jeansLeav} className="dress-sub">
-            <div className="image-5"></div>
-            <h2 className='head-5' >Jeans</h2>
-        </a>
-        <a onMouseOver={tEnt} onMouseLeave={tLeav} className="dress-sub">
-            <div className="image-6"></div>
-            <h2 className='head-6' >T-shirts</h2>
-        </a>
-    </div>
-  )
+    return (
+        <div className="dresses">
+            <a onMouseOver={() => { componentMouseEventDresses('.head', '.image-1','over') }} onMouseLeave={() => { componentMouseEventDresses('.head', '.image-1','leave') }} className="dress-sub">
+                <div className="image-1"></div>
+                <h2 className='head' >Coats</h2>
+            </a>
+            <a onMouseOver={() => { componentMouseEventDresses('.head-2', '.image-2','over') }} onMouseLeave={() => { componentMouseEventDresses('.head-2', '.image-2','leave') }} className="dress-sub">
+                <div className="image-2"></div>
+                <h2 className='head-2' >Jackets</h2>
+            </a>
+            <a onMouseOver={() => { componentMouseEventDresses('.head-3', '.image-3','over') }} onMouseLeave={() => { componentMouseEventDresses('.head-3', '.image-3','leave') }} className="dress-sub">
+                <div className="image-3"></div>
+                <h2 className='head-3' >Dresses</h2>
+            </a>
+            <a onMouseOver={() => { componentMouseEventDresses('.head-4', '.image-4','over') }} onMouseLeave={() => { componentMouseEventDresses('.head-4', '.image-4','leave') }} className="dress-sub">
+                <div className="image-4"></div>
+                <h2 className='head-4' >Shoes</h2>
+            </a>
+            <a onMouseOver={() => { componentMouseEventDresses('.head-5', '.image-5','over') }} onMouseLeave={() => { componentMouseEventDresses('.head-5', '.image-5','leave') }} className="dress-sub">
+                <div className="image-5"></div>
+                <h2 className='head-5' >Jeans</h2>
+            </a>
+            <a onMouseOver={() => { componentMouseEventDresses('.head-6', '.image-6','over') }} onMouseLeave={() => { componentMouseEventDresses('.head-6', '.image-6','leave') }} className="dress-sub">
+                <div className="image-6"></div>
+                <h2 className='head-6' >T-shirts</h2>
+            </a>
+        </div>
+    )
 }
 
 export default Dresses
