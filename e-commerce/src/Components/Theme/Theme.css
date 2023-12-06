@@ -132,7 +132,6 @@ a.buy-theme:after {
     visibility: hidden;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
   }
   .dropdown-list-shop{
@@ -149,7 +148,6 @@ a.buy-theme:after {
     visibility: hidden;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .dropdown-list-women{
     width: 91pc;
@@ -165,7 +163,6 @@ a.buy-theme:after {
     visibility: hidden;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .dropdown-list:hover .dropdown-list-menu  {
     opacity: 1;
@@ -263,4 +260,115 @@ p.product-price{
   .image-hover:hover {
     opacity: 1;
     transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
   }
+  div.look{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+    
+  }
+  a.look-sub-2{
+    background-image: url('../../images/look-2.webp');
+    padding: 1% 5% 3% 1%; 
+    cursor: pointer;
+    background-size: cover;
+    overflow: hidden;
+    background-size: 100%;
+    
+  }
+  a.look-sub{
+    background-image: url('../../images/look.webp');
+    padding: 1% 5% 3% 1%; 
+    cursor: pointer;
+    background-size: cover;
+    overflow: hidden;
+    background-size: 100%;
+    
+    
+    
+  }
+  
+  a.look-sub:hover,a.look-sub-2:hover{
+    background-size: 105%;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+
+  }
+  a.look-sub h2,a.look-sub-2 h2{
+    font-weight: 800;
+  }
+  a.look-sub h2:after,a.look-sub-2 h2:after{
+    display:block;
+    content: '';
+    border-bottom: solid 2px #0c0d0d;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+  a.look-sub-2 h2:after{
+    display:block;
+    content: '';
+    border-bottom: solid 2px #edf2f2;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+
+  a.look-sub h2:hover:after,a.look-sub-2 h2:hover:after{
+        transform: scaleX(1); 
+       
+  }
+  a.look-sub h2{
+    color: #100f0f;
+    margin-right: 41%;
+   
+  }
+  a.look-sub p{
+    color: #100f0f;
+    margin-right: 21%;
+  }
+  a.look-sub-2 h2{
+    margin-right: 41%;
+  }
+  a.look-sub-2 p{
+    margin-right: 21%;
+  }
+  p.end{
+    color: #0c0d0d;
+  }
+  div.products{
+    display: flex ;
+    justify-content: space-between;
+    padding: 4%;
+    margin: 2% 0;
+  }
+  div.first-product{
+    background-image: url('../../images/look-2.webp');
+    flex: 0 0 66%;
+    padding: 9% 5%;
+    background-size: 175%;
+    background-position-x: center;
+    color: azure;
+  }
+  a.second-product{
+    background-image: url('../../images/Yanka.webp');
+    background-size: 106%;
+    padding: 5% 8% 0% 2%;
+    text-align: left;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-position: center;
+  }
+  a.second-product:hover{
+    background-size: 113%;
+    
+  }
+  a.second-product h2,h3{
+    color: #fff;
+  }
+  p.first-one{
+    margin: 2% 0;
+  }
+  h2.second-one{
+    margin: 4% 0;
+    font-size: 34px;
+  }
+  

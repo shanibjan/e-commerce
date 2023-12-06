@@ -103,7 +103,7 @@ function Theme() {
       </div>
       <div className="details">
         <div className="portfolio">
-            <ul className='portfolio-list' >
+            <ul  className='portfolio-list' >
                 <li className='port-list-main' ><a href="" className="port-nav">HOME</a></li>
                 <div className="dropdown-list">
                         <li className='port-list '  >
@@ -248,35 +248,46 @@ function Theme() {
                                         <div className="women-other">
                                             <a className='slide-list bold' href="#"> Other Pages</a>
                                             <div className="women-products">
-                                                <div className="women-image">
-                                                    <div class="image-wrapper">
-                                                        <img src={product1} class="image" alt="normal" />
-                                                        <img src={product2} class="image-hover" alt="hover" />
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product1} class="image" alt="normal" />
+                                                            <img src={product2} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
                                                     </div>
-                                                    <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                    <p className="product-price">$215.00</p>
-                                                </div>
-                                                <div className="women-image">
-                                                    <div class="image-wrapper">
-                                                        <img src={product3} class="image" alt="normal" />
-                                                        <img src={product4} class="image-hover" alt="hover" />
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product3} class="image" alt="normal" />
+                                                            <img src={product4} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
                                                     </div>
-                                                    <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                    <p className="product-price">$215.00</p>
-                                                </div>
-                                                <div className="women-image">
-                                                    <div class="image-wrapper">
-                                                        <img src={product5} class="image" alt="normal" />
-                                                        <img src={product6} class="image-hover" alt="hover" />
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product5} class="image" alt="normal" />
+                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
                                                     </div>
-                                                    <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                    <p className="product-price">$215.00</p>
-                                                </div>
                                             </div>
                                             
                                         </div>
+                                        
                                     </div>
-                                   
+                                
+                                    <div className="look">
+                                            <a className="look-sub">
+                                               <h2>Complete Your Look</h2>
+                                               <p>The worlds most stylish women are buying right now</p>
+                                            </a>
+                                            <a className="look-sub-2">
+                                               <h2>Complete Your Look</h2>
+                                               <p>The worlds most stylish women are buying right now</p>
+                                            </a>
+                                    </div>
                                             
                                 </ul>
                             </div>
@@ -291,7 +302,16 @@ function Theme() {
             </div>
         </div>
         <div className="products">
-
+            <div className="first-product">
+                <p className="first-one">NEED-IT-NOW</p>
+                <h2 className="second-one">Must-haves <br />for the Season</h2>
+                <p>Here to bring your life stylle to next level</p>
+            </div>
+            <a className="second-product">
+                <h2>Yanka</h2>
+                <h3>Created to grow </h3>
+                <h3>Your Sale</h3>
+            </a>
         </div>
       </div>
     </div>

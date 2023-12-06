@@ -1,0 +1,59 @@
+div.dresses{
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 10%;
+}
+a.dress-sub img{
+    width: 100%;
+}
+a.dress-sub img:hover{
+    width: 110%;
+}
+a.dress-sub:first-child{
+    margin-right: 1%;
+}
+a.dress-sub{
+    cursor: pointer;
+    margin: 0 1%;
+    flex: 0 0 15%;
+}
+a.dress-sub h2.head,.head-2,.head-3,.head-4,.head-5{
+    margin: 8% 26%;
+}
+.head-6{
+    margin: 8% 20%; 
+}
+h2.head::after,.head-2::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
+    display:block;
+    content: '';
+    border-bottom: solid 2px #111212;  
+    transform: var(--afterBack,scaleX(0));  
+    transition: transform 250ms ease-in-out;
+}
+
+div.image-1,.image-2,.image-3,.image-4,.image-5,.image-6{
+    background-size: 100%;
+    transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-position: center;
+    height: 221px;
+}
+div.image-1{
+    background-image: url('../../images/coat.jpeg');
+    
+}
+div.image-2{
+    background-image: url('../../images/jacket.jpeg');
+   
+}
+div.image-3{
+    background-image: url('../../images/dress.jpeg');
+}
+div.image-4{
+    background-image: url('../../images/shoe.jpeg');
+}
+div.image-5{
+    background-image: url('../../images/jeans.jpeg');
+}
+div.image-6{
+    background-image: url('../../images/t-shirts.jpeg');
+}
