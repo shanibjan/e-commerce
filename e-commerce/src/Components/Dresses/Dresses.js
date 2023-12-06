@@ -25,22 +25,6 @@ function Dresses() {
         }
     })
 
-    const componentMouseEventDresses = (headClassName, imageClass, mouseEvent) => {
-        try {
-            let box = document.querySelector(headClassName)
-            let box2 = window.getComputedStyle(box, '::after')
-            if (mouseEvent == 'over') {
-                box.style.setProperty('--afterBack', 'scaleX(1)')
-                document.querySelector(imageClass).style.backgroundSize = "110%"
-            } else if (mouseEvent == 'leave') {
-                box.style.setProperty('--afterBack', 'scaleX(0)')
-                document.querySelector(imageClass).style.backgroundSize = "100%"
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
     return (
         <div className="dresses">
             <a className="dress-sub">
