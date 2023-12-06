@@ -10,27 +10,27 @@ import { useState } from 'react'
 
 function Dresses() {
 
-    useEffect(() => {
-        let nodeDressSub = document.querySelectorAll('.dress-sub');
-        console.log(nodeDressSub)
-        console.log(nodeDressSub.length)
-        for(let i=0;nodeDressSub.length-1;i++) {
-            // let nodeImage = nodeDressSub[i].childNodes[0]
-            // console.log(nodeImage)
-            // let box = nodeDressSub[i].childNodes[1]
-            // let box2 = window.getComputedStyle(box, '::after')
+    // useEffect(() => {
+    //     // let nodeDressSub = document.querySelectorAll('.dress-sub');
+    //     // console.log(nodeDressSub)
+    //     // console.log(nodeDressSub.length)
+    //     // for(let i=0;nodeDressSub.length-1;i++) {
+    //         // let nodeImage = nodeDressSub[i].childNodes[0]
+    //         // console.log(nodeImage)
+    //         // let box = nodeDressSub[i].childNodes[1]
+    //         // let box2 = window.getComputedStyle(box, '::after')
 
-            // nodeDressSub[i].addEventListener('mouseenter', (event) => {
-            //     nodeImage.style.backgroundSize = "110%"
-            //     box.style.setProperty('--afterBack', 'scaleX(1)')
-            // })
+    //         // nodeDressSub[i].addEventListener('mouseenter', (event) => {
+    //         //     nodeImage.style.backgroundSize = "110%"
+    //         //     box.style.setProperty('--afterBack', 'scaleX(1)')
+    //         // })
 
-            // nodeDressSub[i].addEventListener('mouseleave', (event) => {
-            //     nodeImage.style.backgroundSize = "100%"
-            //     box.style.setProperty('--afterBack', 'scaleX(0)')
-            // })
-        }
-    })
+    //         // nodeDressSub[i].addEventListener('mouseleave', (event) => {
+    //         //     nodeImage.style.backgroundSize = "100%"
+    //         //     box.style.setProperty('--afterBack', 'scaleX(0)')
+    //         // })
+    //     }
+    // })
 
     const componentMouseEventDresses = (headClassName, imageClass, mouseEvent) => {
         try {

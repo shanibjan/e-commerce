@@ -1,7 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Gordita Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('GorditaRegular'), url('./fonts/gordita/Gordita\ Regular.woff') format('woff');
+}
+@font-face {
+      font-family: 'Gordita Light';
+      font-style: normal;
+      font-weight: normal;
+      src: local('Gordita Light'), url('./fonts/gordita/Gordita Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Gordita Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gordita Bold'), url('./fonts/gordita/Gordita Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Gordita Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gordita Medium'), url('./fonts/gordita/Gordita Medium.woff') format('woff');
+  }
 body{
-  font-family: 'Manrope', sans-serif;
-font-family: 'Poppins', sans-serif;
+  
+  font-family: 'Gordita Regular';
 }
 
 .App {
