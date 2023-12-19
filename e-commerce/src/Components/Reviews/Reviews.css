@@ -24,7 +24,7 @@
     font-size: 13px;
     font-family: 'Gordita Bold';
 }
-h2.head::after{
+h2.heads::after{
     display:block;
     content: '';
     border-bottom: solid 2px azure;  

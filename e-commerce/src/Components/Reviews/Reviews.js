@@ -32,7 +32,7 @@ function Reviews() {
             <a href='' className="review-sub-1">
                 <div className="upper-main">
                     <div className="review-sub-upper">
-                        <h2 className='head' >Well strectured UI Design</h2>
+                        <h2 className='heads' >Well strectured UI Design</h2>
                         <div className="review-stars">
                             <FontAwesomeIcon icon={faStar}/>
                             <FontAwesomeIcon icon={faStar}/>
@@ -60,7 +60,7 @@ function Reviews() {
             <a href='' className="review-sub-1">
                 <div className="upper-main">
                     <div className="review-sub-upper">
-                        <h2 className='head' >Well strectured UI Design</h2>
+                        <h2 className='heads' >Well strectured UI Design</h2>
                         <div className="review-stars">
                             <FontAwesomeIcon icon={faStar}/>
                             <FontAwesomeIcon icon={faStar}/>

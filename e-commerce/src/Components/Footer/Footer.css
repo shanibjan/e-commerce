@@ -1,3 +1,102 @@
+.footer{
+    background-color: #F8F8F8;
+    padding: 6%;
+}
 .upper-footer{
     display: flex;
+    justify-content: space-between;
+}
+.info{
+    text-align: left;
+    display: grid;
+    width: 13%;
+}
+.infos{
+    text-decoration: none;
+    color: grey;
+    font-size: 15px;
+    line-height: 0;
+}
+.infos:hover{
+    color: #48CAB2;
+    transition:1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.store,.news-letter{
+    width: 21%;
+    text-align: left;
+    display: grid;
+}
+.store p,.news-letter p{
+    color: grey;
+    font-size: 15px;
+}
+.headings{
+    font-size: 17px;
+    font-family: 'gordita bold';
+}
+strong.phone{
+    color: black;
+}
+.letter{
+    border: 1px solid #E9E7E7;
+    text-align: center;
+    padding: 0 1%;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    height: 46px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around; 
+    margin: 5% 0;
+    background-color: white;
+}
+.letter input{
+    border: none;
+    outline: none;
+    font-weight: 800;
+    font-size: 16px;
+    margin: 1% 0;
+    font-family: 'gordita bold';
+}
+.follow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: 6% 0;
+}
+.follow a{
+    color: gray;
+}
+.follow a:hover{
+    color: black;
+    transition:1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.gate-way{
+    display: flex;
+    width: 40%;
+    list-style: none;
+    margin-top: 1%;
+}
+.gate-way li{
+    width: 20%;
+    text-align: center;
+}
+.gate-way li img{
+    height: 40px;
+}
+.bottom-footer{
+    text-align: left;
+    margin-top: 5%;
+}
+.courtesy,.courtesy a{
+    display: flex;
+    text-decoration: none;
+    color: gray;
+}
+.courtesy a:hover{
+    color: #48CAB2;
+    transition:1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.courtesy p{
+    margin-right: 1%;
 }
