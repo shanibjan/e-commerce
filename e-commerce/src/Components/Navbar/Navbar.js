@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import User from '../../assets/User'
 import Love from '../../assets/Love'
 import Cart from '../../assets/Cart'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown,faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 function Navbar() {
@@ -23,7 +23,7 @@ function Navbar() {
       <div onClick={shadowClick} className="placeSearch">
           <input type="text" placeholder='Search...' />
           <FontAwesomeIcon icon={faSearch} />
-        </div>
+      </div>
      <div className="cart">
         
         {/* <div  className="account">
@@ -54,8 +54,10 @@ function Navbar() {
         <div class="dropdown">
           <a className='lang' href=""><p>USD</p>
           <FontAwesomeIcon icon={faChevronDown} /></a>
+          
           <ul class="dropdown-menu">
             <li  ><a className='slide' href="#"> GGP</a></li>
+            
             <li  ><a className='slide' href="#">USD </a></li>
           </ul>
         </div>

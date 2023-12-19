@@ -8,6 +8,7 @@ import product3 from '../../images/product-3.jpeg'
 import product4 from '../../images/product-4.jpeg'
 import product5 from '../../images/product-5.jpeg'
 import product6 from '../../images/product-6.jpeg'
+import { useEffect } from 'react'
 
 
 function Theme() {
@@ -21,31 +22,31 @@ function Theme() {
         let yankAfter =window.getComputedStyle(yanka,'::after')
         yanka.style.setProperty('--afterBack','scaleX(0)')
     }
-    const lookEnter =()=>{
-        let look = document.querySelector('.look-head')
-        let lookAfter =window.getComputedStyle(look,'::after')
-        look.style.setProperty('--afterBack','scaleX(1)')
-        document.querySelector('.look-sub').style.backgroundSize="110%"
-        
-    }
-    const lookLeave =()=>{
-        let look = document.querySelector('.look-head')
-        let lookAfter=window.getComputedStyle(look,'::after')
-        look.style.setProperty('--afterBack','scaleX(0)')
-        document.querySelector('.look-sub').style.backgroundSize="100%"
-    }
-    const lookEnter2 =()=>{
-        let look = document.querySelector('.look-head-2')
-        let lookAfter =window.getComputedStyle(look,'::after')
-        look.style.setProperty('--afterBack','scaleX(1)')
-        document.querySelector('.look-sub-2').style.backgroundSize="110%"
-    }
-    const lookLeave2 =()=>{
-        let look = document.querySelector('.look-head-2')
-        let lookAfter=window.getComputedStyle(look,'::after')
-        look.style.setProperty('--afterBack','scaleX(0)')
-        document.querySelector('.look-sub-2').style.backgroundSize="100%"
-    }
+    useEffect(()=>{
+        let nodeLookSub=document.querySelectorAll('.look-sub')
+        // console.log(nodeLookSub);
+        for(let i=0;i<nodeLookSub.length;i++){
+            let nodeLookBase=nodeLookSub[i].childNodes[0]
+            // console.log(nodeLookBase);
+            let nodeLookHead=nodeLookBase.childNodes[0]
+            let box2 = window.getComputedStyle(nodeLookHead, '::after')
+            console.log(nodeLookHead);
+
+
+            nodeLookSub[i].addEventListener('mouseenter',(e)=>{
+                nodeLookBase.style.backgroundSize="110%"
+                nodeLookHead.style.setProperty('--afterBack', 'scaleX(1)')
+            })
+
+            nodeLookSub[i].addEventListener('mouseleave',(e)=>{
+                nodeLookBase.style.backgroundSize="100%"
+                nodeLookHead.style.setProperty('--afterBack', 'scaleX(0)')
+            })
+            
+        }
+    })
+    
+    
   return (
 
     <div className='theme' >
@@ -315,13 +316,18 @@ function Theme() {
                                     </div>
                                 
                                     <div className="look">
-                                            <a onMouseOver={lookEnter} onMouseLeave={lookLeave} className="look-sub">
-                                               <h2 className='look-head' >Complete Your Look</h2>
-                                               <p>The worlds most stylish women are buying right now</p>
+                                            <a  className="look-sub">
+                                                <div className="look-sub-1">
+                                                    <h2 className='look-head' >Complete Your Look</h2>
+                                                    <p>The worlds most stylish women are buying right now</p>
+                                                </div>
+                                               
                                             </a>
-                                            <a onMouseOver={lookEnter2} onMouseLeave={lookLeave2} className="look-sub-2">
-                                               <h2 className='look-head-2' >Complete Your Look</h2>
-                                               <p>The worlds most stylish women are buying right now</p>
+                                            <a  className="look-sub">
+                                                <div className="look-sub-2">
+                                                    <h2 className='look-head' >Complete Your Look</h2>
+                                                    <p>The worlds most stylish women are buying right now</p>
+                                                </div>
                                             </a>
                                     </div>
                                             

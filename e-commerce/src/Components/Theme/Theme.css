@@ -279,20 +279,20 @@ p.product-price{
     margin-top: 2%;
     
   }
-  a.look-sub-2{
+  div.look-sub-2{
     background-image: url('../../images/look-2.webp');
     
     
   }
-  a.look-sub{
+  div.look-sub-1{
     
     background-image: url('../../images/look.webp');
    
   }
   
-  a.look-sub,a.look-sub-2{
+  div.look-sub-1,div.look-sub-2{
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    padding: 1% 5% 3% 1%; 
+    padding: 4% 6% 3% 5%; 
     cursor: pointer;
     background-size: cover;
     overflow: hidden;
@@ -319,7 +319,7 @@ p.product-price{
   }
   h2.look-head{
     color: #100f0f;
-    margin-right: 41%;
+    margin-right: 33%;
    
   }
   a.look-sub p{

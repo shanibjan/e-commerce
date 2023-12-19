@@ -5,11 +5,11 @@ function Dresses() {
 
     useEffect(() => {
         let nodeDressSub = document.querySelectorAll('.dress-sub');
-        console.log(nodeDressSub)
-        console.log(nodeDressSub.length)        
+        // console.log(nodeDressSub)
+        // console.log(nodeDressSub.length)        
         for(let i=0;i<nodeDressSub.length;i++){
             let nodeImage = nodeDressSub[i].childNodes[0]
-            console.log(nodeImage)
+            // console.log(nodeImage)
             let box = nodeDressSub[i].childNodes[1]
             let box2 = window.getComputedStyle(box, '::after')
 
@@ -27,30 +27,32 @@ function Dresses() {
 
     return (
         <div className="dresses">
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-1"></div>
                 <h2 className='head' >Coats</h2>
             </a>
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-2"></div>
                 <h2 className='head' >Jackets</h2>
             </a>
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-3"></div>
                 <h2 className='head-3' >Dresses</h2>
             </a>
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-4"></div>
                 <h2 className='head-4' >Shoes</h2>
             </a>
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-5"></div>
                 <h2 className='head-5' >Jeans</h2>
             </a>
-            <a className="dress-sub">
+            <a href='' className="dress-sub">
                 <div className="image-6"></div>
                 <h2 className='head-6' >T-shirts</h2>
             </a>
+
+           
         </div>
     )
 }

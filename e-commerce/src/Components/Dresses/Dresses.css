@@ -19,9 +19,13 @@ a.dress-sub{
 }
 a.dress-sub h2.head,.head-2,.head-3,.head-4,.head-5{
     margin: 8% 21%;
+    display: inline-block;
+    color: black;
 }
 .head-6{
     margin: 8% 20%; 
+    display: inline-block;
+    color: black;
     
 }
 h2.head::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
