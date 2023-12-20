@@ -19,7 +19,7 @@ function Slider() {
         <div class='item'>
             <h4>2</h4>
         </div>
-            <div class='item'>
+        <div class='item'>
             <h4>3</h4>
         </div>  
 </OwlCarousel>

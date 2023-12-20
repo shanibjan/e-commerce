@@ -33,7 +33,7 @@ a.more{
 span.center{
     align-items: center;
     display: flex;
-    width: 35%;
+    width: 100%;
     justify-content: center;
     
 }
