@@ -8,6 +8,9 @@ import product3 from '../../images/product-3.jpeg'
 import product4 from '../../images/product-4.jpeg'
 import product5 from '../../images/product-5.jpeg'
 import product6 from '../../images/product-6.jpeg'
+import menCloth from '../../images/clothing.webp'
+import menShoe from '../../images/men-shoe.jpeg'
+import menCap from '../../images/man-cap.webp'
 import { useEffect } from 'react'
 
 
@@ -43,6 +46,24 @@ function Theme() {
                 nodeLookHead.style.setProperty('--afterBack', 'scaleX(0)')
             })
             
+        }
+
+
+        let menDressSub=document.querySelectorAll('.men-dress-sub')
+        for(let i=0;i<menDressSub.length;i++){
+            let menImage=menDressSub[i].childNodes[0]
+            let menHead=menDressSub[i].childNodes[1]
+            let menHeadAfter = window.getComputedStyle(menHead, '::after')
+
+            menDressSub[i].addEventListener('mouseenter',(e)=>{
+                menImage.style.backgroundSize="110%"
+                menHead.style.setProperty('--afterBack', 'scaleX(1)')
+            })
+
+            menDressSub[i].addEventListener('mouseleave',(e)=>{
+                menImage.style.backgroundSize="100%"
+                menHead.style.setProperty('--afterBack', 'scaleX(0)')
+            })
         }
     })
     
@@ -336,7 +357,60 @@ function Theme() {
                             
                         </li>
                     </div>
-                <li  className='port-list' ><a href="" className="port-nav">MEN'S</a></li>
+                    <div className="dropdown-list">
+                        <li className='port-list '  >
+                            <a href="" className="port-nav">MEN'S</a>
+                            <ul class="dropdown-list-men">
+                                <div className="men-fashion">
+                                    <div className="men-pack">
+                                        <div className="men-cloth">
+                                            <li ><a className='slide-list bold' href="#"> Clothing</a></li>
+                                            <li><a href="" className="men-fashion-image"><img src={menCloth} alt="" /></a></li>
+                                            <li  ><a className='slide-list' href="#">Coats</a></li>
+                                            <li  ><a className='slide-list' href="#">Jackets</a></li>
+                                            <li  ><a className='slide-list' href="#"> Blazers</a></li>
+                                            <li  ><a className='slide-list' href="#">Trousers</a></li>
+                                            <li  ><a className='slide-list' href="#"> Jeans</a></li>
+                                            <li  ><a className='slide-list' href="#"> Knitwear</a></li>
+                                            <li  ><a className='slide-list' href="#"> Sweetshirts</a></li> 
+                                            <li  ><a className='slide-list' href="#"> T-Shirt</a></li> 
+                                        </div>
+                                        <div className="men-cloth">
+                                            <li ><a className='slide-list bold' href="#"> Shoes</a></li>
+                                            <li><a href="" className="men-fashion-image"><img src={menShoe} alt="" /></a></li>
+                                            <li  ><a className='slide-list' href="#">Trainers</a></li>
+                                            <li  ><a className='slide-list' href="#">Boots</a></li>
+                                            <li  ><a className='slide-list' href="#"> Heels</a></li>
+                                            <li  ><a className='slide-list' href="#">Flats</a></li>
+                                            <li  ><a className='slide-list' href="#"> Platforms</a></li> 
+                                        </div>
+                                        <div className="men-cloth">
+                                            <li ><a className='slide-list bold' href="#"> Accessories</a></li>
+                                            <li><a href="" className="men-fashion-image"><img src={menCap} alt="" /></a></li>
+                                            <li  ><a className='slide-list' href="#">Bags</a></li>
+                                            <li  ><a className='slide-list' href="#">Bootpacks</a></li>
+                                            <li  ><a className='slide-list' href="#"> Belts</a></li>
+                                            <li  ><a className='slide-list' href="#">Jwellery</a></li>
+                                            <li  ><a className='slide-list' href="#"> Hots & Beanie</a></li> 
+                                            <li  ><a className='slide-list' href="#"> Purses</a></li> 
+                                        </div>    
+                                    </div>
+                                    <div className="men-dresses">
+                                        <a href='' className="men-dress-sub">
+                                            <div className="men-image-1"></div>
+                                            <h2 className='men-head' >Top Trending</h2>
+                                            <p>Collection of 2019/20</p>
+                                        </a>
+                                        <a href='' className="men-dress-sub">
+                                            <div className="men-image-2"></div>
+                                            <h2 className='men-head' >The All-In-One</h2>
+                                            <p>Offer upto 50% off</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </div>
                 <li  className='port-list' ><a href="" className="port-nav">RTL</a></li>
             </ul>
             <div className="buy">

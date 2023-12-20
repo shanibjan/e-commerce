@@ -35,7 +35,6 @@ function Products() {
             let childSecondCart1=secondCart.childNodes[0]
             let childSecondCart2=secondCart.childNodes[1]
             let grandChildSecondCart=childSecondCart2.childNodes[0]
-            console.log(grandChildSecondCart);
 
             cartAction[i].addEventListener('mouseenter',(e)=>{
                 firstCart.style.opacity="0"

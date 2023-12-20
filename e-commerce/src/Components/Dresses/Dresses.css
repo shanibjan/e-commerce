@@ -3,12 +3,7 @@ div.dresses{
     justify-content: space-between;
     padding: 3% 10%;
 }
-a.dress-sub img{
-    width: 100%;
-}
-a.dress-sub img:hover{
-    width: 110%;
-}
+
 a.dress-sub:first-child{
     margin-right: 1%;
 }

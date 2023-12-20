@@ -144,6 +144,22 @@ a.buy-theme:after {
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
    
   }
+  .dropdown-list-men {
+    width: 88pc;
+    background-color: #fff;
+    list-style-type: none;
+    display: block;
+    position: absolute;
+    left: -58pc;
+    padding: 24px 39px;
+    opacity: 0;
+    text-align: left;
+    top: 42px;
+    visibility: hidden;
+    z-index: -99999;
+    transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
+   
+  }
   .dropdown-list-shop{
     width: 72pc;
     background-color: #fff;
@@ -152,7 +168,6 @@ a.buy-theme:after {
     position: absolute;
     left: -373px;
     padding: 24px 39px;
-    opacity: 1;
     text-align: left;
     top: 42px;
     visibility: hidden;
@@ -161,14 +176,13 @@ a.buy-theme:after {
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .dropdown-list-women{
-    width: 91pc;
+    width: 88pc;
     background-color: #fff;
     list-style-type: none;
     display: block;
     position: absolute;
     left: -52pc;
     padding: 24px 39px;
-    opacity: 1;
     text-align: left;
     top: 42px;
     visibility: hidden;
@@ -182,6 +196,13 @@ a.buy-theme:after {
     /* top: 100%; */
     
     animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+  }
+  .dropdown-list:hover .dropdown-list-men  {
+    opacity: 1;
+    visibility: visible;
+     animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
     transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     
   }
@@ -229,8 +250,60 @@ div.shop-sub{
 div.women-pack{
     display: flex;
 }
+.men-pack{
+  display: flex;
+  width: 52%;
+}
+a.men-fashion-image img{
+  height: 110px;
+  width: 160px;
+}
 div.women-cloth{
-    margin: 0 24%;
+  flex: 0 0 78%;
+}
+.men-cloth{
+  flex: 0 0 33%;
+}
+.men-dresses{
+  display: flex;
+  width: 47%;
+  justify-content: space-between;
+}
+.men-fashion{
+  display: flex;
+    justify-content: space-between;
+    margin: 3% 0;
+}
+.men-dress-sub{
+ width: 46%;
+ text-decoration: none;
+ text-align: center;
+  color: black;
+}
+.men-image-1,.men-image-2{
+  background-size: 100%;
+  transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-position: center;
+  height: 367px;
+}
+.men-image-1{
+  background-image: url('../../images/men-dresses-1.jpeg');
+  
+  
+}
+.men-image-2{
+  background-image: url('../../images/men-dresses-2.jpeg');
+}
+.men-head{
+  font-family: 'gordita bold';
+  margin: 10% 16% 2%;
+}
+.men-head::after{
+    display:block;
+    content: '';
+    border-bottom: solid 2px #111212;  
+    transform: var(--afterBack,scaleX(0));  
+    transition: transform 250ms ease-in-out;
 }
 div.women-top{
     display: flex;
