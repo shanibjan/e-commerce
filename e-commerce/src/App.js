@@ -9,6 +9,7 @@ import Collections from './Components/Collections/Collections';
 import Reviews from './Components/Reviews/Reviews'
 import Footer from './Components/Footer/Footer';
 
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
      <Collections/>
      <Reviews/>
      <Footer/>
+    
     </div>
   );
 }
