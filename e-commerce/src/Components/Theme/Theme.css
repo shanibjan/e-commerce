@@ -58,7 +58,7 @@ a.setting:hover{
   opacity: 40%;
 }
 .right-arrow-men{
-  margin-left: 60%;
+  margin-left: 58%;
 }
 div.details{
     width: 100%;
@@ -147,6 +147,16 @@ a.buy-theme:after {
     
     
   }
+  .dropdown-list-men-list  {
+    width: 104%;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1;
+    
+    
+  }
   .dropdown-list-menu-women-list {
     width: 41pc;
     background-color: #fff;
@@ -165,7 +175,32 @@ a.buy-theme:after {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
   }
+  .dropdown-list-menu-men-list {
+    width: 41pc;
+    background-color: #fff;
+    list-style-type: none;
+    display: block;
+    position: absolute;
+    left: 261px;
+    right: -340px;
+    padding: 24px 39px;
+    opacity: 0;
+    text-align: left;
+    top: -48px;
+    visibility: hidden;
+    z-index: -99999;
+    transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+  }
   .dropdown-list-women-list:hover .dropdown-list-menu-women-list  {
+    opacity: 1;
+    visibility: visible;
+     animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+  }
+  .dropdown-list-men-list:hover .dropdown-list-menu-men-list  {
     opacity: 1;
     visibility: visible;
      animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
@@ -304,6 +339,9 @@ div.women-pack{
     text-decoration: none;
     color: black;
     font-family: 'Gordita Bold';
+}
+.li-clothing{
+  margin-bottom: 15%;
 }
 .men-pack{
   display: flex;

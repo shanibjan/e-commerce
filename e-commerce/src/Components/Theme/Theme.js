@@ -92,8 +92,8 @@ function Theme() {
                     <div class="dropdown-list-menu-women-list">
                         <div className="women-pack-list">
                             <div className="women-cloth-list">
-                                <li ><a className='women-slide-list' href="#"> Clothing</a></li>
-                                <li  ><a className='slide-list' href="#">Coats</a></li>
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Clothing</a></li>
+                                <li   ><a className='slide-list' href="#">Coats</a></li>
                                 <li  ><a className='slide-list' href="#">Jackets</a></li>
                                 <li  ><a className='slide-list' href="#"> Blazers</a></li>
                                 <li  ><a className='slide-list' href="#">Trousers</a></li>
@@ -103,7 +103,7 @@ function Theme() {
                                 <li  ><a className='slide-list' href="#"> T-Shirt</a></li> 
                             </div>
                             <div className="women-cloth-list">
-                                <li ><a className='women-slide-list' href="#"> Shoes</a></li>
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Shoes</a></li>
                                 <li  ><a className='slide-list' href="#">Trainers</a></li>
                                 <li  ><a className='slide-list' href="#">Boots</a></li>
                                 <li  ><a className='slide-list' href="#"> Heels</a></li>
@@ -111,7 +111,7 @@ function Theme() {
                                 <li  ><a className='slide-list' href="#"> Platforms</a></li> 
                             </div>
                             <div className="women-cloth-list">
-                                <li ><a className='women-slide-list' href="#"> Accessories</a></li>
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Accessories</a></li>
                                 <li  ><a className='slide-list' href="#">Bags</a></li>
                                 <li  ><a className='slide-list' href="#">Bootpacks</a></li>
                                 <li  ><a className='slide-list' href="#"> Belts</a></li>
@@ -136,16 +136,55 @@ function Theme() {
                </a>
             </li>
             </div>
+            <div className="dropdown-list-men-list">
             <li><a href="" className="setting">
-            <div className="font-awesom">
-                    <FontAwesomeIcon icon={faMale}/>
-                </div>
-                <p>MENS</p>
-                <div className="right-arrow-men">
-                    <FontAwesomeIcon icon={faArrowRight}/>
-                </div>
-                </a>
+                
+                    <div className="font-awesom">
+                        <FontAwesomeIcon icon={faFemale}/>
+                    </div>
+                    <p>MENS</p>
+                    <div className="right-arrow-men">
+                        <FontAwesomeIcon icon={faArrowRight}/>
+                    </div>
+                    <div class="dropdown-list-menu-men-list">
+                        <div className="women-pack-list">
+                            <div className="women-cloth-list">
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Clothing</a></li>
+                                <li><a href="" className="men-fashion-image"><img src={menCloth} alt="" /></a></li>
+                                <li  ><a className='slide-list' href="#">Coats</a></li>
+                                <li  ><a className='slide-list' href="#">Jackets</a></li>
+                                <li  ><a className='slide-list' href="#"> Blazers</a></li>
+                                <li  ><a className='slide-list' href="#">Trousers</a></li>
+                                <li  ><a className='slide-list' href="#"> Jeans</a></li>
+                                <li  ><a className='slide-list' href="#"> Knitwear</a></li>
+                                <li  ><a className='slide-list' href="#"> Sweetshirts</a></li> 
+                                <li  ><a className='slide-list' href="#"> T-Shirt</a></li> 
+                            </div>
+                            <div className="men-cloth-list">
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Shoes</a></li>
+                                <li><a href="" className="men-fashion-image"><img src={menShoe} alt="" /></a></li>
+                                <li  ><a className='slide-list' href="#">Trainers</a></li>
+                                <li  ><a className='slide-list' href="#">Boots</a></li>
+                                <li  ><a className='slide-list' href="#"> Heels</a></li>
+                                <li  ><a className='slide-list' href="#">Flats</a></li>
+                                <li  ><a className='slide-list' href="#"> Platforms</a></li> 
+                            </div>
+                            <div className="men-cloth-list">
+                                <li className='li-clothing' ><a className='women-slide-list' href="#"> Accessories</a></li>
+                                <li><a href="" className="men-fashion-image"><img src={menCap} alt="" /></a></li>
+                                <li  ><a className='slide-list' href="#">Bags</a></li>
+                                <li  ><a className='slide-list' href="#">Bootpacks</a></li>
+                                <li  ><a className='slide-list' href="#"> Belts</a></li>
+                                <li  ><a className='slide-list' href="#">Jwellery</a></li>
+                                <li  ><a className='slide-list' href="#"> Hots & Beanie</a></li> 
+                                <li  ><a className='slide-list' href="#"> Purses</a></li> 
+                            </div>        
+                        </div>                            
+                    </div>
+                                
+               </a>
             </li>
+            </div>
             <li><a href="" className="setting">
                 <div className="font-awesom">
                     <FontAwesomeIcon icon={faBuilding}/>
