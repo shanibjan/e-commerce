@@ -52,6 +52,14 @@ a.setting:hover{
     color: #48CAB2;
     transition:1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+.right-arrow,.right-arrow-men{
+  margin-left: 47%;
+  color: gray;
+  opacity: 40%;
+}
+.right-arrow-men{
+  margin-left: 60%;
+}
 div.details{
     width: 100%;
 }
@@ -126,6 +134,42 @@ a.buy-theme:after {
     padding: 8px 0;
     align-items: center;
     display: flex;
+    
+    
+  }
+  .dropdown-list-women-list  {
+    width: 104%;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1;
+    
+    
+  }
+  .dropdown-list-menu-women-list {
+    width: 41pc;
+    background-color: #fff;
+    list-style-type: none;
+    display: block;
+    position: absolute;
+    left: 261px;
+    right: -340px;
+    padding: 24px 39px;
+    opacity: 0;
+    text-align: left;
+    top: -11px;
+    visibility: hidden;
+    z-index: -99999;
+    transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+  }
+  .dropdown-list-women-list:hover .dropdown-list-menu-women-list  {
+    opacity: 1;
+    visibility: visible;
+     animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     
   }
   .dropdown-list-menu {
@@ -250,6 +294,17 @@ div.shop-sub{
 div.women-pack{
     display: flex;
 }
+.women-pack-list{
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0;
+}
+.women-slide-list{
+  font-size: large;
+    text-decoration: none;
+    color: black;
+    font-family: 'Gordita Bold';
+}
 .men-pack{
   display: flex;
   width: 52%;
@@ -349,8 +404,11 @@ p.product-price{
   div.look{
     display: flex;
     justify-content: space-around;
-    margin-top: 2%;
+    margin: 4% 0;
     
+  }
+  .look-sub{
+    width: 30pc;
   }
   div.look-sub-2{
     background-image: url('../../images/look-2.webp');

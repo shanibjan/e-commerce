@@ -1,7 +1,7 @@
 import React from 'react'
 import './Theme.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding,faTruck ,faMale,faList,faFemale,faUndo,faTimes,faBarChart,faQuestion,faEnvelope,faWrench,faCog} from '@fortawesome/free-solid-svg-icons'
+import { faBuilding,faTruck ,faMale,faList,faFemale,faUndo,faTimes,faBarChart,faQuestion,faEnvelope,faWrench,faCog, faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import product1 from '../../images/product-1.jpeg'
 import product2 from '../../images/product-2.jpeg'
 import product3 from '../../images/product-3.jpeg'
@@ -79,18 +79,71 @@ function Theme() {
             <h4>CATEGORIES</h4>
         </div>
         <ul className='category-list' >
+        <div className="dropdown-list-women-list">
             <li><a href="" className="setting">
-            <div className="font-awesom">
-                    <FontAwesomeIcon icon={faFemale}/>
-                </div>
-                <p>WOMENS</p>
-                </a>
+                
+                    <div className="font-awesom">
+                        <FontAwesomeIcon icon={faFemale}/>
+                    </div>
+                    <p>WOMENS</p>
+                    <div className="right-arrow">
+                        <FontAwesomeIcon icon={faArrowRight}/>
+                    </div>
+                    <div class="dropdown-list-menu-women-list">
+                        <div className="women-pack-list">
+                            <div className="women-cloth-list">
+                                <li ><a className='women-slide-list' href="#"> Clothing</a></li>
+                                <li  ><a className='slide-list' href="#">Coats</a></li>
+                                <li  ><a className='slide-list' href="#">Jackets</a></li>
+                                <li  ><a className='slide-list' href="#"> Blazers</a></li>
+                                <li  ><a className='slide-list' href="#">Trousers</a></li>
+                                <li  ><a className='slide-list' href="#"> Jeans</a></li>
+                                <li  ><a className='slide-list' href="#"> Knitwear</a></li>
+                                <li  ><a className='slide-list' href="#"> Sweetshirts</a></li> 
+                                <li  ><a className='slide-list' href="#"> T-Shirt</a></li> 
+                            </div>
+                            <div className="women-cloth-list">
+                                <li ><a className='women-slide-list' href="#"> Shoes</a></li>
+                                <li  ><a className='slide-list' href="#">Trainers</a></li>
+                                <li  ><a className='slide-list' href="#">Boots</a></li>
+                                <li  ><a className='slide-list' href="#"> Heels</a></li>
+                                <li  ><a className='slide-list' href="#">Flats</a></li>
+                                <li  ><a className='slide-list' href="#"> Platforms</a></li> 
+                            </div>
+                            <div className="women-cloth-list">
+                                <li ><a className='women-slide-list' href="#"> Accessories</a></li>
+                                <li  ><a className='slide-list' href="#">Bags</a></li>
+                                <li  ><a className='slide-list' href="#">Bootpacks</a></li>
+                                <li  ><a className='slide-list' href="#"> Belts</a></li>
+                                <li  ><a className='slide-list' href="#">Jwellery</a></li>
+                                <li  ><a className='slide-list' href="#"> Hots & Beanie</a></li> 
+                                <li  ><a className='slide-list' href="#"> Purses</a></li> 
+                            </div>
+                            
+                                
+                        </div>  
+                        <div className="look">
+                                            <a  className="look-sub">
+                                                <div className="look-sub-1">
+                                                    <h2 className='look-head' >Complete Your Look</h2>
+                                                    <p>The worlds most stylish women are buying right now</p>
+                                                </div>
+                                               
+                                            </a>
+                            </div>                             
+                    </div>
+                                
+               </a>
             </li>
+            </div>
             <li><a href="" className="setting">
             <div className="font-awesom">
                     <FontAwesomeIcon icon={faMale}/>
                 </div>
                 <p>MENS</p>
+                <div className="right-arrow-men">
+                    <FontAwesomeIcon icon={faArrowRight}/>
+                </div>
                 </a>
             </li>
             <li><a href="" className="setting">
