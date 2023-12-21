@@ -91,7 +91,12 @@ h2.heads::after{
 }
 .owl-theme .owl-nav.disabled + .owl-dots {
     margin-top: 0;
-}
+    position: absolute;
+    /* top: 5px; */
+    bottom: 12px;
+    right: 0px;
+    left: 0;
+  }
 .owl-main-part{
     width: 640px;
 

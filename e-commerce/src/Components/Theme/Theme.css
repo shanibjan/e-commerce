@@ -61,13 +61,17 @@ a.setting:hover{
   margin-left: 58%;
 }
 div.details{
-    width: 100%;
+  width: 77%;
+  position: relative;
 }
 div.portfolio{
     background-color: #333333;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
 }
 ul.portfolio-list{
     display: flex;
@@ -143,7 +147,7 @@ a.buy-theme:after {
     position: relative;
     text-align: center;
     text-decoration: none;
-    z-index: 1;
+    z-index: 10;
     
     
   }
@@ -153,7 +157,7 @@ a.buy-theme:after {
     position: relative;
     text-align: center;
     text-decoration: none;
-    z-index: 1;
+    z-index: 10;
     
     
   }
@@ -188,7 +192,7 @@ a.buy-theme:after {
     text-align: left;
     top: -48px;
     visibility: hidden;
-    z-index: -99999;
+    z-index: 1000;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
@@ -217,7 +221,7 @@ a.buy-theme:after {
     padding: 24px 39px;
     opacity: 1;
     text-align: left;
-    top: 42px;
+    top: 41px;
     visibility: hidden;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -233,7 +237,7 @@ a.buy-theme:after {
     padding: 24px 39px;
     opacity: 0;
     text-align: left;
-    top: 42px;
+    top: 41px;
     visibility: hidden;
     z-index: -99999;
     transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -248,7 +252,7 @@ a.buy-theme:after {
     left: -373px;
     padding: 24px 39px;
     text-align: left;
-    top: 42px;
+    top: 41px;
     visibility: hidden;
     opacity: 0;
     z-index: -99999;
@@ -263,7 +267,7 @@ a.buy-theme:after {
     left: -52pc;
     padding: 24px 39px;
     text-align: left;
-    top: 42px;
+    top: 41px;
     visibility: hidden;
     opacity: 0;
     z-index: -99999;
@@ -507,14 +511,25 @@ p.product-price{
     justify-content: space-between;
     padding: 4%;
     margin: 2% 0;
+    top: 41px;
+    position: absolute;
+    width: 100%;
   }
-  div.first-product{
-    background-image: url('../../images/look-2.webp');
-    flex: 0 0 66%;
+  div.first-product,.first-product-2,.first-product-3{
+    height: 317px;
     padding: 9% 5%;
     background-size: 175%;
     background-position-x: center;
     color: azure;
+  }
+  .first-product{
+    background-image: url('../../images/look-2.webp');
+  }
+  .first-product-2{
+    background-image: url('../../images/collection-3.webp');
+  }
+  .first-product-3{
+    background-image: url('../../images/collection-4.webp');
   }
   a.second-product{
     background-image: url('../../images/Yanka.webp');
@@ -544,6 +559,7 @@ p.product-price{
   p.first-one{
     margin: 2% 0;
   }
+  
   h2.second-one{
     margin: 4% 0;
     font-size: 34px;
@@ -561,6 +577,16 @@ p.product-price{
   color: black;
   text-decoration: none;
 }
-
+.owl-product-main{
+  width: 69%;
+}
+.owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 0;
+  position: absolute;
+  /* top: 5px; */
+  bottom: 13px;
+  right: 0px;
+  left: 0;
+}
 
   

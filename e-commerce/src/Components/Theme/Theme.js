@@ -77,6 +77,16 @@ function Theme() {
         
         
     }
+    const product={
+        items:1,
+        loop:true,
+        nav:false,
+        dots:true,
+        margin:30,
+        animateOut:'fadeOut',
+        autoplay:true,
+        autoplayTimeout:2000
+    }
     
     
   return (
@@ -547,11 +557,26 @@ function Theme() {
             </div>
         </div>
         <div className="products">
-            <div className="first-product">
-                <p className="first-one">NEED-IT-NOW</p>
-                <h2 className="second-one">Must-haves <br />for the Season</h2>
-                <p>Here to bring your life stylle to next level</p>
+            <div className="owl-product-main">
+                <OwlCarousel className='owl-theme' {...product}>
+                    <div className="first-product">
+                        <p className="first-one">NEED-IT-NOW</p>
+                        <h2 className="second-one">Must-haves <br />for the Season</h2>
+                        <p>Here to bring your life stylle to next level</p>
+                    </div>
+                    <div className="first-product-2">
+                        <p className="first-one">NEED-IT-NOW</p>
+                        <h2 className="second-one">Must-haves <br />for the Season</h2>
+                        <p>Here to bring your life stylle to next level</p>
+                    </div>
+                    <div className="first-product-3">
+                        <p className="first-one">NEED-IT-NOW</p>
+                        <h2 className="second-one">Must-haves <br />for the Season</h2>
+                        <p>Here to bring your life stylle to next level</p>
+                    </div>
+                </OwlCarousel>
             </div>
+            
             <a onMouseOver={yankaEnter} onMouseLeave={yankaLeave} className="second-product">
                 <h2 className='yanka-head' >YANKA</h2>
                 <h3>Created to grow </h3>
