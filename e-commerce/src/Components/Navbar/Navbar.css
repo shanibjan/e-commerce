@@ -89,7 +89,7 @@ a.lang p{
     position: relative;
     text-align: center;
     text-decoration: none;
-    z-index: 1;
+    z-index: 100;
     padding-bottom: 7%;
     align-items: center;
     display: flex;
