@@ -12,6 +12,9 @@ import menCloth from '../../images/clothing.webp'
 import menShoe from '../../images/men-shoe.jpeg'
 import menCap from '../../images/man-cap.webp'
 import { useEffect } from 'react'
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 function Theme() {
@@ -66,6 +69,14 @@ function Theme() {
             })
         }
     })
+
+    const womenSlide={
+        nav:true,
+        items:3,
+        dots:false
+        
+        
+    }
     
     
   return (
@@ -398,6 +409,7 @@ function Theme() {
                                         <div className="women-other">
                                             <a className='slide-list bold' href="#"> Other Pages</a>
                                             <div className="women-products">
+                                            <OwlCarousel className='owl-theme' {...womenSlide} >
                                                     <div className="women-image">
                                                         <div class="image-wrapper">
                                                             <img src={product1} class="image" alt="normal" />
@@ -422,6 +434,31 @@ function Theme() {
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product5} class="image" alt="normal" />
+                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
+                                                    </div>
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product5} class="image" alt="normal" />
+                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
+                                                    </div>
+                                                    <div className="women-image">
+                                                        <div class="image-wrapper">
+                                                            <img src={product5} class="image" alt="normal" />
+                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        </div>
+                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
+                                                        <p className="product-price">$215.00</p>
+                                                    </div>
+                                                </OwlCarousel>
                                             </div>
                                             
                                         </div>

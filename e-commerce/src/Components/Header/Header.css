@@ -10,7 +10,7 @@ border-bottom: 1px solid #E9E7E7 ;
 justify-content: center;
 }
 p.bold{
-    font-weight: bold;
+    font-family: 'gordita bold';
     font-size: 14px;
 }
  p.light{
@@ -26,7 +26,7 @@ span.left{
     display: flex;
 }
 a.more{
-    font-weight: bold;
+    font-family: 'gordita bold';
     color: #48CAB2;
     font-size: 14px;
 }

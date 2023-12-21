@@ -297,8 +297,6 @@ a.buy-theme:after {
   .dropdown-list:hover .dropdown-list-women  {
     opacity: 1;
     visibility: visible;
-    /* top: 100%; */
-    
     animation: slideleft .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
     transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     
@@ -412,7 +410,7 @@ div.women-image img{
     width: 100%;
 }
 div.women-other{
-    flex: 0 0 42pc;
+    width: 55%;
 }
 div.women-other a.bold{
     font-size: 19px;
@@ -442,7 +440,7 @@ p.product-price{
   div.look{
     display: flex;
     justify-content: space-around;
-    margin: 4% 0;
+    margin: 1% 0;
     
   }
   .look-sub{
@@ -550,4 +548,19 @@ p.product-price{
     margin: 4% 0;
     font-size: 34px;
   }
+
+  .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next, .owl-carousel button.owl-dot {
+    background: none;
+    color: black;
+    border: none;
+    padding: 0 !important;
+    font-size: 46px;
+}
+.owl-theme .owl-nav [class*='owl-']:hover {
+  background: none;
+  color: black;
+  text-decoration: none;
+}
+
+
   

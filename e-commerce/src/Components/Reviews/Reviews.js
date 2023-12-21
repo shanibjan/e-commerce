@@ -34,7 +34,7 @@ function Reviews() {
         dots:true,
         // autoplay:true,
         // autoplayTimeout:4000,
-        animateOut:'slideOutUp',
+        animateOut: 'fadeOut',
         center:false,
         nav:false,
         pagination:false,
@@ -47,7 +47,7 @@ function Reviews() {
   return (
     <div className="reviews">
         <h1>The Frshest and Most Exciting News</h1>
-        <OwlCarousel className='owl-carousel owl-theme' {...options} dot>
+        <OwlCarousel className='owl-carousel owl-theme' {...options} >
         
             <div class='item'>
                 <a href='' className="review-sub-1">

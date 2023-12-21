@@ -10,7 +10,7 @@ function Header() {
     loop:true,
     autoplay:true,
     autoplayTimeout:3000,
-    dots:false
+    dots:false,
 }
   return (
     <div class="header">
@@ -30,16 +30,16 @@ function Header() {
 
             <div class='item-header'>
               <span class="center">
-                <p class="bold">50% OFF</p>
-                <p class="light">all new collection</p>
+                <p class="bold">TAKE 30% OFF</p>
+                <p class="light">When you spent $99</p>
                 <a class="more" >More Details</a>
               </span>
             </div>
 
             <div class='item-header'>
               <span class="center">
-                <p class="bold">50% OFF</p>
-                <p class="light">all new collection</p>
+                <p class="bold">FREE 2-DAYS</p>
+                <p class="light">On standard shipping of $255</p>
                 <a class="more" >More Details</a>
               </span>
             </div>
