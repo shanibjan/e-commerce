@@ -70,7 +70,7 @@ div.portfolio{
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    z-index: 1000;
+    z-index: 10;
     width: 100%;
 }
 ul.portfolio-list{
