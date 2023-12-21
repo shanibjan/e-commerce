@@ -510,7 +510,6 @@ p.product-price{
     display: flex ;
     justify-content: space-between;
     padding: 4%;
-    margin: 2% 0;
     top: 41px;
     position: absolute;
     width: 100%;
@@ -520,27 +519,37 @@ p.product-price{
     padding: 9% 5%;
     background-size: 175%;
     background-position-x: center;
-    color: azure;
+    color: white;
+    height: 357px;
   }
   .first-product{
-    background-image: url('../../images/look-2.webp');
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.1), 
+      rgba(0, 0, 0, 0.1)
+    ), url('../../images/look-2.webp');
   }
   .first-product-2{
-    background-image: url('../../images/collection-3.webp');
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.1), 
+      rgba(0, 0, 0, 0.1)
+    ), url('../../images/collection-3.webp');
   }
   .first-product-3{
-    background-image: url('../../images/collection-4.webp');
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.1), 
+      rgba(0, 0, 0, 0.1)
+    ), url('../../images/collection-4.webp');
   }
   a.second-product{
     background-image: url('../../images/Yanka.webp');
-    background-size: 106%;
+    background-size: 112%;
     padding: 5% 8% 0% 2%;
     text-align: left;
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-position: center;
   }
   a.second-product:hover{
-    background-size: 113%;
+    background-size: 120%;
     
   }
   a.second-product h2,h3{
@@ -558,11 +567,13 @@ p.product-price{
   }
   p.first-one{
     margin: 2% 0;
+    font-family: 'gordita Medium';
   }
   
   h2.second-one{
     margin: 4% 0;
     font-size: 34px;
+    font-family: 'gordita bold';
   }
 
   .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next, .owl-carousel button.owl-dot {
