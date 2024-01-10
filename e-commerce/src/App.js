@@ -8,14 +8,18 @@ import Products from './Components/Products/Products';
 import Collections from './Components/Collections/Collections';
 import Reviews from './Components/Reviews/Reviews'
 import Footer from './Components/Footer/Footer';
+import { useState } from 'react';
+import Language from './Components/Language/Language';
 
 
 function App() {
+  
   return (
     <div className="App">
       
      <Header/>
-     <Navbar />
+     <Navbar  />
+     
      <Theme/>
      <Dresses/>
      <Products/>

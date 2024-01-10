@@ -110,7 +110,7 @@ function Theme() {
                     <div className="right-arrow">
                         <FontAwesomeIcon icon={faArrowRight}/>
                     </div>
-                    <div class="dropdown-list-menu-women-list">
+                    <div className="dropdown-list-menu-women-list">
                         <div className="women-pack-list">
                             <div className="women-cloth-list">
                                 <li className='li-clothing' ><a className='women-slide-list' href="#"> Clothing</a></li>
@@ -167,7 +167,7 @@ function Theme() {
                     <div className="right-arrow-men">
                         <FontAwesomeIcon icon={faArrowRight}/>
                     </div>
-                    <div class="dropdown-list-menu-men-list">
+                    <div className="dropdown-list-menu-men-list">
                         <div className="women-pack-list">
                             <div className="women-cloth-list">
                                 <li className='li-clothing' ><a className='women-slide-list' href="#"> Clothing</a></li>
@@ -279,7 +279,7 @@ function Theme() {
                 <div className="dropdown-list">
                         <li className='port-list '  >
                             <a href="" className="port-nav">SHOP</a>
-                            <ul class="dropdown-list-shop">
+                            <ul className="dropdown-list-shop">
                                 <div className="shop">
                                     <div className="shop-sub">
                                         <li  ><a className='slide-list bold' href="#"> Listing Styles</a></li>
@@ -332,7 +332,7 @@ function Theme() {
                     <div className="dropdown-list">
                         <li className='port-list '  >
                             <a href="" className="port-nav">PAGES</a>
-                            <ul class="dropdown-list-menu">
+                            <ul className="dropdown-list-menu">
                                 <li  ><a className='slide-list' href="#"> About Us</a></li>
                                 <li  ><a className='slide-list' href="#">Shipping and Returns </a></li>
                                 <li  ><a className='slide-list' href="#">Page 404</a></li>
@@ -346,7 +346,7 @@ function Theme() {
                     <div className="dropdown-list">
                         <li className='port-list '  >
                             <a href="" className="port-nav">BLOG</a>
-                            <ul class="dropdown-list-menu">
+                            <ul className="dropdown-list-menu">
                                 <li  ><a className='slide-list bold' href="#"> Blog Style</a></li>
                                 <li  ><a className='slide-list' href="#">Standard without Sidebars </a></li>
                                 <li  ><a className='slide-list' href="#">Standard with Left Sidebars</a></li>
@@ -364,7 +364,7 @@ function Theme() {
                     <div className="dropdown-list">
                         <li className='port-list '  >
                             <a href="" className="port-nav">PORTFOLIO</a>
-                            <ul class="dropdown-list-menu">
+                            <ul className="dropdown-list-menu">
                                         <li  ><a className='slide-list bold' href="#"> Boxed Width</a></li>
                                         <li  ><a className='slide-list' href="#">Two Columns </a></li>
                                         <li  ><a className='slide-list' href="#">Three Columns</a></li>
@@ -383,7 +383,7 @@ function Theme() {
                         <li className='port-list '  >
                             <a href="" className="port-nav">WOMEN'S</a>
                             <div className="women-list">
-                                <ul class="dropdown-list-women">
+                                <ul className="dropdown-list-women">
                                     <div className="women-top">
                                         <div className="women-pack">
                                             <div className="women-cloth">
@@ -421,49 +421,49 @@ function Theme() {
                                             <div className="women-products">
                                             <OwlCarousel className='owl-theme' {...womenSlide} >
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product1} class="image" alt="normal" />
-                                                            <img src={product2} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product1} className="image" alt="normal" />
+                                                            <img src={product2} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product3} class="image" alt="normal" />
-                                                            <img src={product4} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product3} className="image" alt="normal" />
+                                                            <img src={product4} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product5} class="image" alt="normal" />
-                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product5} className="image" alt="normal" />
+                                                            <img src={product6} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product5} class="image" alt="normal" />
-                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product5} className="image" alt="normal" />
+                                                            <img src={product6} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product5} class="image" alt="normal" />
-                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product5} className="image" alt="normal" />
+                                                            <img src={product6} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
                                                     </div>
                                                     <div className="women-image">
-                                                        <div class="image-wrapper">
-                                                            <img src={product5} class="image" alt="normal" />
-                                                            <img src={product6} class="image-hover" alt="hover" />
+                                                        <div className="image-wrapper">
+                                                            <img src={product5} className="image" alt="normal" />
+                                                            <img src={product6} className="image-hover" alt="hover" />
                                                         </div>
                                                         <a href="" className="slide-list">Belt Bag with Chain</a>
                                                         <p className="product-price">$215.00</p>
@@ -499,7 +499,7 @@ function Theme() {
                     <div className="dropdown-list">
                         <li className='port-list '  >
                             <a href="" className="port-nav">MEN'S</a>
-                            <ul class="dropdown-list-men">
+                            <ul className="dropdown-list-men">
                                 <div className="men-fashion">
                                     <div className="men-pack">
                                         <div className="men-cloth">

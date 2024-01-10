@@ -13,34 +13,34 @@ function Header() {
     dots:false,
 }
   return (
-    <div class="header">
-    <span class="left">
-        <p class="light" > Call us:</p>
-        <p class="bold" >1–234–5678901</p>
+    <div className="header">
+    <span className="left">
+        <p className="light" > Call us:</p>
+        <p className="bold" >1–234–5678901</p>
     </span>
     <div className="owl-main-part">
       <OwlCarousel className='owl-theme' {...jan}>
-            <div class='item-header'>
-              <span class="center">
-                <p class="bold">50% OFF</p>
-                <p class="light">all new collection</p>
-                <a class="more" >More Details</a>
+            <div className='item-header'>
+              <span className="center">
+                <p className="bold">50% OFF</p>
+                <p className="light">all new collection</p>
+                <a className="more" >More Details</a>
               </span>
             </div>
 
-            <div class='item-header'>
-              <span class="center">
-                <p class="bold">TAKE 30% OFF</p>
-                <p class="light">When you spent $99</p>
-                <a class="more" >More Details</a>
+            <div className='item-header'>
+              <span className="center">
+                <p className="bold">TAKE 30% OFF</p>
+                <p className="light">When you spent $99</p>
+                <a className="more" >More Details</a>
               </span>
             </div>
 
-            <div class='item-header'>
-              <span class="center">
-                <p class="bold">FREE 2-DAYS</p>
-                <p class="light">On standard shipping of $255</p>
-                <a class="more" >More Details</a>
+            <div className='item-header'>
+              <span className="center">
+                <p className="bold">FREE 2-DAYS</p>
+                <p className="light">On standard shipping of $255</p>
+                <a className="more" >More Details</a>
               </span>
             </div>
             
@@ -48,10 +48,10 @@ function Header() {
     </div>
         
       
-    <span class="right">
-        <a  class="link" href="">Facebook</a>
-        <a class="link" href="">Instagram</a>
-        <a class="link" href="">Twitter</a>
+    <span className="right">
+        <a  className="link" href="">Facebook</a>
+        <a className="link" href="">Instagram</a>
+        <a className="link" href="">Twitter</a>
     </span>
     
     

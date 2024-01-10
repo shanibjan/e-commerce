@@ -13,13 +13,13 @@ function Slider() {
   return (
     <div>
       <OwlCarousel className='owl-theme' {...jan}>
-        <div class='item'>
+        <div className='item'>
             <h4>1</h4>
         </div>
-        <div class='item'>
+        <div className='item'>
             <h4>2</h4>
         </div>
-        <div class='item'>
+        <div className='item'>
             <h4>3</h4>
         </div>  
 </OwlCarousel>

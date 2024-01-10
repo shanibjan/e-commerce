@@ -61,9 +61,9 @@ function Products() {
       <h1>Top Products of This Week</h1>
       <div className="product-upper">
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 
                 <div className="items-hover">
                     <a href=""><Love/></a>
@@ -110,9 +110,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                 <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -154,9 +154,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                     <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -199,9 +199,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                     <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -246,9 +246,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                 <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -290,9 +290,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                     <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -338,9 +338,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                     <a href=""><Love/></a>
                     <a href=""><Compare/></a>
@@ -386,9 +386,9 @@ function Products() {
             </a>
         </div>
         <div className="product-details">
-            <div class="image-wrapper-pro">
-                <img src={product1} class="image" alt="normal" />
-                <img src={product2} class="image-hover" alt="hover" />
+            <div className="image-wrapper-pro">
+                <img src={product1} className="image" alt="normal" />
+                <img src={product2} className="image-hover" alt="hover" />
                 <div className="items-hover">
                     <a href=""><Love/></a>
                     <a href=""><Compare/></a>

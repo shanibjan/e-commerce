@@ -49,7 +49,7 @@ function Reviews() {
         <h1>The Frshest and Most Exciting News</h1>
         <OwlCarousel className='owl-carousel owl-theme' {...options} >
         
-            <div class='item'>
+            <div className='item'>
                 <a href='' className="review-sub-1">
                     <div className="upper-main">
                         <div className="review-sub-upper">
@@ -78,7 +78,7 @@ function Reviews() {
                     </div>
                 </a>
             </div>
-            <div class='item'>
+            <div className='item'>
                 <a href='' className="review-sub-1">
                     <div className="upper-main">
                         <div className="review-sub-upper">
@@ -107,7 +107,7 @@ function Reviews() {
                     </div>
                 </a>
             </div>
-            <div class='item'>
+            <div className='item'>
                 <a href='' className="review-sub-1">
                     <div className="upper-main">
                         <div className="review-sub-upper">
@@ -136,7 +136,7 @@ function Reviews() {
                     </div>
                 </a>
             </div>
-            <div class='item'>
+            <div className='item'>
                 <a href='' className="review-sub-1">
                     <div className="upper-main">
                         <div className="review-sub-upper">
