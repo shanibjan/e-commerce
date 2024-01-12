@@ -23,7 +23,7 @@ a.dress-sub h2.head,.head-2,.head-3,.head-4,.head-5{
     color: black;
     
 }
-h2.head::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
+h2.head::after{
     display:block;
     content: '';
     border-bottom: solid 2px #111212;  
@@ -31,13 +31,15 @@ h2.head::after,.head-3::after,.head-4::after,.head-5::after,.head-6::after{
     transition: transform 250ms ease-in-out;
 }
 
-div.image-1 ,.image-2,.image-3,.image-4,.image-5,.image-6{
+div.image-1 {
+    position: relative;
     background-size: 100%;
     transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-position: center;
     height: 221px;
+    z-index: 1000;
 }
-div.image-1{
+/* div.image-1{
     background-image: url('../../images/coat.jpeg');
     
 }
@@ -55,5 +57,14 @@ div.image-5{
     background-image: url('../../images/jeans.jpeg');
 }
 div.image-6{
-    background-image: url('../../images/t-shirts.jpeg');
+    background-image: url('../../');
+} */
+.path{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
 }

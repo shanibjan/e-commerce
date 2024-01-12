@@ -9,8 +9,18 @@ import Love from '../../assets/Love'
 import Compare from '../../assets/Compare'
 import Plus from '../../assets/Plus'
 import { useEffect } from 'react'
+import imagePath from '../assetHelper/assetHelper.js'
 
 function Products() {
+
+    let productsDynamic=[
+        {img1:'product-3.jpeg',img2:'product-4.jpeg',brand:"NIKE",brandValue:"NOTHING IS IMPOSSIBLE",price:"250.00"},
+        {img1:'product-5.jpeg',img2:'product-6.jpeg',brand:"PUMA",brandValue:"FOREVER FASTER IS ALWAYS ",price:"350.00"},
+        {img1:'product-1.jpeg',img2:'product-2.jpeg',brand:"ADIDAS",brandValue:"RISK EVERYTHING ",price:"375.00"},
+        {img1:'collection-1.jpeg',img2:'collection-2.jpeg',brand:"GUCCI",brandValue:"LUXURY FOR THE BEST",price:"975.00"}
+
+    ]
+
     useEffect(()=>{
         let imageWrapper=document.querySelectorAll('.image-wrapper-pro')
         for(let i=0;i<imageWrapper.length;i++){
@@ -60,10 +70,12 @@ function Products() {
     <div className='product'>
       <h1>Top Products of This Week</h1>
       <div className="product-upper">
-        <div className="product-details">
+        {productsDynamic.map((product,index)=>{
+            return(
+                <div className="product-details">
             <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
+                <img key={`${product.img1}`} src={`${imagePath(product.img1)}`} className="image" alt="normal" />
+                <img  key={`${product.img2}`} src={`${imagePath(product.img2)}`} className="image-hover" alt="hover" />
                 
                 <div className="items-hover">
                     <a href=""><Love/></a>
@@ -81,8 +93,8 @@ function Products() {
                 <FontAwesomeIcon icon={faStar}/>
                 <FontAwesomeIcon icon={faStar}/>
             </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
+            <a key={`${product.brand}`} href="" className="brand">{product.brand}</a>
+            <a key={`${product.brandValue}`} href="" className="brand-details">{product.brandValue}</a>
             <div className="variants">
                 <span className="variant"></span>
                 <span className="variant black"></span>
@@ -93,7 +105,7 @@ function Products() {
                         <a  href=""><Cart2/></a>
                     </div>
                     <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
+                        <a key={`${product.price}`} href="">${product.price}</a>
                     </div>
                 </div>
 
@@ -109,326 +121,11 @@ function Products() {
                 
             </a>
         </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$290.00</a>
-                    </div>
-                </div>
-
-                <a className="second-cart">
-                    <a className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </a>
-                    <a className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </a>
-                </a>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                    <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                    <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-                <div className="top-offer red-offer">
-                    <h2>SALE-21%</h2>
-                </div>
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                    <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-                <div className="top-offer">
-                    <h2>FEATURED</h2>
-                </div>
-
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                    <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-                <div className="top-offer">
-                    <h2>NEW</h2>
-                </div>
-
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        <div className="product-details">
-            <div className="image-wrapper-pro">
-                <img src={product1} className="image" alt="normal" />
-                <img src={product2} className="image-hover" alt="hover" />
-                <div className="items-hover">
-                    <a href=""><Love/></a>
-                    <a href=""><Compare/></a>
-                    <a href=""><Plus/></a>
-                </div>
-            </div>
-            <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
-            <a href="" className="brand">LACOSTE</a>
-            <a href="" className="brand-details">Push up low rise jeans</a>
-            <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-            </div>
-            <a className="carts">
-                <div className="first-cart">
-                    <div className="left-cart">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="right-cart">
-                        <a href="">$270.00-$290.00</a>
-                    </div>
-                </div>
-
-                <div className="second-cart">
-                    <div className="second-cart-left">
-                        <a  href=""><Cart2/></a>
-                    </div>
-                    <div className="second-cart-right">
-                        <p>Add To Cart</p>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
+            )
+            
+        })}
+        
+        
       </div>
     </div>
   )

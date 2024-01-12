@@ -36,11 +36,8 @@ function Reviews() {
         // autoplayTimeout:4000,
         animateOut: 'fadeOut',
         center:false,
-        nav:false,
-        pagination:false,
-        navigation:true,    
+        nav:false,   
         margin: 0,
-        autoHeight : true,
     }
     
 

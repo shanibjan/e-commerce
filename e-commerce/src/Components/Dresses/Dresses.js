@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './Dresses.css'
+import imagePath from '../assetHelper/assetHelper.js'
 
 function Dresses() {
 
@@ -25,36 +26,42 @@ function Dresses() {
         }
     })
 
-    return (
-        <div className="dresses">
-            <a href='' className="dress-sub">
-                <div className="image-1"></div>
-                <h2 className='head' >Coats</h2>
-            </a>
-            <a href='' className="dress-sub">
-                <div className="image-2"></div>
-                <h2 className='head' >Jackets</h2>
-            </a>
-            <a href='' className="dress-sub">
-                <div className="image-3"></div>
-                <h2 className='head-3' >Dresses</h2>
-            </a>
-            <a href='' className="dress-sub">
-                <div className="image-4"></div>
-                <h2 className='head-4' >Shoes</h2>
-            </a>
-            <a href='' className="dress-sub">
-                <div className="image-5"></div>
-                <h2 className='head-5' >Jeans</h2>
-            </a>
-            <a href='' className="dress-sub">
-                <div className="image-6"></div>
-                <h2 className='head-6' >T-shirts</h2>
-            </a>
 
-           
+    let dressesDynamic=[
+        {src :'jacket.jpeg',name:"jacket"},
+        {src:'coat.jpeg',name:"Coat"},
+        {src:'dress.jpeg',name:"Dress"},
+        {src:'jeans.jpeg',name:"Jeans"},
+        {src:'jacket.jpeg',name:"jacket"},
+        {src:'jacket.jpeg',name:"jacket"}
+]
+
+
+
+console.log(dressesDynamic[0].src);
+
+
+    return (
+        
+        <div className="dresses">
+             {/* <img src={process.env.PUBLIC_URL + imgNameWithPath} /> */}
+            <img  alt="" />
+            
+                
+                    {dressesDynamic.map((dressesDynamic,index)=>{
+                    return (
+                        <a href='' className="dress-sub">
+                            <div key={`${dressesDynamic.src}`} className="image-1"><img className='path' src={`${imagePath(dressesDynamic.src)}`} alt="" /></div>
+                            <h2  key={`${dressesDynamic.name}`} className='head' >{dressesDynamic.name}</h2>
+                            
+                        </a>
+                        
+                    ) 
+                    
+                    })}
         </div>
     )
+    
 }
 
 export default Dresses
