@@ -37,7 +37,6 @@ div.image-1 {
     transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-position: center;
     height: 221px;
-    z-index: 1000;
 }
 /* div.image-1{
     background-image: url('../../images/coat.jpeg');
