@@ -36,7 +36,7 @@ h2.heads::after{
 .review-stars{
     width: 23%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
 }
 .review-sub-bottom{
     display: flex;

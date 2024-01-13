@@ -14,10 +14,10 @@ import imagePath from '../assetHelper/assetHelper.js'
 function Products() {
 
     let productsDynamic=[
-        {img1:'product-3.jpeg',img2:'product-4.jpeg',brand:"NIKE",brandValue:"NOTHING IS IMPOSSIBLE",price:"250.00"},
-        {img1:'product-5.jpeg',img2:'product-6.jpeg',brand:"PUMA",brandValue:"FOREVER FASTER IS ALWAYS ",price:"350.00"},
-        {img1:'product-1.jpeg',img2:'product-2.jpeg',brand:"ADIDAS",brandValue:"RISK EVERYTHING ",price:"375.00"},
-        {img1:'collection-1.jpeg',img2:'collection-2.jpeg',brand:"GUCCI",brandValue:"LUXURY FOR THE BEST",price:"975.00"}
+        {img1:'product-3.jpeg',img2:'product-4.jpeg',brand:"NIKE",brandValue:"NOTHING IS IMPOSSIBLE",price:"250.00",rating:"★★★★",ad:"TOP"},
+        {img1:'product-5.jpeg',img2:'product-6.jpeg',brand:"PUMA",brandValue:"FOREVER FASTER IS ALWAYS ",price:"350.00",rating:"★★",ad:""},
+        {img1:'product-1.jpeg',img2:'product-2.jpeg',brand:"ADIDAS",brandValue:"RISK EVERYTHING ",price:"375.00",rating:"★★★",ad:"NEW"},
+        {img1:'collection-1.jpeg',img2:'collection-2.jpeg',brand:"GUCCI",brandValue:"LUXURY FOR THE BEST",price:"975.00",rating:"★★★★★",ad:"FEATURED"}
 
     ]
 
@@ -83,15 +83,11 @@ function Products() {
                     <a href=""><Plus/></a>
                 </div>
                 <div className="top-offer">
-                    <h2>TOP</h2>
+                    <h2 key={`${product.ad}`} className="product-ad" >{product.ad}</h2>
                 </div>
             </div>
             <div className="stars">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
+                <h2 key={`${product.rating}`} className="rating-star" >{product.rating}</h2>
             </div>
             <a key={`${product.brand}`} href="" className="brand">{product.brand}</a>
             <a key={`${product.brandValue}`} href="" className="brand-details">{product.brandValue}</a>

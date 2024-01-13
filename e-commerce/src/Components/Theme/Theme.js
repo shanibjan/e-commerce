@@ -2,12 +2,6 @@ import React from 'react'
 import './Theme.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding,faTruck ,faMale,faList,faFemale,faUndo,faTimes,faBarChart,faQuestion,faEnvelope,faWrench,faCog, faArrowRight} from '@fortawesome/free-solid-svg-icons'
-import product1 from '../../images/product-1.jpeg'
-import product2 from '../../images/product-2.jpeg'
-import product3 from '../../images/product-3.jpeg'
-import product4 from '../../images/product-4.jpeg'
-import product5 from '../../images/product-5.jpeg'
-import product6 from '../../images/product-6.jpeg'
 import menCloth from '../../images/clothing.webp'
 import menShoe from '../../images/men-shoe.jpeg'
 import menCap from '../../images/man-cap.webp'
@@ -15,9 +9,20 @@ import { useEffect } from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import imagePath from '../assetHelper/assetHelper'
 
 
 function Theme() {
+
+        let womenDynamic=[
+            {img1:'product-1.jpeg',img2:'product-2.jpeg',product:"Adidas Shoe",price:"250.00" },
+            {img1:'product-3.jpeg',img2:'product-4.jpeg',product:"Nike Shoe",price:"250.00" },
+            {img1:'product-1.jpeg',img2:'product-2.jpeg',product:"Adidas Shoe",price:"250.00" },
+            {img1:'product-3.jpeg',img2:'product-4.jpeg',product:"Adidas Shoe",price:"250.00" },
+            {img1:'product-5.jpeg',img2:'product-6.jpeg',product:"Adidas Shoe",price:"250.00" },
+            {img1:'product-3.jpeg',img2:'product-4.jpeg',product:"Adidas Shoe",price:"250.00" },
+        ]
+
     const yankaEnter=()=>{
         let yanka = document.querySelector('.yanka-head')
         let yankAfter =window.getComputedStyle(yanka,'::after')
@@ -420,54 +425,20 @@ function Theme() {
                                             <a className='slide-list bold' href="#"> Other Pages</a>
                                             <div className="women-products">
                                             <OwlCarousel className='owl-theme' {...womenSlide} >
-                                                    <div className="women-image">
+                                                {womenDynamic.map((women)=>{
+                                                    return(
+                                                        <div className="women-image">
                                                         <div className="image-wrapper">
-                                                            <img src={product1} className="image" alt="normal" />
-                                                            <img src={product2} className="image-hover" alt="hover" />
+                                                            <img key={`${women.img1}`} src={`${imagePath(women.img1)}`} className="image" alt="normal" />
+                                                            <img key={`${women.img2}`} src={`${imagePath(women.img2)}`} className="image-hover" alt="hover" />
                                                         </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
+                                                        <a href="" className="slide-list">{women.product}</a>
+                                                        <p className="product-price">${women.price}</p>
                                                     </div>
-                                                    <div className="women-image">
-                                                        <div className="image-wrapper">
-                                                            <img src={product3} className="image" alt="normal" />
-                                                            <img src={product4} className="image-hover" alt="hover" />
-                                                        </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
-                                                    </div>
-                                                    <div className="women-image">
-                                                        <div className="image-wrapper">
-                                                            <img src={product5} className="image" alt="normal" />
-                                                            <img src={product6} className="image-hover" alt="hover" />
-                                                        </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
-                                                    </div>
-                                                    <div className="women-image">
-                                                        <div className="image-wrapper">
-                                                            <img src={product5} className="image" alt="normal" />
-                                                            <img src={product6} className="image-hover" alt="hover" />
-                                                        </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
-                                                    </div>
-                                                    <div className="women-image">
-                                                        <div className="image-wrapper">
-                                                            <img src={product5} className="image" alt="normal" />
-                                                            <img src={product6} className="image-hover" alt="hover" />
-                                                        </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
-                                                    </div>
-                                                    <div className="women-image">
-                                                        <div className="image-wrapper">
-                                                            <img src={product5} className="image" alt="normal" />
-                                                            <img src={product6} className="image-hover" alt="hover" />
-                                                        </div>
-                                                        <a href="" className="slide-list">Belt Bag with Chain</a>
-                                                        <p className="product-price">$215.00</p>
-                                                    </div>
+                                                    )
+                                                })}
+                                                    
+                                                    
                                                 </OwlCarousel>
                                             </div>
                                             

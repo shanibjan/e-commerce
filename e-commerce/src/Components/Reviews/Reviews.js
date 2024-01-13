@@ -11,16 +11,16 @@ import imagePath from '../assetHelper/assetHelper'
 function Reviews() {
 
     let reviewDynamic=[
-        {head:"Well strectured UI Developing", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
+        {head:"Well strectured UI Developing",rating:"★★★★★", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
          img:'JAN.jpeg',name:"SHANIB JAN",prof:"REACT DEVELOPER"
         },
-        {head:"Well System Managing", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
+        {head:"Well System Managing",rating:"★★", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
          img:'kutt.jpeg',name:"CHRISTINA",prof:"SYSTEM ENGINEER"
         },
-        {head:"Hard Core Python ", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
+        {head:"Hard Core Python ",rating:"★★★★", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
          img:'shah.jpeg',name:"ANIRUDH",prof:"PYTHON DEVELOPER"
         },
-        {head:"Dot Net Developing ", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
+        {head:"Dot Net Developing ",rating:"★★★★", desc:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam atque harum inventore provident similique, porro neque. Minima exercitationem, reprehenderit veritatis illo,",
          img:'janu.jpeg',name:"JAN SHANIB",prof:".NET TESTER"
         }
     ]
@@ -69,11 +69,7 @@ function Reviews() {
                         <div className="review-sub-upper">
                             <h2 key={`${review.head}`} className='heads' >{review.head}</h2>
                             <div className="review-stars">
-                                <FontAwesomeIcon icon={faStar}/>
-                                <FontAwesomeIcon icon={faStar}/>
-                                <FontAwesomeIcon icon={faStar}/>
-                                <FontAwesomeIcon icon={faStar}/>
-                                <FontAwesomeIcon icon={faStar}/>
+                                <h2 key={`${review.rating}`} >{review.rating}</h2>
                             </div>
                         </div>
                         <p key={`${review.desc}`} > 

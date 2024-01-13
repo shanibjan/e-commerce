@@ -27,11 +27,19 @@
     position: absolute;
     top: 11px;
     left: 11px;
-    font-size: 8px;
+   
+    
+  }
+  .product-ad{
     background-color: #327FD9;
     color: aliceblue;
-    padding: 1% 4%;
     font-family: 'Gordita Bold';
+    font-size: 11px;
+    padding: 9% 11% 5%;
+    display: inline-block;
+  }
+  .rating-star{
+    letter-spacing: 5px;
   }
   .red-offer{
     background-color: #E12C43;
