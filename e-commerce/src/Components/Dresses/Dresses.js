@@ -36,9 +36,6 @@ function Dresses() {
         {src:'jacket.jpeg',name:"jacket"}
 ]
 
-const myStyle={
-    backgroundImage: `url(${imagePath('coat.jpeg')})`
-}
 
 
 
@@ -55,8 +52,8 @@ console.log(dressesDynamic[0].src);
                     {dressesDynamic.map((dressesDynamic,index)=>{
                     return (
                         <a href='' className="dress-sub">
-                            <div key={`${dressesDynamic.src}`} className="image-1" style={{backgroundImage:`url(${imagePath(`${dressesDynamic.src}`)})`}}></div>
-                            <h2  key={`${dressesDynamic.name}`} className='head' >{dressesDynamic.name}</h2>
+                            <div key1={`${dressesDynamic.src}`} className="image-1" style={{backgroundImage:`url(${imagePath(`${dressesDynamic.src}`)})`}}></div>
+                            <h2  key2={`${dressesDynamic.name}`} className='head' >{dressesDynamic.name}</h2>
                             
                         </a>
                         

@@ -1,8 +1,19 @@
 import React from 'react'
 import { useEffect } from 'react'
 import './Collections.css'
+import imagePath from '../assetHelper/assetHelper'
 
 function Collections() {
+
+    let collectionDynamic=[
+        {src:'collection-1.jpeg' ,tag:"Discover new"},
+        {src:'collection-2.avif' ,tag:"Go traditional"},
+    ]
+    let collectionDynamicRight=[
+        {src:'collection-3.avif' ,tag:"Fit to win"},
+        {src:'collection-4.webp' ,tag:"Look famous"},
+
+    ]
 
     useEffect(()=>{
         let collectionLeftSub=document.querySelectorAll('.collection-sub-division')
@@ -28,19 +39,17 @@ function Collections() {
         <div className="collection-sub">
 
             <div className="collection-left">
-                <div className="collection-sub-division">
-                    <a href="" className="left-collection left-1">
-                        <h1 className="head-left">New In</h1>
-                    </a>
-                </div>
-                <div className="collection-sub-division">
-                    <a href="" className="left-collection left-2">
-                        <h1 className="head-left">The All-In-One</h1>
-                    </a>
-                </div>  
+                {collectionDynamic.map((collection,index)=>{
+                    return(
+                        <div className="collection-sub-division">
+                             <a key={`${collection.src}`} href="" className="left-collection" style={{backgroundImage:`url(${imagePath(`${collection.src}`)})`}}>
+                                <h1 key={`${collection.tag}`} className="head-left">{collection.tag}</h1>
+                            </a>
+                         </div> 
+                    )
+                })}
+                
             </div>
-
-
 
                 <div className="collection-center">
                     <div className="collection-sub-division">
@@ -51,17 +60,15 @@ function Collections() {
                     
                 </div>
                 <div className="collection-right">
-                    <div className="collection-sub-division">
-                        <a href="" className="right-collection right-1">
-                            <h1 className="head-right">New In</h1>
-                        </a>
-                    </div>
-                    
-                    <div className="collection-sub-division">
-                        <a href="" className="right-collection right-2">
-                            <h1 className="head-right">Must Haves</h1>
-                        </a>
-                    </div>
+                {collectionDynamicRight.map((collection,index)=>{
+                    return(
+                        <div className="collection-sub-division">
+                             <a key={`${collection.src}`} href="" className="left-collection" style={{backgroundImage:`url(${imagePath(`${collection.src}`)})`}}>
+                                <h1 key={`${collection.tag}`} className="head-left">{collection.tag}</h1>
+                            </a>
+                         </div> 
+                    )
+                })}
                     
                 </div>
         </div>
