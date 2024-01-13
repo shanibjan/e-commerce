@@ -20,12 +20,6 @@
     text-decoration: none;
     margin: 3% 0;
 }
-.left-collection{
-    background-image: url('../../images/collection-1.jpeg');
-}
-.left-2{
-    background-image: url('../../images/collection-2.webp');
-}
 .head-left,.head-center,.head-right{
     color: azure;
     font-family: 'Gordita Bold';
@@ -55,11 +49,4 @@
 }
 .collection-right{
     flex: 0 0 24%;
-}
-
-.right-1{
-    background-image: url('../../images/collection-3.webp');
-}
-.right-2{
-    background-image: url('../../images/collection-5.webp');
 }

@@ -1,7 +1,5 @@
 import React from 'react'
 import './Products.css'
-import product1 from '../../images/product-1.jpeg'
-import product2 from '../../images/product-2.jpeg'
 import { faStar,faCodeCompare,faSearchPlus,faHeart} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Cart2 from '../../assets/Cart2'
@@ -17,7 +15,7 @@ function Products() {
         {img1:'product-3.jpeg',img2:'product-4.jpeg',brand:"NIKE",brandValue:"NOTHING IS IMPOSSIBLE",price:"250.00",rating:"★★★★",ad:"TOP"},
         {img1:'product-5.jpeg',img2:'product-6.jpeg',brand:"PUMA",brandValue:"FOREVER FASTER IS ALWAYS ",price:"350.00",rating:"★★",ad:""},
         {img1:'product-1.jpeg',img2:'product-2.jpeg',brand:"ADIDAS",brandValue:"RISK EVERYTHING ",price:"375.00",rating:"★★★",ad:"NEW"},
-        {img1:'collection-1.jpeg',img2:'collection-2.jpeg',brand:"GUCCI",brandValue:"LUXURY FOR THE BEST",price:"975.00",rating:"★★★★★",ad:"FEATURED"}
+        {img1:'product-7.jpeg',img2:'collection-2.jpeg',brand:"GUCCI",brandValue:"LUXURY FOR THE BEST",price:"975.00",rating:"★★★★★",ad:"FEATURED"}
 
     ]
 

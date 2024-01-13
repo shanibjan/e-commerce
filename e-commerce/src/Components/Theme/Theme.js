@@ -22,6 +22,10 @@ function Theme() {
             {img1:'product-5.jpeg',img2:'product-6.jpeg',product:"Adidas Shoe",price:"250.00" },
             {img1:'product-3.jpeg',img2:'product-4.jpeg',product:"Adidas Shoe",price:"250.00" },
         ]
+        let menDynamic=[
+            {src:'product-7.jpeg',head:"Top Trending",desc:"Collection of 2023/24"},
+            {src:'men-dresses-1.jpeg',head:"The All-In-One",desc:"Offer Upto 75% OFF"}
+        ]
 
     const yankaEnter=()=>{
         let yanka = document.querySelector('.yanka-head')
@@ -506,16 +510,17 @@ function Theme() {
                                         </div>    
                                     </div>
                                     <div className="men-dresses">
-                                        <a href='' className="men-dress-sub">
-                                            <div className="men-image-1"></div>
-                                            <h2 className='men-head' >Top Trending</h2>
-                                            <p>Collection of 2019/20</p>
-                                        </a>
-                                        <a href='' className="men-dress-sub">
-                                            <div className="men-image-2"></div>
-                                            <h2 className='men-head' >The All-In-One</h2>
-                                            <p>Offer upto 50% off</p>
-                                        </a>
+
+                                       {menDynamic.map((men,index)=>{
+                                        return(
+                                            <a href='' className="men-dress-sub">
+                                                <div key={`${men.src}`} className="men-image-1" style={{backgroundImage:`url(${imagePath(`${men.src}`)})`}}></div>
+                                                <h2 key={`${men.head}`} className='men-head' >{men.head}</h2>
+                                                <p key={`${men.desc}`} >{men.desc}</p>
+                                             </a>
+                                        )
+                                       })} 
+                                        
                                     </div>
                                 </div>
                             </ul>
