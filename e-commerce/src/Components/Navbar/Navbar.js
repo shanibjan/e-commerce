@@ -10,6 +10,7 @@ import { faChevronDown,faStar } from '@fortawesome/free-solid-svg-icons'
 // import Language from './Components/Language/Language';
 import Language from '../Language/Language'
 import { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 
 function Navbar() {
@@ -43,7 +44,7 @@ function Navbar() {
           <a  href=""><User/></a>
           <ul className="dropdown-menu">
             <li  ><a className='slide' href="#"> Login</a></li>
-            <li  ><a className='slide' href="#">Register </a></li>
+            <Link style={{textDecoration:"none"}} to='/about'><li><a className='slide' href="">Register </a></li></Link>
           </ul>
         </div>
         <a href=""><Love/></a>

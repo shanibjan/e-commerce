@@ -1,32 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './Components/Header/Header';
-import Navbar from './Components/Navbar/Navbar';
-import Theme from './Components/Theme/Theme';
-import Dresses from './Components/Dresses/Dresses';
-import Products from './Components/Products/Products';
-import Collections from './Components/Collections/Collections';
-import Reviews from './Components/Reviews/Reviews'
-import Footer from './Components/Footer/Footer';
-import { useState } from 'react';
-import Language from './Components/Language/Language';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./Components/Header/Header";
+import Navbar from "./Components/Navbar/Navbar";
+import Theme from "./Components/Theme/Theme";
+import Dresses from "./Components/Dresses/Dresses";
+import Products from "./Components/Products/Products";
+import Collections from "./Components/Collections/Collections";
+import Reviews from "./Components/Reviews/Reviews";
+import Footer from "./Components/Footer/Footer";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./Pages/Register";
+import Home from "./Components/Home/Home";
 
 function App() {
-  
   return (
     <div className="App">
-      
-     <Header/>
-     <Navbar  />
-     
-     <Theme/>
-     <Dresses/>
-     <Products/>
-     <Collections/>
-     <Reviews/>
-     <Footer/>
-    
+      <Router>
+        <Routes>
+          <Route Component={Home} exact path='/' />
+        </Routes>
+        <Routes>
+          <Route Component={Register} path="/about" />
+        </Routes>
+      </Router>
     </div>
   );
 }

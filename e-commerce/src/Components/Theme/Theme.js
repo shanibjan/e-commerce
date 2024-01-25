@@ -27,6 +27,12 @@ function Theme() {
             {src:'men-dresses-1.jpeg',head:"The All-In-One",desc:"Offer Upto 75% OFF"}
         ]
 
+        let ProductDynamic=[
+            {src:'look-2.webp',head:"NEED-IT-NOW",desc1:"Must-haves",desc2:"for the Season",para:"Here to bring your life stylle to next level"},
+            {src:'collection-2.avif',head:"NEW PERSONALIZABLE COLLECTION",desc1:"Get Up To",desc2:"50% OFF",para:"Elegant.Mininal beautyfully iconic"},
+            {src:'collection-3.avif',head:"COMPLETE YOUR LOOK",desc1:"Collections",desc2:"2023/24",para:"Distinguish.Individual.Self.Disctinctive.Classic"}
+        ]
+
     const yankaEnter=()=>{
         let yanka = document.querySelector('.yanka-head')
         let yankAfter =window.getComputedStyle(yanka,'::after')
@@ -535,21 +541,17 @@ function Theme() {
         <div className="products">
             <div className="owl-product-main">
                 <OwlCarousel className='owl-theme' {...product}>
-                    <div className="first-product">
-                        <p className="first-one">NEED-IT-NOW</p>
-                        <h2 className="second-one">Must-haves <br />for the Season</h2>
-                        <p>Here to bring your life stylle to next level</p>
-                    </div>
-                    <div className="first-product-2">
-                        <p className="first-one">NEED-IT-NOW</p>
-                        <h2 className="second-one">Must-haves <br />for the Season</h2>
-                        <p>Here to bring your life stylle to next level</p>
-                    </div>
-                    <div className="first-product-3">
-                        <p className="first-one">NEED-IT-NOW</p>
-                        <h2 className="second-one">Must-haves <br />for the Season</h2>
-                        <p>Here to bring your life stylle to next level</p>
-                    </div>
+                    {ProductDynamic.map((product,index)=>{
+                        return(
+                            <div className="first-product" style={{backgroundImage:`url(${imagePath(`${product.src}`)})`}} >
+                             <p className="first-one">{product.head}</p>
+                             <h2 className="second-one">{product.desc1} <br />{product.desc2}</h2>
+                             <p>{product.para}</p>
+                            </div>
+                        )
+                    })}
+
+                    
                 </OwlCarousel>
             </div>
             
