@@ -43,8 +43,8 @@ function Navbar() {
         <div className="dropdown">
           <a  href=""><User/></a>
           <ul className="dropdown-menu">
-            <li  ><a className='slide' href="#"> Login</a></li>
-            <Link style={{textDecoration:"none"}} to='/about'><li><a className='slide' href="">Register </a></li></Link>
+            <Link style={{textDecoration:"none"}} to='/user_login'><li  ><a className='slide' href="#"> Login</a></li></Link> 
+            <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">Register </a></li></Link>
           </ul>
         </div>
         <a href=""><Love/></a>

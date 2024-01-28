@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./Pages/Register";
 import Home from "./Components/Home/Home";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -21,7 +22,10 @@ function App() {
           <Route Component={Home} exact path='/' />
         </Routes>
         <Routes>
-          <Route Component={Register} path="/about" />
+          <Route Component={Register} path="/user_register" />
+        </Routes>
+        <Routes>
+          <Route Component={Login} path="/user_login" />
         </Routes>
       </Router>
     </div>
