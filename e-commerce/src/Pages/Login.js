@@ -10,10 +10,9 @@ function Login() {
     const navigate=useNavigate()
     const[userLogin,setUserLogin]=useState([])
 
-   
-
-
-
+    var IsLoggedIn = new Boolean(false);
+    var IsLoggedIn = new Boolean(true);
+    
     const userLoginClick=(()=>{
         let uEmail=email.current.value
         let uPassword=userPassword.current.value
@@ -26,14 +25,21 @@ function Login() {
         
         fNameParse.map((userDetails)=>{
           if (uEmail==userDetails.email && uPassword==userDetails.password) {
-            console.log("succes");
-           
             navigate('/')
-          }else{
-            console.log("error");
-            
+            IsLoggedIn=true
+            window.alert("success")
           }
+          else{
+            IsLoggedIn=false
+          }
+
         })
+        if(IsLoggedIn=false){
+          window.alert("failed")
+        }
+        
+        
+        
 
        
         

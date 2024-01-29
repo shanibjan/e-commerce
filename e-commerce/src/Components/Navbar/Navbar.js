@@ -21,6 +21,14 @@ function Navbar() {
     }
     const[language,setLanguage]=useState("Mal","Fre")
   console.log(language);
+
+  const fNameParse=JSON.parse(localStorage.getItem("user_registration"))
+  console.log(fNameParse);
+
+
+  
+        
+        
     
   return (
     <div className='navbar' >
@@ -40,11 +48,19 @@ function Navbar() {
             <li className='account-det' ><a href="" className="lang">Register</a></li>
           </ul>
         </div> */}
+        {fNameParse.map((details)=>{
+            console.log(details.name);
+            return (
+              <h4>{details.name}</h4>
+            )
+        })}
+        
         <div className="dropdown">
           <a  href=""><User/></a>
           <ul className="dropdown-menu">
             <Link style={{textDecoration:"none"}} to='/user_login'><li  ><a className='slide' href="#"> Login</a></li></Link> 
             <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">Register </a></li></Link>
+            <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">Logout </a></li></Link>
           </ul>
         </div>
         <a href=""><Love/></a>
