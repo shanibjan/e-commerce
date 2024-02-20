@@ -11,21 +11,24 @@ import { faChevronDown,faStar } from '@fortawesome/free-solid-svg-icons'
 import Language from '../Language/Language'
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
+import Login from '../../Pages/Login'
 
 
-function Navbar() {
+function Navbar({userName}) {
+  const [userLogin, setUserLogin] = useState([]);
+  console.log(userName);
     const shadowClick=()=>{
         document.querySelector('.placeSearch').style.boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
         document.querySelector('.placeSearch').style.transition="2s cubic-bezier(0.075, 0.82, 0.165, 1)"
 
     }
-    const[language,setLanguage]=useState("Mal","Fre")
-  console.log(language);
-
-  const fNameParse=JSON.parse(localStorage.getItem("user_registration"))
-  console.log(fNameParse);
-
-
+  const userLogOut=()=>{
+    console.log(userName.key);
+    setUserLogin(false)
+  }
+    
+    
+    
   
         
         
@@ -48,19 +51,19 @@ function Navbar() {
             <li className='account-det' ><a href="" className="lang">Register</a></li>
           </ul>
         </div> */}
-        {fNameParse.map((details)=>{
-            console.log(details.name);
-            return (
-              <h4>{details.name}</h4>
-            )
-        })}
+        {/* {
+          userLogin.map((userReg)=>{
+            console.log(userReg.email);
+          })
+        } */}
         
         <div className="dropdown">
+         {<h2 className='user-name' >{userName ? userName.state.name : null }</h2>} 
           <a  href=""><User/></a>
           <ul className="dropdown-menu">
-            <Link style={{textDecoration:"none"}} to='/user_login'><li  ><a className='slide' href="#"> Login</a></li></Link> 
-            <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">Register </a></li></Link>
-            <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">Logout </a></li></Link>
+            <Link style={{textDecoration:"none"}} to='/user_login'><li  ><a className='slide' href="#">{userName ? null : 'Login'}</a></li></Link> 
+            <Link style={{textDecoration:"none"}} to='/user_register'><li><a className='slide' href="">{userName ? null : 'Register'} </a></li></Link>
+            <Link style={{textDecoration:"none"}} to='/user_login' ><li><a className='slide' href="" onClick={userLogOut} >Logout </a></li></Link>
           </ul>
         </div>
         <a href=""><Love/></a>

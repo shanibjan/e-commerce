@@ -1,4 +1,5 @@
 import React from "react";
+import {useLocation} from 'react-router-dom';
 import Collections from "../Collections/Collections";
 import Dresses from "../Dresses/Dresses";
 import Footer from "../Footer/Footer";
@@ -9,17 +10,19 @@ import Reviews from "../Reviews/Reviews";
 import Theme from "../Theme/Theme";
 
 function Home() {
+  const location = useLocation();
+  console.log(location.state.name);
   return (
     <div>
       <Header />
-      <Navbar />
-
+      <Navbar userName={location}/>
       <Theme />
       <Dresses />
       <Products />
       <Collections />
       <Reviews />
       <Footer />
+      
     </div>
   );
 }

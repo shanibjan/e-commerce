@@ -144,5 +144,8 @@ a.lang p{
     50%{opacity: 0;}
     100%{transform: translateY(0px); opacity: 1;}
 }
-
+.user-name{
+  color: #333;
+  font-size: large;
+}
   

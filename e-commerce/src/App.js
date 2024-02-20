@@ -25,7 +25,7 @@ function App() {
           <Route Component={Register} path="/user_register" />
         </Routes>
         <Routes>
-          <Route Component={Login} path="/user_login" />
+          <Route  Component={Login} path="/user_login" />
         </Routes>
       </Router>
     </div>

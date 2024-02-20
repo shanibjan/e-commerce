@@ -1,6 +1,6 @@
 import React from "react";
 import './Register.css'
-import { Outlet,Link,useNavigate } from "react-router-dom";
+import { Outlet,Link,useNavigate ,useLocation} from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 
 const Register = () => {
+  
   const navigate=useNavigate()
   let userFirstName=useRef()
   let userLastName=useRef()
@@ -53,7 +54,7 @@ const Register = () => {
     setTimeout(()=>{
       console.log("hi");
       window.alert('ji')
-      navigate('/')
+      navigate('/user_login')
     },1000)
     
     
