@@ -29,9 +29,11 @@ div.placeSearch input{
     
 }
 div.cart{
-    display: flex;
-    padding: 6px 0 0;
-    position: relative;
+  display: flex;
+  padding: 6px 0 0;
+  position: relative;
+  width: 31%;
+  justify-content: space-between;
 }
 div.cart samp.cart-count {
     font-family: inherit;
@@ -63,9 +65,9 @@ div.account ul{
 li.account-det{
     margin-top: 13px;
 }
-div.cart a{
+/* div.cart a{
     margin-left: 12px;
-}
+} */
 a.lang{
     text-decoration: none;
     display: flex;
@@ -99,16 +101,17 @@ a.lang p{
     background-color: #fff;
     list-style-type: none;
     display: block;
-    padding: 18px 71px;
+    padding: 12px 50px;
     position: absolute;
-    left: -125px;
+    left: -75px;
     opacity: 0;
     text-align: left;
     top: 20px;
     visibility: hidden;
     z-index: -99999;
-    transition:.03s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: .03s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
    
   }
   .lang-main{
@@ -118,7 +121,6 @@ a.lang p{
     text-decoration: none;
     color: #787676;
     display: block;
-    margin-top: 15px;
     font-weight: 400;
     font-family: 'Gordita Light', sans-serif;
   }
@@ -147,5 +149,6 @@ a.lang p{
 .user-name{
   color: #333;
   font-size: large;
+  margin-right: 8%;
 }
   

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
 
 
 function Login () {
+  const location=useLocation()
   const email = useRef();
   const userPassword = useRef();
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ function Login () {
   return (
     <>
       <Header />
-      <Navbar  />
+      <Navbar userName={location} />
       <div className="register">
         <h1>Login Account</h1>
         <h2>Personal Information</h2>

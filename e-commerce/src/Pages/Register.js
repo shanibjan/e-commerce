@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 
 const Register = () => {
-  
+  const location=useLocation()
   const navigate=useNavigate()
   let userFirstName=useRef()
   let userLastName=useRef()
@@ -69,7 +69,7 @@ const Register = () => {
   return (
     <>
       <Header />
-      <Navbar />
+      <Navbar userName={location} />
       <div className="register">
         <h1>Create an Account</h1>
         <h2>Personal Information</h2>
