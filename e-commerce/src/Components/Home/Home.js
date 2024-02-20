@@ -11,6 +11,7 @@ import Theme from "../Theme/Theme";
 
 function Home() {
   const location = useLocation();
+  console.log(location);
   return (
     <div>
       <Header />
