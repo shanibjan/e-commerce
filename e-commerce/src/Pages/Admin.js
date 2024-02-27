@@ -140,7 +140,7 @@ function Admin() {
                 <div className="admin-product-details">
             <div className="admin-image-wrapper-pro">
               <img src={img ? img.url : null} className="admin-image" alt="normal" />
-              <img src={img ? img.url : null} className="admin-image-hover" alt="hover" />
+              <img src={img ? img.url2 : null} className="admin-image-hover" alt="hover" />
 
               <div className="admin-items-hover">
                 <a href="">
