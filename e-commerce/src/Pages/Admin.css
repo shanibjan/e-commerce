@@ -1,0 +1,213 @@
+.admin-main{
+    display: flex;
+    padding: 4% 3%;
+}
+.admin-left{
+    width: 23%;
+    font-family: 'Gordita Bold';
+}
+.admin-ul{
+    list-style: none;
+    padding: 2% 8%;
+    border: 1px solid #E9E7E7;
+    display: grid;
+}
+.admin-heading{
+    display: flex;
+    background-color: #48CAB2;
+    padding: 7% 8%;
+    color: #fff;
+}
+.admin-li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.admin-setting{
+    display: flex;
+    text-decoration: none;
+    color: #191919;
+    
+    margin: 8% 0;
+    align-items: center;
+    font-size: 15px;
+    
+}
+.admin-setting:hover{
+    color: #48CAB2;
+    transition:1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.admin-right{
+ 
+    width: 75%;
+}
+.admin-image-wrapper-pro {
+  position: relative;
+  height: 300px;
+}
+.admin-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* transition:  1.5s cubic-bezier(0.075, 0.82, 0.165, 1); */
+}
+.admin-image-hover {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 100%;
+  object-fit: cover;
+  /* transition:  5s cubic-bezier(0.075, 0.82, 0.165, 1); */
+  
+}
+.admin-image-hover:hover {
+  opacity: 1;
+  transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+}
+.admin-top-offer{
+  position: absolute;
+  top: 11px;
+  left: 11px;
+ 
+  
+}
+.admin-product-ad{
+  background-color: #327FD9;
+  color: aliceblue;
+  font-family: 'Gordita Bold';
+  font-size: 11px;
+  padding: 9% 11% 5%;
+  display: inline-block;
+}
+.admin-rating-star{
+  letter-spacing: 5px;
+}
+.admin-red-offer{
+  background-color: #E12C43;
+}
+.admin-product-upper{
+  /* display: flex;
+  justify-content: space-evenly; */
+  
+}
+.admin-product-details{
+    display: inline-block;
+    width: 23%;
+    margin: 0% 4%;
+    text-align: left;
+    margin-bottom: 10%;
+  }
+  .admin-brand{
+    display: block;
+    color: grey;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 2% 0;
+  }
+  .admin-brand:hover,.brand-details:hover{
+    text-decoration: underline;
+  }
+  .admin-stars{
+    color: #ebca2e;
+    margin: 4% 0;
+  }
+  .admin-brand-details{
+    color: rgb(6, 6, 6);
+    text-decoration: none;
+    margin-bottom: 2%;
+  }
+  .admin-items-hover{
+    transition: 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 39%;
+    font-size: 25px;
+
+  }
+  /* .variants{
+    display: flex;
+  }
+  .variant{
+    width: 12px;
+    height: 20px;
+    background-color: aquamarine;
+    margin: 4% 0;
+  } */
+  .admin-carts{
+    position: relative;
+    margin: 5% 0;
+    
+    
+  }
+  .admin-first-cart{
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 5%;
+   
+    
+   
+  }
+  .admin-left-cart{
+    background-color:#48CAB2 ;
+    padding: 2% 3%;
+    
+  }
+  .admin-left-cart a{
+    
+  }
+  .admin-right-cart{
+    padding: 4%;
+  }
+  .admin-right-cart a{
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 900;
+    color: #48CAB2;
+  }
+  .admin-second-cart{
+
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    align-items: center;
+    padding: 2% 3%;
+    background-color: #48CAB2;
+    position: absolute;
+    top: 0;
+    
+    
+  }
+  .admin-second-cart:hover{
+    background-color: black;
+    transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  @keyframes slideRight{
+    0%{  opacity: 1;}
+    25%{  opacity: 1;}
+    50%{opacity: 1;}
+    75%{  opacity: 1;}
+    100%{ opacity: 0;}
+}
+  .admin-second-cart-left{
+  
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    
+
+  }
+  .admin-second-cart-right{
+  
+    transition: .9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .admin-second-cart p{
+    transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    color: aliceblue;
+  }

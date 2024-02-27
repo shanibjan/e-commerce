@@ -4,17 +4,18 @@ import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
 
-
-function Login () {
-  const location=useLocation()
+function Login() {
+  const location = useLocation();
   const email = useRef();
   const userPassword = useRef();
   const navigate = useNavigate();
   const [userLogin, setUserLogin] = useState([]);
+  
 
-  var IsLoggedIn = false;
+ 
 
   const userLoginClick = () => {
+    var IsLoggedIn = false;
     let uEmail = email.current.value;
     let uPassword = userPassword.current.value;
     email.current.value = null;
@@ -22,19 +23,24 @@ function Login () {
       return [...login, { email: uEmail, password: uPassword }];
     });
     const fNameParse = JSON.parse(localStorage.getItem("user_registration"));
-
-    fNameParse.map((userDetails) => {
-      if (uEmail == userDetails.email && uPassword == userDetails.password) {
-        console.log(userDetails.name);
-        navigate("/",{state:{name:userDetails.name}});
-        IsLoggedIn = true;
-        window.alert("success");
+    if(fNameParse !=null){
+      fNameParse.map((userDetails) => {
+        if (uEmail == userDetails.email && uPassword == userDetails.password ) {
+          console.log(userDetails.name);
+          navigate("/", { state: { name: userDetails.name } });
+          IsLoggedIn = true;
+          window.alert("success");
+        }
+        
+      });
+  
+      if (IsLoggedIn == false ) {
+        window.alert("failed");
       }
-    });
-
-    if (IsLoggedIn == false) {
-      window.alert("failed");  
+    }else{
+      window.alert('No user found')
     }
+    
   };
   return (
     <>
@@ -57,6 +63,15 @@ function Login () {
           <label htmlFor="">Password</label>
           <br />
           <input ref={userPassword} type="password" placeholder="Password" />
+          <br />
+          <input
+            type="file"
+            id="myFile"
+            name="filename"
+            
+          />
+          <br />
+          <img src="" id="jan" alt="" />
         </div>
         <a onClick={userLoginClick} className="create">
           <p>LOGIN</p>
@@ -67,9 +82,7 @@ function Login () {
             Or Return to Home
           </a>
         </Link>
-        {
-          
-        }
+        {}
       </div>
       <Footer />
       <Outlet />

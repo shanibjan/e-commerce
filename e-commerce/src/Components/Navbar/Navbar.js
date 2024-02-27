@@ -10,11 +10,12 @@ import { faChevronDown, faStar } from "@fortawesome/free-solid-svg-icons";
 // import Language from './Components/Language/Language';
 import Language from "../Language/Language";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Login from "../../Pages/Login";
 
 function Navbar({ userName }) {
   const [userLogin, setUserLogin] = useState([]);
+  const navigate=useNavigate()
   console.log(userName);
   const shadowClick = () => {
     document.querySelector(".placeSearch").style.boxShadow =
@@ -23,8 +24,10 @@ function Navbar({ userName }) {
       "2s cubic-bezier(0.075, 0.82, 0.165, 1)";
   };
   const userLogOut = () => {
-   localStorage.clear()
+   setUserLogin(false)
+  //  localStorage.clear()
   };
+  
 
   return (
     <div className="navbar">
@@ -35,9 +38,11 @@ function Navbar({ userName }) {
         <input type="text" placeholder="Search..." />
         <FontAwesomeIcon icon={faSearch} />
       </div>
+      <div className="user-details-nav" >
+      {<h2 className="user-name">{userName.state !=null ? userName.state.name : null}</h2>}
+      </div>
       <div className="cart">
         <div className="dropdown">
-          {<h2 className="user-name">{userName.state !=null ? userName.state.name : null}</h2>}
           <a href="">
             <User />
           </a>
@@ -59,7 +64,14 @@ function Navbar({ userName }) {
             <Link style={{ textDecoration: "none" }} to="/user_login">
               <li>
                 <a className="slide" href="" onClick={userLogOut}>
-                  {userName.state !=null ? "Logout" : null}{" "}
+                  {userName.state !=null ? "Logout" : null}
+                </a>
+              </li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/admin"  >
+              <li>
+                <a className="slide" href="" >
+                  {userName.state !=null ? null : "Admin"}
                 </a>
               </li>
             </Link>

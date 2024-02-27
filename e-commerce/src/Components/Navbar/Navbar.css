@@ -32,7 +32,7 @@ div.cart{
   display: flex;
   padding: 6px 0 0;
   position: relative;
-  width: 31%;
+  width: 26%;
   justify-content: space-between;
 }
 div.cart samp.cart-count {
@@ -47,7 +47,7 @@ div.cart samp.cart-count {
     padding: 0 5px;
     border-radius: 50%;
     top: -7px;
-    right: 110px;
+    right: 148px;
     font-weight: 800;
     position: absolute;
 }
@@ -150,5 +150,9 @@ a.lang p{
   color: #333;
   font-size: large;
   margin-right: 8%;
+}
+.user-details-nav{
+  align-items: center;
+  display: flex;
 }
   

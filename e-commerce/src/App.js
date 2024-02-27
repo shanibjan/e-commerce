@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./Pages/Register";
 import Home from "./Components/Home/Home";
 import Login from "./Pages/Login";
+import Admin from "./Pages/Admin";
+import Create from "./Pages/Create";
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={Login} path="/user_login" />
+        </Routes>
+        <Routes>
+          <Route  Component={Admin} path="/admin" />
+        </Routes>
+        <Routes>
+          <Route  Component={Create} path="/create-product" />
         </Routes>
       </Router>
     </div>

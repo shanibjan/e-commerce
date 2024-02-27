@@ -142,13 +142,13 @@
     background-color: black;
     transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
-  @keyframes slideRight{
+  /* @keyframes slideRight{
     0%{  opacity: 1;}
     25%{  opacity: 1;}
     50%{opacity: 1;}
     75%{  opacity: 1;}
     100%{ opacity: 0;}
-}
+} */
   .second-cart-left{
   
     transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
