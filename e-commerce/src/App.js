@@ -15,6 +15,7 @@ import Home from "./Components/Home/Home";
 import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";
 import Create from "./Pages/Create";
+import ViewProduct from "./Pages/viewProduct";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={Create} path="/create-product" />
+        </Routes>
+        <Routes>
+          <Route  Component={ViewProduct} path="/view-product" />
         </Routes>
       </Router>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Admin.css";
 // import "../Components/Products/Products.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,11 +16,6 @@ import Plus from "../assets/Plus";
 function Admin() {
   const fNameParse = JSON.parse(localStorage.getItem("image"));
   console.log(fNameParse);
-
-  //   if(images !=null){
-  //     console.log("image und");
-  // let adminImage=document.querySelector('.admin-image')
-  // adminImage.src=localStorage.getItem("image")
 
   const location = useLocation();
   useEffect(() => {
@@ -132,71 +127,77 @@ function Admin() {
           </ul>
         </div>
         <div className="admin-right">
-          
-          { 
-          
-            fNameParse ? fNameParse.map((img) => {
-              return(
-                <div className="admin-product-details">
-            <div className="admin-image-wrapper-pro">
-              <img src={img ? img.url : null} className="admin-image" alt="normal" />
-              <img src={img ? img.url2 : null} className="admin-image-hover" alt="hover" />
+          {fNameParse
+            ? fNameParse.map((img) => {
+                return (
+                  <div className="admin-product-details">
+                    <div className="admin-image-wrapper-pro">
+                      <img
+                        src={img ? img.url : null}
+                        className="admin-image"
+                        alt="normal"
+                      />
+                      <img
+                        src={null}
+                        className="admin-image-hover"
+                        alt="hover"
+                      />
 
-              <div className="admin-items-hover">
-                <a href="">
-                  <Love />
-                </a>
-                <a href="">
-                  <Compare />
-                </a>
-                <a href="">
-                  <Plus />
-                </a>
-              </div>
-              <div className="admin-top-offer">
-                <h2 className="admin-product-ad">{img.tag}</h2>
-              </div>
-            </div>
-            <div className="admin-stars">
-              <h2 className="admin-rating-star">{img.rating}</h2>
-            </div>
-            <a href="" className="admin-brand">
-              {img ? img.brand : null}
-            </a>
-            <a href="" className="admin-brand-details">
-              {img ? img.brandValue : null}
-            </a>
-            <div className="admin-variants">
-              <span className="admin-variant"></span>
-              <span className="admin-variant black"></span>
-            </div>
-            <a className="admin-carts">
-              <div className="admin-first-cart">
-                <div className="admin-left-cart">
-                  <a href="">
-                    <Cart2 />
-                  </a>
-                </div>
-                <div className="admin-right-cart">
-                  <a href="">$ {img ? img.brandPrice : null}</a>
-                </div>
-              </div>
+                      <div className="admin-items-hover">
+                        <a href="">
+                          <Love />
+                        </a>
+                        <a href="">
+                          <Compare />
+                        </a>
+                        <a href="">
+                          <Plus />
+                        </a>
+                      </div>
+                      <div className="admin-top-offer">
+                        <h2 className="admin-product-ad">{img.tag}</h2>
+                      </div>
+                    </div>
+                    <div className="admin-stars">
+                      <h2 className="admin-rating-star">{img.rating}</h2>
+                    </div>
+                    <a href="" className="admin-brand">
+                      {img ? img.brand : null}
+                    </a>
+                    <a href="" className="admin-brand-details">
+                      {img ? img.brandValue : null}
+                    </a>
+                    <div className="admin-variants">
+                      <span className="admin-variant"></span>
+                      <span className="admin-variant black"></span>
+                    </div>
+                    <a className="admin-carts">
+                      <div className="admin-first-cart">
+                        <div className="admin-left-cart">
+                          <a href="">
+                            <Cart2 />
+                          </a>
+                        </div>
+                        <div className="admin-right-cart">
+                          <a href="">$ {img ? img.brandPrice : null}</a>
+                        </div>
+                      </div>
 
-              <div className="admin-second-cart">
-                <div className="admin-second-cart-left">
-                  <a href="">
-                    <Cart2 />
-                  </a>
-                </div>
-                <div className="admin-second-cart-right">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-            </a>
-          </div>
-              )
-          }) : "No Items Added Yet...."}
-          
+                      <div className="admin-second-cart">
+                        <div className="admin-second-cart-left">
+                          <a  href="">
+                            <Cart2 />
+                          </a>
+                        </div>
+                        <div className="admin-second-cart-right">
+                          <p>Add To Cart</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })
+            : "No Items Added Yet...."}
         </div>
       </div>
     </>

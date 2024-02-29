@@ -1,0 +1,52 @@
+.product-view{
+    display: flex;
+    /* margin: 0 auto; */
+    justify-content: space-evenly;
+}
+.details-product-view{
+    font-family: 'Gordita Bold';
+}
+.right-view{
+    width: 34%;
+    text-align: left;
+    margin: 0 auto;
+    align-items: center;
+    display: inline-grid;
+}
+.left-view{
+    width: 44%;
+    height: 600px;
+    margin: 0 auto;
+}
+.left-view img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.price-view{
+    color: #48CAB2;
+    
+}
+.add-to-cart{
+    background: black;
+    padding: 3% 6%;
+    width: 56%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.add-to-cart:hover{
+    background-color: #48CAB2;
+    transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.add-to-cart-text{
+    text-decoration: none;
+    color: aliceblue;
+}
+.cart-add{
+    margin: 0 2%;
+}
+.star-rating{
+    color: #ebca2e;
+}

@@ -17,7 +17,7 @@ function Home() {
       <Navbar userName={location}/>
       <Theme />
       <Dresses />
-      <Products />
+      <Products userName={location} />
       <Collections />
       <Reviews />
       <Footer />

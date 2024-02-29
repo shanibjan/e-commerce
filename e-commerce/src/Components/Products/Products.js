@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Products.css";
 import {
   faStar,
@@ -13,55 +13,32 @@ import Compare from "../../assets/Compare";
 import Plus from "../../assets/Plus";
 import { useEffect } from "react";
 import imagePath from "../assetHelper/assetHelper.js";
+import { useNavigate } from "react-router-dom";
 
-function Products() {
-  let productsDynamic = [
-    {
-      img1: "product-3.jpeg",
-      img2: "product-4.jpeg",
-      brand: "NIKE",
-      brandValue: "NOTHING IS IMPOSSIBLE",
-      price: "250.00",
-      rating: "★★★★",
-      ad: "TOP",
-    },
-    {
-      img1: "product-5.jpeg",
-      img2: "product-6.jpeg",
-      brand: "PUMA",
-      brandValue: "FOREVER FASTER IS ALWAYS ",
-      price: "350.00",
-      rating: "★★",
-      ad: "",
-    },
-    {
-      img1: "product-1.jpeg",
-      img2: "product-2.jpeg",
-      brand: "ADIDAS",
-      brandValue: "RISK EVERYTHING ",
-      price: "375.00",
-      rating: "★★★",
-      ad: "NEW",
-    },
-    {
-      img1: "product-7.jpeg",
-      img2: "collection-2.jpeg",
-      brand: "GUCCI",
-      brandValue: "LUXURY FOR THE BEST",
-      price: "975.00",
-      rating: "★★★★★",
-      ad: "FEATURED",
-    },
-    {
-      img1: "product-7.jpeg",
-      img2: "collection-2.jpeg",
-      brand: "GUCCI",
-      brandValue: "LUXURY FOR THE BEST",
-      price: "975.00",
-      rating: "★★★★★",
-      ad: "FEATURED",
-    },
-  ];
+function Products({userName}) {
+  const navigate=useNavigate()
+  console.log(userName);
+  const[postDetails,setPostDetails]=useState()
+  const fNameParse = JSON.parse(localStorage.getItem("image"));
+  console.log(fNameParse);
+
+
+  const rudh=()=>{
+    // console.log(userName.state.name);
+    if(userName.state !=null){
+      setTimeout(()=>{
+        navigate('/view-product',{ state: { name: userName.state.name } })
+      },1000)
+    }else{
+      navigate('/view-product')
+    }
+  }
+  
+
+  useEffect(()=>{
+    localStorage.setItem("post", JSON.stringify(postDetails));
+  },[postDetails])
+  
   
 
   useEffect(() => {
@@ -112,13 +89,18 @@ function Products() {
     <div className="product">
       <h1>Top Products of This Week</h1>
       <div className="product-upper">
-        {productsDynamic.map((product, index) => {
+        {
+          fNameParse  ? fNameParse.map((product, index) => {
           return (
-            <div className="product-details">
+            <div onClick={()=>{
+              setPostDetails(product)
+                setTimeout(()=>{
+                  navigate('/view-product')
+                },1000)
+              }} className="product-details">
               <div className="image-wrapper-pro">
                 <img
-                  key={`${product.img1}`}
-                  src={`${imagePath(product.img1)}`}
+                  src={product ? product.url : null}
                   className="image"
                   alt="normal"
                 />
@@ -141,8 +123,8 @@ function Products() {
                   </a>
                 </div>
                 <div className="top-offer">
-                  <h2 key={`${product.ad}`} className="product-ad">
-                    {product.ad}
+                  <h2 className="product-ad">
+                    {product.tag}
                   </h2>
                 </div>
               </div>
@@ -174,7 +156,7 @@ function Products() {
                   </div>
                   <div className="right-cart">
                     <a key={`${product.price}`} href="">
-                      ${product.price}
+                      ${product.brandPrice}
                     </a>
                   </div>
                 </div>
@@ -192,7 +174,8 @@ function Products() {
               </a>
             </div>
           );
-        })}
+        }):"no items added"}
+        <button onClick={rudh} >haai</button>
       </div>
     </div>
   );

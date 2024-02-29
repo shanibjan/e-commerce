@@ -25,26 +25,29 @@ function Create() {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
   const jan = () => {
-    let imageLoader = URL.createObjectURL(image);
-    let imageLoader2 = URL.createObjectURL(imageHover);
+    const reader=new FileReader(image)
+    
+    console.log(reader);
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
     let uBrandPrice = brandPrice.current.value;
-
-    setCreateProduct((productCopy) => {
-      return [
-        ...productCopy,
-        {
-          url: imageLoader,
-          url2: imageLoader2,
-          brand: uBrand,
-          brandValue: uBrandValue,
-          brandPrice: uBrandPrice,
-          rating: rating,
-          tag: tag,
-        },
-      ];
-    });
+      reader.addEventListener('load',()=>{
+        let imageLoader =reader.result;
+        setCreateProduct((productCopy) => {
+          return [
+            ...productCopy,
+            {
+              url: imageLoader,
+              brand: uBrand,
+              brandValue: uBrandValue,
+              brandPrice: uBrandPrice,
+              rating: rating,
+              tag: tag,
+            },
+          ];
+        });
+      })
+    reader.readAsDataURL(image)
 
     setTimeout(() => {
       navigate("/admin");
@@ -53,7 +56,7 @@ function Create() {
 
   return (
     <>
-      <Header />
+      <Header  />
       <Navbar userName={location} />
       <div className="create-product">
         <h1>Create a Product</h1>
@@ -119,7 +122,7 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp"
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
             onChange={(e) => {
               setImage(e.target.files[0]);
             }}
