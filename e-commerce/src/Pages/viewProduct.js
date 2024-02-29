@@ -18,14 +18,19 @@ function ViewProduct() {
       <Navbar userName={location} />
       <div className="product-view">
         <div className="left-view">
-          <img src={postView.url} alt="" />
+          <img src={ postView ? postView.url : null} alt="" />
         </div>
         <div className="right-view">
           <div className="details-product-view">
-            <h1>{postView.brand}</h1>
-            <h2>{postView.brandValue}</h2>
-            <h2 className="price-view">$  {postView.brandPrice}/-</h2>
-            <h2 className="star-rating" >{postView.rating}</h2>
+            <h1>{postView ? postView.brand : null}</h1>
+            <h2>{postView ? postView.brandValue : null}</h2>
+            <h2 className="price-view">$  {postView ? postView.brandPrice : null}/-</h2>
+            <h2 className="star-rating" >{postView ? postView.rating : null}</h2>
+            <div className="product-category">
+              <p className="p-category" >Categrories:</p>
+              <p>{postView ? postView.category : null}</p>
+            </div>
+            <p className="desc-prod" >{postView ? postView.description : null}</p>
           </div>
           <div className="add-to-cart">
             <a className="cart-add" href="">

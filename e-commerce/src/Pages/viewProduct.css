@@ -2,19 +2,20 @@
     display: flex;
     /* margin: 0 auto; */
     justify-content: space-evenly;
+    padding: 0 7%;
 }
 .details-product-view{
     font-family: 'Gordita Bold';
 }
 .right-view{
-    width: 34%;
+    width: 50%;
     text-align: left;
     margin: 0 auto;
     align-items: center;
     display: inline-grid;
 }
 .left-view{
-    width: 44%;
+    width: 40%;
     height: 600px;
     margin: 0 auto;
 }
@@ -49,4 +50,15 @@
 }
 .star-rating{
     color: #ebca2e;
+}.product-category{
+    display: flex;
+    margin: 4% 0;
+}
+.p-category{
+    font-family: 'Gordita Regular';
+    margin-right: 2%;
+}
+.desc-prod{
+    font-family: 'Gordita Regular';
+    color: #787676;
 }

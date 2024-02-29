@@ -8,6 +8,8 @@ function Create() {
   const brandName = useRef();
   const brandValue = useRef();
   const brandPrice = useRef();
+  const brandDesc = useRef();
+  const brandCategory = useRef();
   const navigate = useNavigate();
   const location = useLocation();
   const [createProduct, setCreateProduct] = useState([]);
@@ -20,43 +22,63 @@ function Create() {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
     if (fNameParse) setCreateProduct(fNameParse);
   }, []);
+  let imageLoader;
+  let imageLoaderHover;
+  
 
   useEffect(() => {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
   const jan = () => {
-    const reader=new FileReader(image)
-    
-    console.log(reader);
+    const reader2 = new FileReader(imageHover);
+
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
     let uBrandPrice = brandPrice.current.value;
-      reader.addEventListener('load',()=>{
-        let imageLoader =reader.result;
-        setCreateProduct((productCopy) => {
-          return [
-            ...productCopy,
-            {
-              url: imageLoader,
-              brand: uBrand,
-              brandValue: uBrandValue,
-              brandPrice: uBrandPrice,
-              rating: rating,
-              tag: tag,
-            },
-          ];
-        });
-      })
-    reader.readAsDataURL(image)
+    let uBrandCategory = brandCategory.current.value;
+    let uBrandDesc = brandDesc.current.value;
 
-    setTimeout(() => {
-      navigate("/admin");
-    }, 1000);
+    reader2.addEventListener("load", () => {
+      imageLoaderHover = reader2.result;
+      console.log(imageLoaderHover);
+      console.log(imageLoader);
+
+      // setCreateProduct((productCopy) => {
+      //   return [
+      //     ...productCopy,
+      //     {
+      //       url: imageLoader,
+      //       urlHover: imageLoaderHover,
+      //       brand: uBrand,
+      //       brandValue: uBrandValue,
+      //       brandPrice: uBrandPrice,
+      //       rating: rating,
+      //       tag: tag,
+      //       category: uBrandCategory,
+      //       description: uBrandDesc,
+      //     },
+      //   ];
+      // });
+    });
+
+    reader2.readAsDataURL(imageHover);
+
+    // setTimeout(() => {
+    //   navigate("/admin");
+    // }, 1000);
   };
+  useEffect(() => {
+    const reader = new FileReader(image);
+    reader.addEventListener("load", () => {
+      imageLoader = reader.result;
+      console.log(imageLoader);
+    });
+    reader.readAsDataURL(image);
+  }, jan);
 
   return (
     <>
-      <Header  />
+      <Header />
       <Navbar userName={location} />
       <div className="create-product">
         <h1>Create a Product</h1>
@@ -102,9 +124,27 @@ function Create() {
           <br />
           <input ref={brandName} type="text" placeholder="Brand name..." />
           <br />
+          <label htmlFor="">Categories</label>
+          <br />
+          <input
+            ref={brandCategory}
+            type="text"
+            placeholder="Brand categories..."
+          />
+          <br />
           <label htmlFor="">Brand value</label>
           <br />
           <input ref={brandValue} type="text" placeholder="Brand value..." />
+          <br />
+          <label htmlFor="">Description</label>
+          <br />
+          <input
+            ref={brandDesc}
+            type="text"
+            min="0"
+            max="500"
+            placeholder="Brand value..."
+          />
           <br />
           <label htmlFor="">Price</label>
           <br />

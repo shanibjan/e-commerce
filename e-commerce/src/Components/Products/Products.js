@@ -23,16 +23,7 @@ function Products({userName}) {
   console.log(fNameParse);
 
 
-  const rudh=()=>{
-    // console.log(userName.state.name);
-    if(userName.state !=null){
-      setTimeout(()=>{
-        navigate('/view-product',{ state: { name: userName.state.name } })
-      },1000)
-    }else{
-      navigate('/view-product')
-    }
-  }
+  
   
 
   useEffect(()=>{
@@ -95,8 +86,13 @@ function Products({userName}) {
             <div onClick={()=>{
               setPostDetails(product)
                 setTimeout(()=>{
-                  navigate('/view-product')
-                },1000)
+                  if(userName.state !== null){
+                    navigate('/view-product',{ state: { name: userName.state.name } })
+                  }else{
+                    navigate('/view-product')
+                  }
+                  
+                },100)
               }} className="product-details">
               <div className="image-wrapper-pro">
                 <img
@@ -106,7 +102,7 @@ function Products({userName}) {
                 />
                 <img
                   key={`${product.img2}`}
-                  src={`${imagePath(product.img2)}`}
+                  src={product ? product.urlHover : null}
                   className="image-hover"
                   alt="hover"
                 />
@@ -175,7 +171,7 @@ function Products({userName}) {
             </div>
           );
         }):"no items added"}
-        <button onClick={rudh} >haai</button>
+       
       </div>
     </div>
   );
