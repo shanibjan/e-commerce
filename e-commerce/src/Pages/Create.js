@@ -22,15 +22,14 @@ function Create() {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
     if (fNameParse) setCreateProduct(fNameParse);
   }, []);
-  let imageLoader;
-  let imageLoaderHover;
-  
 
   useEffect(() => {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
+
   const jan = () => {
-    const reader2 = new FileReader(imageHover);
+    const reader = new FileReader();
+    const reader2 = new FileReader();
 
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
@@ -38,43 +37,54 @@ function Create() {
     let uBrandCategory = brandCategory.current.value;
     let uBrandDesc = brandDesc.current.value;
 
-    reader2.addEventListener("load", () => {
-      imageLoaderHover = reader2.result;
-      console.log(imageLoaderHover);
-      console.log(imageLoader);
-
-      // setCreateProduct((productCopy) => {
-      //   return [
-      //     ...productCopy,
-      //     {
-      //       url: imageLoader,
-      //       urlHover: imageLoaderHover,
-      //       brand: uBrand,
-      //       brandValue: uBrandValue,
-      //       brandPrice: uBrandPrice,
-      //       rating: rating,
-      //       tag: tag,
-      //       category: uBrandCategory,
-      //       description: uBrandDesc,
-      //     },
-      //   ];
-      // });
+    setCreateProduct((productCopy) => {
+      return [
+        ...productCopy,
+        {
+          url: image,
+          urlHover: imageHover,
+          brand: uBrand,
+          brandValue: uBrandValue,
+          brandPrice: uBrandPrice,
+          rating: rating,
+          tag: tag,
+          category: uBrandCategory,
+          description: uBrandDesc,
+        },
+      ];
     });
 
-    reader2.readAsDataURL(imageHover);
-
-    // setTimeout(() => {
-    //   navigate("/admin");
-    // }, 1000);
+    setTimeout(() => {
+      navigate("/admin");
+    }, 1000);
   };
-  useEffect(() => {
-    const reader = new FileReader(image);
-    reader.addEventListener("load", () => {
-      imageLoader = reader.result;
-      console.log(imageLoader);
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(selectedImage);
+
+    reader.addEventListener('load', () => {
+      const imageLoader = reader.result;
+      setImage(imageLoader);
     });
-    reader.readAsDataURL(image);
-  }, jan);
+  };
+
+  const handleImageHoverChange = (e) => {
+    const selectedImage = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(selectedImage);
+
+    reader.addEventListener('load', () => {
+      const imageLoader = reader.result;
+      setImageHover(imageLoader);
+    });
+  };
+
 
   return (
     <>
@@ -163,9 +173,7 @@ function Create() {
             name="filename"
             multiple
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
+            onChange={handleImageChange}
           />
           <br />
           <label htmlFor="">Product 2</label>
@@ -174,9 +182,7 @@ function Create() {
             type="file"
             id="myFile"
             name="filename"
-            onChange={(e) => {
-              setImageHover(e.target.files[0]);
-            }}
+            onChange={handleImageHoverChange}
           />
           <br />
         </div>
