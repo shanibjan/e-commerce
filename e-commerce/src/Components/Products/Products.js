@@ -15,22 +15,20 @@ import { useEffect } from "react";
 import imagePath from "../assetHelper/assetHelper.js";
 import { useNavigate } from "react-router-dom";
 
-function Products({userName}) {
-  const navigate=useNavigate()
+function Products({ userName }) {
+  const navigate = useNavigate();
   console.log(userName);
-  const[postDetails,setPostDetails]=useState()
+  const [postDetails, setPostDetails] = useState([]);
   const fNameParse = JSON.parse(localStorage.getItem("image"));
   console.log(fNameParse);
-
-
   
-  
-
-  useEffect(()=>{
+  useEffect(() => {
+    const searchP = JSON.parse(localStorage.getItem("post"));
+    if (searchP) setPostDetails(searchP);
+  }, []);
+  useEffect(() => {
     localStorage.setItem("post", JSON.stringify(postDetails));
-  },[postDetails])
-  
-  
+  }, [postDetails]);
 
   useEffect(() => {
     let imageWrapper = document.querySelectorAll(".image-wrapper-pro");
@@ -80,98 +78,103 @@ function Products({userName}) {
     <div className="product">
       <h1>Top Products of This Week</h1>
       <div className="product-upper">
-        {
-          fNameParse  ? fNameParse.map((product, index) => {
-          return (
-            <div onClick={()=>{
-              setPostDetails(product)
-                setTimeout(()=>{
-                  if(userName.state !== null){
-                    navigate('/view-product',{ state: { name: userName.state.name } })
-                  }else{
-                    navigate('/view-product')
-                  }
+        {fNameParse
+          ? fNameParse.map((product, index) => {
+              console.log(product.brand);
+              return (
+                <div className="product-details">
+                  <div className="image-wrapper-pro">
+                    <img
+                      src={product ? product.url1 : null}
+                      className="image"
+                      alt="normal"
+                    />
+                    <img
+                      key={`${product.img2}`}
+                      src={product ? product.url2 : null}
+                      className="image-hover"
+                      alt="hover"
+                    />
+
+                    <div className="items-hover">
+                      <a href="">
+                        <Love />
+                      </a>
+                      <a href="">
+                        <Compare />
+                      </a>
+                      <a href="">
+                        <Plus />
+                      </a>
+                    </div>
+                    <div className="top-offer">
+                      <h2 className="product-ad">{product.tag}</h2>
+                    </div>
+                  </div>
+                  <div className="stars">
+                    <h2 key={`${product.rating}`} className="rating-star">
+                      {product.rating}
+                    </h2>
+                  </div>
+                  <a key={`${product.brand}`} href="" className="brand">
+                    {product.brand}
+                  </a>
+                  <a
+                    key={`${product.brandValue}`}
+                    href=""
+                    className="brand-details"
+                  >
+                    {product.brandValue}
+                  </a>
+                  <div className="variants">
+                    <span className="variant"></span>
+                    <span className="variant black"></span>
+                  </div>
+                  <a
+                    onClick={() => {
+                      setPostDetails(product);
+                      setTimeout(() => {
+                        if (userName.state !== null) {
+                          navigate("/view-product", {
+                            state: { name: userName.state.name },
+                          });
+                        } else {
+                          navigate("/view-product");
+                        }
+                      }, 100);
+                    }}
+                    className="carts"
+                  >
+                    <div className="first-cart">
+                      <div className="left-cart">
+                        <a href="">
+                          <Cart2 />
+                        </a>
+                      </div>
+                      <div className="right-cart">
+                        <a key={`${product.price}`} href="">
+                        ₹{product.brandPrice}
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="second-cart">
+                      <div className="second-cart-left">
+                        <a href="">
+                          <Cart2 />
+                        </a>
+                      </div>
+                      <div className="second-cart-right">
+                        <p>View Details</p>
+                      </div>
+                    </div>
+                  </a>
                   
-                },100)
-              }} className="product-details">
-              <div className="image-wrapper-pro">
-                <img
-                  src={product ? product.url : null}
-                  className="image"
-                  alt="normal"
-                />
-                <img
-                  key={`${product.img2}`}
-                  src={product ? product.urlHover : null}
-                  className="image-hover"
-                  alt="hover"
-                />
-
-                <div className="items-hover">
-                  <a href="">
-                    <Love />
-                  </a>
-                  <a href="">
-                    <Compare />
-                  </a>
-                  <a href="">
-                    <Plus />
-                  </a>
                 </div>
-                <div className="top-offer">
-                  <h2 className="product-ad">
-                    {product.tag}
-                  </h2>
-                </div>
-              </div>
-              <div className="stars">
-                <h2 key={`${product.rating}`} className="rating-star">
-                  {product.rating}
-                </h2>
-              </div>
-              <a key={`${product.brand}`} href="" className="brand">
-                {product.brand}
-              </a>
-              <a
-                key={`${product.brandValue}`}
-                href=""
-                className="brand-details"
-              >
-                {product.brandValue}
-              </a>
-              <div className="variants">
-                <span className="variant"></span>
-                <span className="variant black"></span>
-              </div>
-              <a className="carts">
-                <div className="first-cart">
-                  <div className="left-cart">
-                    <a href="">
-                      <Cart2 />
-                    </a>
-                  </div>
-                  <div className="right-cart">
-                    <a key={`${product.price}`} href="">
-                      ${product.brandPrice}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="second-cart">
-                  <div className="second-cart-left">
-                    <a href="">
-                      <Cart2 />
-                    </a>
-                  </div>
-                  <div className="second-cart-right">
-                    <p>Add To Cart</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          );
-        }):"no items added"}
-       
+                
+              );
+            })
+          : "no items added"}
       </div>
     </div>
   );

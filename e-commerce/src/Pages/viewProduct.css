@@ -2,27 +2,43 @@
     display: flex;
     /* margin: 0 auto; */
     justify-content: space-evenly;
-    padding: 0 7%;
+    padding: 0 4%;
+    margin: 4% 0;
 }
 .details-product-view{
     font-family: 'Gordita Bold';
 }
 .right-view{
-    width: 50%;
+    width: 40%;
     text-align: left;
     margin: 0 auto;
     align-items: center;
     display: inline-grid;
+    margin: 0 6%;
 }
 .left-view{
-    width: 40%;
+    width: 60%;
     height: 600px;
     margin: 0 auto;
+    display: flex;
 }
 .left-view img{
-    width: 100%;
+    width: 72%;
     height: 100%;
     object-fit: cover;
+    animation: slideleft2 .4s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    transition:.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes slideleft2{
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+}
+.left-small{
+    width: 185px;
+    height: 141px;
+}
+.left-small img{
+    margin-bottom: 3%;
 }
 .price-view{
     color: #48CAB2;
@@ -40,6 +56,7 @@
 .add-to-cart:hover{
     background-color: #48CAB2;
     transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .add-to-cart-text{
     text-decoration: none;
@@ -61,4 +78,18 @@
 .desc-prod{
     font-family: 'Gordita Regular';
     color: #787676;
+    margin-bottom: 7%;
+}
+.size-product{
+    border: 1px solid #E9E7E7;
+    width: 50%;
+    height: 45px;
+    outline: none;
+    font-weight: 800;
+    font-size: 16px;
+    margin: 1% 0;
+    font-family: 'Gordita Regular', sans-serif;
+    padding: 2%;
+    color: #787676;
+    margin-left: 4%;
 }

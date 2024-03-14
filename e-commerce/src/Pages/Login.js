@@ -11,6 +11,7 @@ function Login() {
   const userPassword = useRef();
   const navigate = useNavigate();
   const [userLogin, setUserLogin] = useState([]);
+
   
   
   
@@ -23,10 +24,12 @@ function Login() {
     let uEmail = email.current.value;
     let uPassword = userPassword.current.value;
     email.current.value = null;
-    setUserLogin((login) => {
-      return [...login, { email: uEmail, password: uPassword }];
+    setUserLogin(() => {
+      return { email: uEmail, password: uPassword };
     });
+   
     const fNameParse = JSON.parse(localStorage.getItem("user_registration"));
+    console.log(fNameParse);
     if(fNameParse !=null){
       fNameParse.map((userDetails) => {
         if (uEmail == userDetails.email && uPassword == userDetails.password ) {
@@ -53,6 +56,12 @@ function Login() {
       <div className="register">
         <h1>Login Account</h1>
         <h2>Personal Information</h2>
+        <Link to="/user_register" style={{ textDecoration: "none" }}>
+          {" "}
+          <a href="" className="return-store">
+            Or Signup
+          </a>
+        </Link>
         <div className="informations">
           <label htmlFor="">E-mail</label>
           <br />
@@ -68,14 +77,7 @@ function Login() {
           <br />
           <input ref={userPassword} type="password" placeholder="Password" />
           <br />
-          <input
-            type="file"
-            id="myFile"
-            name="filename"
-            
-          />
-          <br />
-          <img src="" id="jan" alt="" />
+          
         </div>
         <a onClick={userLoginClick} className="create">
           <p>LOGIN</p>

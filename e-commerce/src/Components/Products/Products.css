@@ -55,7 +55,7 @@
     
   }
   .product-details{
-    display: inline-block;
+    display: inline-grid;
     width: 19%;
     margin: 3% 1%;
     text-align: left;
@@ -132,7 +132,6 @@
     color: #48CAB2;
   }
   .second-cart{
-
     display: flex;
     opacity: 0;
     visibility: hidden;
@@ -141,6 +140,7 @@
     background-color: #48CAB2;
     position: absolute;
     top: 0;
+    margin-top: 4%;
     
     
   }

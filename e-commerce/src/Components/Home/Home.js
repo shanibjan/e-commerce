@@ -16,7 +16,7 @@ function Home() {
       <Header />
       <Navbar userName={location}/>
       <Theme />
-      <Dresses />
+      <Dresses userName={location} />
       <Products userName={location} />
       <Collections />
       <Reviews />

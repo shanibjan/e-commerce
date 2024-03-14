@@ -33,7 +33,10 @@ const Register = () => {
   }, [userRegistration]);
 
   const h=()=>{
-    localStorage.clear()
+    localStorage.removeItem("image")
+    localStorage.removeItem("prods-filter")
+    localStorage.removeItem("post")
+    localStorage.removeItem("search")
   }
   
   const userCreate = () => {
@@ -73,7 +76,7 @@ const Register = () => {
         setTimeout(() => {
           navigate('/user_login')
           
-        }, 1000);
+        }, 100);
         
         
       }

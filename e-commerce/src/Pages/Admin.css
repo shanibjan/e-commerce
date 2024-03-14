@@ -17,6 +17,8 @@
     background-color: #48CAB2;
     padding: 7% 8%;
     color: #fff;
+    justify-content: space-between;
+    align-items: center;
 }
 .admin-li{
     display: flex;
@@ -45,6 +47,7 @@
 .admin-image-wrapper-pro {
   position: relative;
   height: 300px;
+  width: 275px 
 }
 .admin-image{
   width: 100%;
@@ -95,7 +98,7 @@
   
 }
 .admin-product-details{
-    display: inline-block;
+    display: inline-grid;
     width: 23%;
     margin: 0% 4%;
     text-align: left;
@@ -173,7 +176,7 @@
     color: #48CAB2;
   }
   .admin-second-cart{
-
+    margin-top: 4%;
     display: flex;
     opacity: 0;
     visibility: hidden;
@@ -211,3 +214,47 @@
     transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
     color: aliceblue;
   }
+  .admin-dropdown {
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 100;
+    align-items: center;
+    display: flex;
+  }
+  
+  .admin-dropdown-menu {
+    background-color: #fff;
+    list-style-type: none;
+    display: grid;
+    padding: 12px 50px;
+    position: absolute;
+    left: -81px;
+    opacity: 0;
+    text-align: left;
+    top: 20px;
+    visibility: hidden;
+    z-index: -99999;
+    transition: .03s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+
+   
+  }
+  .admin-dropdown:hover .admin-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    animation: slideleft .2s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    transition:.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+  }
+  @keyframes slideleft{
+    0%{  opacity: 0;}
+    50%{opacity: 0;}
+    100%{transform: translateY(0px); opacity: 1;}
+}

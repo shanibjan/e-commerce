@@ -3,6 +3,7 @@ import "./Create.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
+import { logDOM } from "@testing-library/react";
 
 function Create() {
   const brandName = useRef();
@@ -13,68 +14,70 @@ function Create() {
   const navigate = useNavigate();
   const location = useLocation();
   const [createProduct, setCreateProduct] = useState([]);
+  
   const [image, setImage] = useState([]);
   const [imageHover, setImageHover] = useState([]);
   const [rating, setRating] = useState();
   const [tag, setTag] = useState();
+  let a=createProduct.reverse()
+  
+  console.log(createProduct);
 
   useEffect(() => {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
     if (fNameParse) setCreateProduct(fNameParse);
   }, []);
+  console.log(createProduct);
   let imageLoader;
   let imageLoaderHover;
-  
+  console.log(image);
 
   useEffect(() => {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
-  const jan = () => {
-    const reader2 = new FileReader(imageHover);
 
+  const store = (e) => {
+    let val = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(val);
+    reader.addEventListener("load", () => {
+      imageLoader = reader.result;
+      console.log(imageLoader);
+      setImage((stateCopy) => {
+        return [...stateCopy, { loader: imageLoader }];
+      });
+    });
+  };
+  const jan = () => {
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
     let uBrandPrice = brandPrice.current.value;
     let uBrandCategory = brandCategory.current.value;
     let uBrandDesc = brandDesc.current.value;
-
-    reader2.addEventListener("load", () => {
-      imageLoaderHover = reader2.result;
-      console.log(imageLoaderHover);
-      console.log(imageLoader);
-
-      // setCreateProduct((productCopy) => {
-      //   return [
-      //     ...productCopy,
-      //     {
-      //       url: imageLoader,
-      //       urlHover: imageLoaderHover,
-      //       brand: uBrand,
-      //       brandValue: uBrandValue,
-      //       brandPrice: uBrandPrice,
-      //       rating: rating,
-      //       tag: tag,
-      //       category: uBrandCategory,
-      //       description: uBrandDesc,
-      //     },
-      //   ];
-      // });
+    console.log(a);
+    setCreateProduct((a) => {
+      return [
+        ...a,
+        {
+          url1: image[0].loader,
+          url2: image[1].loader,
+          url3:image[2].loader,
+          url4:image[3].loader,
+          brand: uBrand,
+          brandValue: uBrandValue,
+          brandPrice: uBrandPrice,
+          rating: rating,
+          tag: tag,
+          category: uBrandCategory,
+          description: uBrandDesc,
+        },
+      ];
     });
 
-    reader2.readAsDataURL(imageHover);
-
-    // setTimeout(() => {
-    //   navigate("/admin");
-    // }, 1000);
+    setTimeout(() => {
+      navigate("/admin", { state: { name: "shanibjan" } });
+    }, 100);
   };
-  useEffect(() => {
-    const reader = new FileReader(image);
-    reader.addEventListener("load", () => {
-      imageLoader = reader.result;
-      console.log(imageLoader);
-    });
-    reader.readAsDataURL(image);
-  }, jan);
 
   return (
     <>
@@ -151,8 +154,9 @@ function Create() {
           <input
             ref={brandPrice}
             type="number"
-            placeholder="Price..."
+            min="1"
             step="0.01"
+            
           />
           <br />
           <label htmlFor="">Product 1</label>
@@ -163,20 +167,33 @@ function Create() {
             name="filename"
             multiple
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
+            onChange={store}
           />
           <br />
           <label htmlFor="">Product 2</label>
+          <br />
+          <input type="file" id="myFile" name="filename" onChange={store} />
+          <br />
+          <label htmlFor="">Product 3</label>
           <br />
           <input
             type="file"
             id="myFile"
             name="filename"
-            onChange={(e) => {
-              setImageHover(e.target.files[0]);
-            }}
+            multiple
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
+            onChange={store}
+          />
+          <br />
+          <label htmlFor="">Product 4</label>
+          <br />
+          <input
+            type="file"
+            id="myFile"
+            name="filename"
+            multiple
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
+            onChange={store}
           />
           <br />
         </div>

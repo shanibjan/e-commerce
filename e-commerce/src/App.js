@@ -16,6 +16,10 @@ import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";
 import Create from "./Pages/Create";
 import ViewProduct from "./Pages/viewProduct";
+import AdminLogin from "./Pages/AdminLogin";
+import Cart from "./Pages/Cart";
+import SearchProducts from "./Pages/SearchProducts";
+import ProductsFilter from "./Pages/ProductsFilter";
 
 function App() {
   return (
@@ -38,6 +42,18 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={ViewProduct} path="/view-product" />
+        </Routes>
+        <Routes>
+          <Route  Component={AdminLogin} path="/admin-login" />
+        </Routes>
+        <Routes>
+          <Route  Component={Cart} path="/cart" />
+        </Routes>
+        <Routes>
+          <Route  Component={SearchProducts} path="/search_products" />
+        </Routes>
+        <Routes>
+          <Route  Component={ProductsFilter} path="/filter_products" />
         </Routes>
       </Router>
     </div>

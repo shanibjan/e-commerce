@@ -100,10 +100,10 @@ a.lang p{
   .dropdown-menu {
     background-color: #fff;
     list-style-type: none;
-    display: block;
+    display: grid;
     padding: 12px 50px;
     position: absolute;
-    left: -75px;
+    left: -81px;
     opacity: 0;
     text-align: left;
     top: 20px;
@@ -111,6 +111,9 @@ a.lang p{
     z-index: -99999;
     transition: .03s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 200px;
+    justify-content: center;
+    text-align: center;
 
    
   }
@@ -122,7 +125,8 @@ a.lang p{
     color: #787676;
     display: block;
     font-weight: 400;
-    font-family: 'Gordita Light', sans-serif;
+    font-family: 'Gordita Regular';
+    margin: 3% 0;
   }
   a.slide:hover{
     color:#48CAB2 ;
