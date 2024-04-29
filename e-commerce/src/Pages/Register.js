@@ -19,7 +19,7 @@ const Register = () => {
   // const [lastName,setLastName]=useState('')
   // const [email,setEmail]=useState('')
   // const [password,setPassword]=useState('')
- 
+
   useEffect(() => {
     const fNameParse = JSON.parse(localStorage.getItem("user_registration"));
     console.log(fNameParse);
@@ -28,40 +28,46 @@ const Register = () => {
 
   useEffect(() => {
     console.log(userRegistration);
-    localStorage.setItem("user_registration",JSON.stringify(userRegistration));
+    // if (localStorage == null) {
+    // };
+    localStorage.setItem("user_registration", JSON.stringify(userRegistration));
+
+
     
   }, [userRegistration]);
 
-  const h=()=>{
-    localStorage.removeItem("image")
-    localStorage.removeItem("prods-filter")
-    localStorage.removeItem("post")
-    localStorage.removeItem("search")
-  }
-  
+  const h = () => {
+    localStorage.removeItem("image");
+    localStorage.removeItem("prods-filter");
+    localStorage.removeItem("post");
+    localStorage.removeItem("search");
+  };
+
   const userCreate = () => {
     // localStorage.clear()
-    var isRegistered=false
+    var isRegistered = false;
     let uFirstName = userFirstName.current.value;
     let uLastName = userLastName.current.value;
     let uEmail = userEmail.current.value;
     let uPassword = userPassword.current.value;
-    
+
     // console.log(uFirstName);
     // console.log(uLastName);
     console.log(userRegistration);
-    if(uEmail !="" && uFirstName !="" && uLastName !="" && uPassword !=""){
-      userRegistration.map((uR)=>{
-        
-        
-        if(uEmail==uR.email  ){
-          window.alert("User Already Registered")
-          isRegistered=true
+    if (
+      uEmail != "" &&
+      uFirstName != "" &&
+      uLastName != "" &&
+      uPassword != ""
+    ) {
+      userRegistration.map((uR) => {
+        if (uEmail == uR.email) {
+          window.alert("User Already Registered");
+          isRegistered = true;
         }
-      })
-      if( isRegistered==false ){
-        
-        window.alert("User Registered")
+      });
+      if (isRegistered == false) {
+        window.alert("User Registered");
         setuserRegistration((fName) => {
           return [
             ...fName,
@@ -73,32 +79,17 @@ const Register = () => {
             },
           ];
         });
+        console.log(userRegistration);
         setTimeout(() => {
-          navigate('/user_login')
-          
+          navigate("/user_login");
         }, 100);
-        
-        
       }
-    }else{
-      window.alert("Please register")
+    } else {
+      window.alert("Please register");
     }
-      
-    
-      
-      
-    
-    
-
-  
-    
 
     userFirstName.current.value = null;
     userLastName.current.value = null;
-
-    
-
-    
 
     // console.log(uLastName);
   };
@@ -107,7 +98,7 @@ const Register = () => {
     <>
       <Header />
       <Navbar userName={location} />
-      <button onClick={h} >h</button>
+      <button onClick={h}>h</button>
       <div className="register">
         <h1>Create an Account</h1>
         <h2>Personal Information</h2>

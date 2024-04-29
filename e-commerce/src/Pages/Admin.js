@@ -5,33 +5,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import prod1 from "../images/product-1.jpeg";
 import prod2 from "../images/product-2.jpeg";
 import Cart2 from "../assets/Cart2";
-import Love from "../assets/Love";
+import Love from "../assets/Love"; 
 import Compare from "../assets/Compare";
 import Plus from "../assets/Plus";
 import User from "../assets/User";
 import AdminLogo from "../assets/AdminLogo";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Admin() {
-  
- 
+  const nav=useNavigate()
   const fNameParse = JSON.parse(localStorage.getItem("image"));
   // console.log(fNameParse);
   const location = useLocation();
-  
+
   // console.log(location);
- 
 
-  
-
-  
   return (
     <>
       <Header />
-
+      
       {location.state != null ? (
         <div className="admin-main">
           <div className="admin-left">
@@ -109,7 +105,7 @@ function Admin() {
           </div>
           <div className="admin-right">
             {fNameParse
-              ? fNameParse.map((img) => {
+              ? fNameParse.map((img,index) => {
                   return (
                     <div className="admin-product-details">
                       <div className="admin-image-wrapper-pro">
@@ -135,9 +131,7 @@ function Admin() {
                             <Plus />
                           </a>
                         </div>
-                        <div className="admin-top-offer">
-                          <h2 className="admin-product-ad">{img.tag}</h2>
-                        </div>
+                        
                       </div>
                       <div className="admin-stars">
                         <h2 className="admin-rating-star">{img.rating}</h2>
@@ -154,14 +148,23 @@ function Admin() {
                       </div>
                       <a className="admin-carts">
                         <div className="admin-first-cart">
-                          
                           <div className="admin-right-cart">
-                            <a href="">₹ {img ? img.brandPrice : null}</a>
+                            <a href="">₹ {img ? img.brandPriceOffer : null}</a>
                           </div>
+                          <a className="actual-price" href="">
+                            ₹ {img ? img.brandPrice : null}
+                          </a>
                         </div>
-
-                        
                       </a>
+                      <div  onClick={()=>{
+                      fNameParse.splice(index,1)
+                      localStorage.setItem("image", JSON.stringify(fNameParse));
+                      nav('/admin', {
+                        state: { name: location.state.name },
+                      })
+                    }} className="cart-delete">
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </div>
                     </div>
                   );
                 })

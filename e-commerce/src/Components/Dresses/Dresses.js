@@ -34,10 +34,10 @@ function Dresses({ userName }) {
   });
 
   let dressesDynamic = [
-    { src: "jacket.jpeg", name: "jacket" },
-    { src: "coat.jpeg", name: "Coat" },
-    { src: "dress.jpeg", name: "Dress" },
-    { src: "jeans.jpeg", name: "jeans" },
+    { src: "zaj.jpeg", name: "jacket" },
+    { src: "kids.jpeg", name: "kids" },
+    { src: "product-3.jpeg", name: "women" },
+    { src: "pant.jpeg", name: "pants" },
     { src: "zs1.jpeg", name: "shirt" },
     { src: "collection-2.jpeg", name: "shoe" },
   ];
@@ -50,6 +50,7 @@ function Dresses({ userName }) {
   }, [prodsFilter]);
 
   return (
+    
     <div className="dresses">
       {/* <img src={process.env.PUBLIC_URL + imgNameWithPath} /> */}
       <img alt="" />
@@ -65,6 +66,7 @@ function Dresses({ userName }) {
                 });
                 if (filterSearch) {
                   setProdsFilter(filterSearch);
+                  console.log(prodsFilter);
                 }
               }
               setTimeout(() => {

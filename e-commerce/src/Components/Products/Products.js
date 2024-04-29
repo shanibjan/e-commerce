@@ -5,6 +5,7 @@ import {
   faCodeCompare,
   faSearchPlus,
   faHeart,
+  faN,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart2 from "../../assets/Cart2";
@@ -19,13 +20,22 @@ function Products({ userName }) {
   const navigate = useNavigate();
   console.log(userName);
   const [postDetails, setPostDetails] = useState([]);
+
   const fNameParse = JSON.parse(localStorage.getItem("image"));
   console.log(fNameParse);
-  
+
+  let mainProducts = [];
+  for (let i = 0; i <= 3; i++) {
+    if (fNameParse != null) {
+      mainProducts.push(fNameParse[i]);
+    }
+  }
+
   useEffect(() => {
     const searchP = JSON.parse(localStorage.getItem("post"));
-    if (searchP) setPostDetails(searchP);
+    if (searchP != null) setPostDetails(searchP);
   }, []);
+
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(postDetails));
   }, [postDetails]);
@@ -78,9 +88,14 @@ function Products({ userName }) {
     <div className="product">
       <h1>Top Products of This Week</h1>
       <div className="product-upper">
-        {fNameParse
-          ? fNameParse.map((product, index) => {
-              console.log(product.brand);
+        {mainProducts
+          ? mainProducts.map((product, indexP) => {
+              let a = product
+                ? (product.brandPriceOffer * 100) / product.brandPrice
+                : null;
+
+              let b=Math.trunc(a)
+              let perc=100-b
               return (
                 <div className="product-details">
                   <div className="image-wrapper-pro">
@@ -90,7 +105,6 @@ function Products({ userName }) {
                       alt="normal"
                     />
                     <img
-                      key={`${product.img2}`}
                       src={product ? product.url2 : null}
                       className="image-hover"
                       alt="hover"
@@ -108,23 +122,21 @@ function Products({ userName }) {
                       </a>
                     </div>
                     <div className="top-offer">
-                      <h2 className="product-ad">{product.tag}</h2>
+                      <h2 className="product-ad">
+                        {product ? perc : null}% OFF
+                      </h2>
                     </div>
                   </div>
                   <div className="stars">
-                    <h2 key={`${product.rating}`} className="rating-star">
-                      {product.rating}
+                    <h2 className="rating-star">
+                      {product ? product.rating : null}
                     </h2>
                   </div>
-                  <a key={`${product.brand}`} href="" className="brand">
-                    {product.brand}
+                  <a href="" className="brand">
+                    {product ? product.brand : null}
                   </a>
-                  <a
-                    key={`${product.brandValue}`}
-                    href=""
-                    className="brand-details"
-                  >
-                    {product.brandValue}
+                  <a href="" className="brand-details">
+                    {product ? product.brandValue : null}
                   </a>
                   <div className="variants">
                     <span className="variant"></span>
@@ -152,10 +164,13 @@ function Products({ userName }) {
                         </a>
                       </div>
                       <div className="right-cart">
-                        <a key={`${product.price}`} href="">
-                        ₹{product.brandPrice}
+                        <a href="">
+                          ₹ {product ? product.brandPriceOffer : null} /-
                         </a>
                       </div>
+                      <a className="actual-price" href="">
+                        ₹ {product ? product.brandPrice : null} /-
+                      </a>
                     </div>
 
                     <div className="second-cart">
@@ -169,12 +184,38 @@ function Products({ userName }) {
                       </div>
                     </div>
                   </a>
-                  
+
+                  {/* <button
+                    onClick={() => {
+                      fNameParse.splice(indexP, 1);
+                      console.log(fNameParse);
+                      localStorage.setItem("image", JSON.stringify(fNameParse));
+                    }}
+                  >
+                    ki
+                  </button> */}
                 </div>
-                
               );
             })
           : "no items added"}
+        {
+          <div
+            onClick={() => {
+              if (userName.state != null) {
+                navigate("/all_products", {
+                  state: { name: userName.state.name },
+                });
+              } else {
+                navigate("/all_products");
+              }
+            }}
+            className="all-products"
+          >
+            <a className="all-products-text" href="">
+              {mainProducts ? "VIEW ALL" : "No Items Added"}
+            </a>
+          </div>
+        }
       </div>
     </div>
   );

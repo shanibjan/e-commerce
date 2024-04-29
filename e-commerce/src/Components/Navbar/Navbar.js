@@ -10,62 +10,44 @@ import { faChevronDown, faStar } from "@fortawesome/free-solid-svg-icons";
 // import Language from './Components/Language/Language';
 import Language from "../Language/Language";
 import { useState } from "react";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Login from "../../Pages/Login";
 
 function Navbar({ userName }) {
   const [userLogin, setUserLogin] = useState([]);
-  const [search, setSearch] = useState([]);
+
   console.log(userName);
   const navigate = useNavigate();
   const searchitems = useRef();
-  console.log(search);
-  useEffect(() => {
-    const searchP = JSON.parse(localStorage.getItem("search"));
-    if (searchP) setSearch(searchP);
-  }, []);
-  const shadowClick = () => {
+
+  const shadowClick = (e) => {
+    e.preventDefault();
     let searchPro = searchitems.current.value;
     const prods = JSON.parse(localStorage.getItem("image"));
     console.log(prods);
 
-    if(prods !=null){
+    if (prods != null) {
       const filterSearch = prods.filter((val) => {
         return val.brand == searchPro || val.category == searchPro;
-      })
-      if (filterSearch) {
-        setSearch(filterSearch);
-      }
-    }else{
-      <h1>no</h1>
+      });
+      localStorage.setItem("search", JSON.stringify(filterSearch));
     }
-   
 
-    console.log(search);
-    setTimeout(()=>{
-      if(userName.state != null ){
-        navigate('/search_products',{
+    setTimeout(() => {
+      if (userName.state != null) {
+        navigate("/search_products", {
           state: { name: userName.state.name },
-        })
-      }else{
-        navigate('/search_products')
-        
+        });
+      } else {
+        navigate("/search_products");
       }
-      
-    },100)
-    
+    }, 100);
 
     document.querySelector(".placeSearch").style.boxShadow =
       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
     document.querySelector(".placeSearch").style.transition =
       "2s cubic-bezier(0.075, 0.82, 0.165, 1)";
   };
-
-  useEffect(() => {
-    localStorage.setItem("search", JSON.stringify(search));
-  }, [search]);
-
-  
 
   const cartItems = JSON.parse(localStorage.getItem("cart"));
   const userLogOut = () => {
@@ -86,9 +68,17 @@ function Navbar({ userName }) {
   return (
     <div className="navbar">
       <div className="logo">
-        <Link to='/'>
-         <img src={logo} alt="" />
-        </Link>
+        
+          <img onClick={()=>{
+            if(userName.state !=null){
+              navigate('/', {
+                state: { name: userName.state.name },
+              })
+            }else{
+              navigate('/')
+            }
+            
+          }} src={logo} alt="" />
         
       </div>
       <div className="placeSearch">

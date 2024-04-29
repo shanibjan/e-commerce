@@ -61,6 +61,7 @@
 .add-to-cart-text{
     text-decoration: none;
     color: aliceblue;
+    font-family: 'Gordita Bold';
 }
 .cart-add{
     margin: 0 2%;
@@ -92,4 +93,22 @@
     padding: 2%;
     color: #787676;
     margin-left: 4%;
+    
 }
+@keyframes shake {
+    0% { transform: translate(1px); }
+    10% { transform: translate(-1px ); }
+    20% { transform: translate(-3px); }
+    30% { transform: translate(3px); }
+    40% { transform: translate(1px ); }
+    50% { transform: translate(-1px); }
+    60% { transform: translate(-3px); }
+    70% { transform: translate(3px); }
+    80% { transform: translate(-1px ); }
+    90% { transform: translate(1px); }
+    100% { transform: translate(1px ); }
+  }
+  .cap_head{
+    text-transform: uppercase;
+  }
+

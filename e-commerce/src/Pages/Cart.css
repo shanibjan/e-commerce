@@ -1,9 +1,17 @@
+.parent-product-view{
+    display: flex;
+    justify-content: space-between;
+    margin: 1% 4%;
+}
+.product-cart-left{
+    width: 55%;
+}
 .product-view-cart{
     display: flex;
-    /* margin: 0 auto; */
+    position: relative;
     justify-content: space-evenly;
-    margin: 3% 25%;
-    align-items: center;
+    margin: 3% 6%;
+    align-items: end;
     border: 1px solid #E9E7E7;
     padding: 1%;
 }
@@ -37,7 +45,10 @@
     margin: 0 2%;
 }
 .star-rating-cart{
-    color: #ebca2e;
+    color: #0b0b0a;
+    font-size: 13px;
+    font-family: 'Gordita Light';
+    margin-top: 4%;
 }.product-category-cart{
     display: flex;
     margin: 4% 0;
@@ -51,12 +62,58 @@
     
 }
 .brand-cart{
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 .brand-value-cart{
     font-size: 13px;
     font-family: 'Gordita Regular';
+    text-transform: uppercase;
 }
 .size-cart,.qty-cart{
     font-family: 'Gordita Light';
+    font-size: 13px;
+}
+.product-cart-right{
+    width: 40%;
+    height: 450px;
+    align-items: center;
+    display: grid;
+    border: 1px solid #E9E7E7;
+    padding: 1% 3%;
+    margin-top: 21px;
+}
+.totalamount{
+    display: flex;
+    justify-content: space-between;
+}
+.total-amount{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Gordita Bold';
+}
+.coupon{
+    text-decoration: none;
+    color: #48CAB2;
+    font-family: 'Gordita Bold';
+}
+.payable{
+    height: 265px;
+    display: grid;
+    border-bottom: 1px solid gray;
+}
+.proceed-to-pay{
+    background: #48CAB2;
+    padding: 3% 6%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 12%;
+}
+.cart-delete{
+    margin-right: 1%;
+    color: #48CAB2;
+    position: absolute;
+    top: 10px;
+    right: 8px 
 }

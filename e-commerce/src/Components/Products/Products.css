@@ -42,6 +42,7 @@
     font-size: 11px;
     padding: 9% 11% 5%;
     display: inline-block;
+    width: 75px;
   }
   .rating-star{
     letter-spacing: 5px;
@@ -66,6 +67,7 @@
     text-decoration: none;
     font-size: 13px;
     margin: 2% 0;
+    text-transform: uppercase;
   }
   .brand:hover,.brand-details:hover{
     text-decoration: underline;
@@ -78,6 +80,7 @@
     color: rgb(6, 6, 6);
     text-decoration: none;
     margin-bottom: 2%;
+    text-transform: uppercase;
   }
   .items-hover{
     transition: 5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -169,4 +172,28 @@
   .second-cart p{
     transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
     color: aliceblue;
+  }
+  .all-products{
+    background-color: #48CAB2;
+    padding: 1% 2%;
+    width: 13%;
+    margin: 0 auto;
+  }
+  .all-products:hover {
+    background-color: #fff;
+    transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border: 1px solid gray;
+  }
+  .all-products:hover .all-products-text{
+    color: black;
+  }
+  .all-products-text{
+    text-decoration: none;
+    color: aliceblue;
+  }
+  .actual-price{
+    text-decoration: line-through;
+    color: #3c3b3b;
+    opacity: 60%;
+    margin-left: 9px 
   }

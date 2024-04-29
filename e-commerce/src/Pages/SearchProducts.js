@@ -12,11 +12,15 @@ function SearchProducts() {
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
-  const [postDetails, setPostDetails] = useState();
+  const [postDetails, setPostDetails] = useState([]);
+  const[lowtoH,setLowtoH]=useState([])
   const searched = JSON.parse(localStorage.getItem("search"));
   console.log(searched);
+  useEffect(() => {
+    const searchP = JSON.parse(localStorage.getItem("post"));
+    if (searchP) setPostDetails(searchP);
+  }, []);
 
-  
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(postDetails));
   }, [postDetails]);
@@ -64,15 +68,89 @@ function SearchProducts() {
       });
     }
   });
+  useEffect(()=>{
+    if(lowtoH=="Popularity"){
+     searched.sort((a,b)=>{
+       return b.rating.length-a.rating.length
+     })
+     localStorage.setItem("search", JSON.stringify(searched));
+     if (location.state !== null) {
+      navigate("/search_products", {
+        state: { name: location.state.name },
+      });
+    } else {
+      navigate("/search_products");
+    }
+    } 
+    else if(lowtoH=="Price: High to Low"){
+     searched.sort((a,b)=>{
+       return b.brandPriceOffer-a.brandPriceOffer
+     })
+     localStorage.setItem("search", JSON.stringify(searched));
+     
+     if (location.state !== null) {
+      navigate("/search_products", {
+        state: { name: location.state.name },
+      });
+    } else {
+      navigate("/search_products");
+    }
+    }
+    else if(lowtoH=="Price: Low to High"){
+     searched.sort((a,b)=>{
+       return a.brandPriceOffer-b.brandPriceOffer
+     })
+     localStorage.setItem("search", JSON.stringify(searched));
+     if (location.state !== null) {
+      navigate("/search_products", {
+        state: { name: location.state.name },
+      });
+    } else {
+      navigate("/search_products");
+    }
+    }
+    else if(lowtoH=="Latest"){
+     searched.sort((a,b)=>{
+       return new Date(b.date)-new Date(a.date)
+     })
+     localStorage.setItem("search", JSON.stringify(searched));
+     if (location.state !== null) {
+      navigate("/search_products", {
+        state: { name: location.state.name },
+      });
+    } else {
+      navigate("/search_products");
+    }
+    }
+   
+   },[lowtoH])
   return (
     <>
       <Header />
       <Navbar userName={location} />
+      <div className="sort">
+      <select className="sorted" name="" id="" onChange={((e)=>{
+          setLowtoH(e.target[e.target.selectedIndex].text)
+        })}>
+        <option value="">Sort by</option>
+        <option value=""  >Price: Low to High</option>
+        <option value=""  >Price: High to Low</option>
+        <option value=""  >Popularity</option>
+        <option value=""  >Latest</option>
+      </select>
+      </div>
       {searched
         ? searched.map((result) => {
+            let a = result
+              ? (result.brandPriceOffer * 100) / result.brandPrice
+              : null;
+
+            let b = Math.trunc(a);
+            let perc = 100 - b;
             return (
-              <div className="admin-product-details">
-                <div className="admin-image-wrapper-pro">
+              
+              <div className="search-product-details">
+                <div className="search-image-wrapper-pro">
                   <img
                     src={result ? result.url1 : null}
                     className="admin-image"
@@ -96,7 +174,7 @@ function SearchProducts() {
                     </a>
                   </div>
                   <div className="admin-top-offer">
-                    <h2 className="admin-product-ad">{result.tag}</h2>
+                    <h2 className="admin-product-ad">{perc} % OFF</h2>
                   </div>
                 </div>
                 <div className="admin-stars">
@@ -134,8 +212,13 @@ function SearchProducts() {
                       </a>
                     </div>
                     <div className="admin-right-cart">
-                      <a href="">₹ {result ? result.brandPrice : null}</a>
+                      <a href="">
+                        ₹ {result ? result.brandPriceOffer : null} /-
+                      </a>
                     </div>
+                    <a className="actual-price" href="">
+                      ₹ {result ? result.brandPrice : null} /-
+                    </a>
                   </div>
 
                   <div className="admin-second-cart">

@@ -20,6 +20,7 @@ import AdminLogin from "./Pages/AdminLogin";
 import Cart from "./Pages/Cart";
 import SearchProducts from "./Pages/SearchProducts";
 import ProductsFilter from "./Pages/ProductsFilter";
+import AllProducts from "./Pages/AllProducts";
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={ProductsFilter} path="/filter_products" />
+        </Routes>
+        <Routes>
+          <Route  Component={AllProducts} path="/all_products" />
         </Routes>
       </Router>
     </div>

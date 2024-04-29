@@ -10,10 +10,22 @@ import Compare from "../assets/Compare";
 import Plus from "../assets/Plus";
 
 function ProductsFilter() {
+  var _lsTotal = 0,
+    _xLen, _x;
+for (_x in localStorage) {
+    if (!localStorage.hasOwnProperty(_x)) {
+        continue;
+    }
+    _xLen = ((localStorage[_x].length + _x.length) * 2);
+    _lsTotal += _xLen;
+    console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB")
+};
     const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
-  const [postDetails, setPostDetails] = useState();
+  const[lowtoH,setLowtoH]=useState([])
+  console.log(lowtoH);
+  const [postDetails, setPostDetails] = useState([]);
   const filtered = JSON.parse(localStorage.getItem("prods-filter"));
   console.log(filtered);
   useEffect(() => {
@@ -37,7 +49,10 @@ function ProductsFilter() {
         itemsHover.style.display = "none";
       });
     }
+    
+    
     let cartAction = document.querySelectorAll(".admin-carts");
+    console.log(cartAction);
     for (let i = 0; i < cartAction.length; i++) {
       let firstCart = cartAction[i].childNodes[0];
       let secondCart = cartAction[i].childNodes[1];
@@ -67,15 +82,91 @@ function ProductsFilter() {
       });
     }
   });
+  
+    useEffect(()=>{
+     if(lowtoH=="Popularity"){
+      filtered.sort((a,b)=>{
+        return b.rating.length-a.rating.length
+      })
+      localStorage.setItem("prods-filter", JSON.stringify(filtered));
+      if (location.state !== null) {
+        navigate("/filter_products", {
+          state: { name: location.state.name },
+        });
+      } else {
+        navigate("/filter_products");
+      }
+     } 
+     else if(lowtoH=="Price: High to Low"){
+      filtered.sort((a,b)=>{
+        return b.brandPriceOffer-a.brandPriceOffer
+      })
+      localStorage.setItem("prods-filter", JSON.stringify(filtered));
+      
+      if (location.state !== null) {
+        navigate("/filter_products", {
+          state: { name: location.state.name },
+        });
+      } else {
+        navigate("/filter_products");
+      }
+     }
+     else if(lowtoH=="Price: Low to High"){
+      filtered.sort((a,b)=>{
+        return a.brandPriceOffer-b.brandPriceOffer
+      })
+      localStorage.setItem("prods-filter", JSON.stringify(filtered));
+      if (location.state !== null) {
+        navigate("/filter_products", {
+          state: { name: location.state.name },
+        });
+      } else {
+        navigate("/filter_products");
+      }
+     }
+     else if(lowtoH=="Latest"){
+      filtered.sort((a,b)=>{
+        return new Date(b.date)-new Date(a.date)
+      })
+      localStorage.setItem("prods-filter", JSON.stringify(filtered));
+      if (location.state !== null) {
+        navigate("/filter_products", {
+          state: { name: location.state.name },
+        });
+      } else {
+        navigate("/filter_products");
+      }
+     }
+    
+    },[lowtoH])
   return (
     <>
       <Header />
       <Navbar userName={location} />
+      <div className="sort">
+      <select className="sorted" name="" id="" onChange={((e)=>{
+          setLowtoH(e.target[e.target.selectedIndex].text)
+        })}>
+        <option value="">Sort by</option>
+        <option value=""  >Price: Low to High</option>
+        <option value=""  >Price: High to Low</option>
+        <option value=""  >Popularity</option>
+        <option value=""  >Latest</option>
+      </select>
+      </div>
+     
+     
       {filtered
         ? filtered.map((result) => {
+          let a = result
+                ? (result.brandPriceOffer * 100) / result.brandPrice
+                : null;
+
+              let b=Math.trunc(a)
+              let perc=100-b
             return (
-              <div className="admin-product-details">
-                <div className="admin-image-wrapper-pro">
+              <div className="search-product-details">
+                <div className="search-image-wrapper-pro">
                   <img
                     src={result ? result.url1 : null}
                     className="admin-image"
@@ -99,7 +190,7 @@ function ProductsFilter() {
                     </a>
                   </div>
                   <div className="admin-top-offer">
-                    <h2 className="admin-product-ad">{result.tag}</h2>
+                    <h2 className="admin-product-ad">{perc} % OFF</h2>
                   </div>
                 </div>
                 <div className="admin-stars">
@@ -137,8 +228,11 @@ function ProductsFilter() {
                       </a>
                     </div>
                     <div className="admin-right-cart">
-                      <a href="">₹ {result ? result.brandPrice : null}</a>
+                      <a href="">₹ {result ? result.brandPriceOffer : null} /-</a>
                     </div>
+                    <a className="actual-price" href="">
+                        ₹ {result ? result.brandPrice : null} /-
+                      </a>
                   </div>
 
                   <div className="admin-second-cart">

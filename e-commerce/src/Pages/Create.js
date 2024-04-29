@@ -4,23 +4,26 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Navbar from "../Components/Navbar/Navbar";
 import { logDOM } from "@testing-library/react";
+import imageCompression from "browser-image-compression";
 
 function Create() {
   const brandName = useRef();
   const brandValue = useRef();
   const brandPrice = useRef();
+  const brandPriceOffer = useRef();
   const brandDesc = useRef();
   const brandCategory = useRef();
   const navigate = useNavigate();
   const location = useLocation();
   const [createProduct, setCreateProduct] = useState([]);
-  
+
   const [image, setImage] = useState([]);
   const [imageHover, setImageHover] = useState([]);
   const [rating, setRating] = useState();
-  const [tag, setTag] = useState();
-  let a=createProduct.reverse()
-  
+  console.log(rating);
+
+  let a = createProduct.reverse();
+
   console.log(createProduct);
 
   useEffect(() => {
@@ -38,11 +41,11 @@ function Create() {
 
   const store = (e) => {
     let val = e.target.files[0];
+    console.log(val.size);
     const reader = new FileReader();
     reader.readAsDataURL(val);
     reader.addEventListener("load", () => {
       imageLoader = reader.result;
-      console.log(imageLoader);
       setImage((stateCopy) => {
         return [...stateCopy, { loader: imageLoader }];
       });
@@ -52,6 +55,7 @@ function Create() {
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
     let uBrandPrice = brandPrice.current.value;
+    let uBrandPriceOffer = brandPriceOffer.current.value;
     let uBrandCategory = brandCategory.current.value;
     let uBrandDesc = brandDesc.current.value;
     console.log(a);
@@ -59,15 +63,14 @@ function Create() {
       return [
         ...a,
         {
+          brand: uBrand,
           url1: image[0].loader,
           url2: image[1].loader,
-          url3:image[2].loader,
-          url4:image[3].loader,
-          brand: uBrand,
           brandValue: uBrandValue,
           brandPrice: uBrandPrice,
+          brandPriceOffer: uBrandPriceOffer,
           rating: rating,
-          tag: tag,
+          date:new Date(),
           category: uBrandCategory,
           description: uBrandDesc,
         },
@@ -105,24 +108,7 @@ function Create() {
             <option value="5">★★★★★</option>
           </select>
           <br />
-          <label htmlFor="">Tag</label>
-          <br />
-          <select
-            onChange={(e) => {
-              setTag(e.target[e.target.selectedIndex].text);
-            }}
-            className="stars-product"
-            name="stars"
-            id="stars"
-          >
-            <option value="1">Select Tag</option>
-            <option value="1">NEW</option>
-            <option value="2">FEATURED</option>
-            <option value="3">POPULAR</option>
-            <option value="4">PREMIUM</option>
-            <option value="5">OFFER </option>
-          </select>
-          <br />
+
           <label htmlFor="">Brand Name</label>
           <br />
           <input ref={brandName} type="text" placeholder="Brand name..." />
@@ -151,14 +137,13 @@ function Create() {
           <br />
           <label htmlFor="">Price</label>
           <br />
-          <input
-            ref={brandPrice}
-            type="number"
-            min="1"
-            step="0.01"
-            
-          />
+          <input ref={brandPrice} type="number" min="1" step="0.01" />
           <br />
+          <label htmlFor="">Offer Price</label>
+          <br />
+          <input ref={brandPriceOffer} type="number" min="1" step="0.01" />
+          <br />
+
           <label htmlFor="">Product 1</label>
           <br />
           <input
@@ -166,26 +151,12 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html"
             onChange={store}
           />
           <br />
+
           <label htmlFor="">Product 2</label>
-          <br />
-          <input type="file" id="myFile" name="filename" onChange={store} />
-          <br />
-          <label htmlFor="">Product 3</label>
-          <br />
-          <input
-            type="file"
-            id="myFile"
-            name="filename"
-            multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
-            onChange={store}
-          />
-          <br />
-          <label htmlFor="">Product 4</label>
           <br />
           <input
             type="file"
