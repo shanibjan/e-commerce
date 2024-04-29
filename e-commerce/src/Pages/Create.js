@@ -30,14 +30,24 @@ function Create() {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
     if (fNameParse) setCreateProduct(fNameParse);
   }, []);
+<<<<<<< HEAD
   console.log(createProduct);
   let imageLoader;
   let imageLoaderHover;
   console.log(image);
+=======
+>>>>>>> origin/main
 
   useEffect(() => {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
+<<<<<<< HEAD
+=======
+
+  const jan = () => {
+    const reader = new FileReader();
+    const reader2 = new FileReader();
+>>>>>>> origin/main
 
   const store = (e) => {
     let val = e.target.files[0];
@@ -58,6 +68,7 @@ function Create() {
     let uBrandPriceOffer = brandPriceOffer.current.value;
     let uBrandCategory = brandCategory.current.value;
     let uBrandDesc = brandDesc.current.value;
+<<<<<<< HEAD
     console.log(a);
     setCreateProduct((a) => {
       return [
@@ -71,6 +82,20 @@ function Create() {
           brandPriceOffer: uBrandPriceOffer,
           rating: rating,
           date:new Date(),
+=======
+
+    setCreateProduct((productCopy) => {
+      return [
+        ...productCopy,
+        {
+          url: image,
+          urlHover: imageHover,
+          brand: uBrand,
+          brandValue: uBrandValue,
+          brandPrice: uBrandPrice,
+          rating: rating,
+          tag: tag,
+>>>>>>> origin/main
           category: uBrandCategory,
           description: uBrandDesc,
         },
@@ -78,9 +103,42 @@ function Create() {
     });
 
     setTimeout(() => {
+<<<<<<< HEAD
       navigate("/admin", { state: { name: "shanibjan" } });
     }, 100);
   };
+=======
+      navigate("/admin");
+    }, 1000);
+  };
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(selectedImage);
+
+    reader.addEventListener('load', () => {
+      const imageLoader = reader.result;
+      setImage(imageLoader);
+    });
+  };
+
+  const handleImageHoverChange = (e) => {
+    const selectedImage = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(selectedImage);
+
+    reader.addEventListener('load', () => {
+      const imageLoader = reader.result;
+      setImageHover(imageLoader);
+    });
+  };
+
+>>>>>>> origin/main
 
   return (
     <>
@@ -151,8 +209,13 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
+<<<<<<< HEAD
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html"
             onChange={store}
+=======
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
+            onChange={handleImageChange}
+>>>>>>> origin/main
           />
           <br />
 
@@ -162,9 +225,13 @@ function Create() {
             type="file"
             id="myFile"
             name="filename"
+<<<<<<< HEAD
             multiple
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
             onChange={store}
+=======
+            onChange={handleImageHoverChange}
+>>>>>>> origin/main
           />
           <br />
         </div>
