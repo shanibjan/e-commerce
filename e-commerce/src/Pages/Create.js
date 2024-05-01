@@ -39,10 +39,6 @@ function Create() {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
 
-  const jan = () => {
-    const reader = new FileReader();
-    const reader2 = new FileReader();
-
   const store = (e) => {
     let val = e.target.files[0];
     console.log(val.size);
@@ -75,18 +71,6 @@ function Create() {
           brandPriceOffer: uBrandPriceOffer,
           rating: rating,
           date:new Date(),
-
-    setCreateProduct((productCopy) => {
-      return [
-        ...productCopy,
-        {
-          url: image,
-          urlHover: imageHover,
-          brand: uBrand,
-          brandValue: uBrandValue,
-          brandPrice: uBrandPrice,
-          rating: rating,
-          tag: tag,
           category: uBrandCategory,
           description: uBrandDesc,
         },
@@ -97,36 +81,6 @@ function Create() {
       navigate("/admin", { state: { name: "shanibjan" } });
     }, 100);
   };
-      navigate("/admin");
-    }, 1000);
-  };
-
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-
-    const reader = new FileReader();
-
-    reader.readAsDataURL(selectedImage);
-
-    reader.addEventListener('load', () => {
-      const imageLoader = reader.result;
-      setImage(imageLoader);
-    });
-  };
-
-  const handleImageHoverChange = (e) => {
-    const selectedImage = e.target.files[0];
-
-    const reader = new FileReader();
-
-    reader.readAsDataURL(selectedImage);
-
-    reader.addEventListener('load', () => {
-      const imageLoader = reader.result;
-      setImageHover(imageLoader);
-    });
-  };
-
 
   return (
     <>
@@ -197,13 +151,8 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
-<<<<<<< HEAD
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html"
             onChange={store}
-=======
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
-            onChange={handleImageChange}
->>>>>>> origin/main
           />
           <br />
 
@@ -213,13 +162,9 @@ function Create() {
             type="file"
             id="myFile"
             name="filename"
-<<<<<<< HEAD
             multiple
             accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
             onChange={store}
-=======
-            onChange={handleImageHoverChange}
->>>>>>> origin/main
           />
           <br />
         </div>
