@@ -30,24 +30,18 @@ function Create() {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
     if (fNameParse) setCreateProduct(fNameParse);
   }, []);
-<<<<<<< HEAD
   console.log(createProduct);
   let imageLoader;
   let imageLoaderHover;
   console.log(image);
-=======
->>>>>>> origin/main
 
   useEffect(() => {
     localStorage.setItem("image", JSON.stringify(createProduct));
   }, [createProduct]);
-<<<<<<< HEAD
-=======
 
   const jan = () => {
     const reader = new FileReader();
     const reader2 = new FileReader();
->>>>>>> origin/main
 
   const store = (e) => {
     let val = e.target.files[0];
@@ -68,7 +62,6 @@ function Create() {
     let uBrandPriceOffer = brandPriceOffer.current.value;
     let uBrandCategory = brandCategory.current.value;
     let uBrandDesc = brandDesc.current.value;
-<<<<<<< HEAD
     console.log(a);
     setCreateProduct((a) => {
       return [
@@ -82,7 +75,6 @@ function Create() {
           brandPriceOffer: uBrandPriceOffer,
           rating: rating,
           date:new Date(),
-=======
 
     setCreateProduct((productCopy) => {
       return [
@@ -95,7 +87,6 @@ function Create() {
           brandPrice: uBrandPrice,
           rating: rating,
           tag: tag,
->>>>>>> origin/main
           category: uBrandCategory,
           description: uBrandDesc,
         },
@@ -103,11 +94,9 @@ function Create() {
     });
 
     setTimeout(() => {
-<<<<<<< HEAD
       navigate("/admin", { state: { name: "shanibjan" } });
     }, 100);
   };
-=======
       navigate("/admin");
     }, 1000);
   };
@@ -138,7 +127,6 @@ function Create() {
     });
   };
 
->>>>>>> origin/main
 
   return (
     <>
