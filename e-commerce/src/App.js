@@ -29,6 +29,7 @@ function App() {
       <Router basename="/e-commerce" >
         <Routes>
           <Route Component={Home} exact path='/' />
+          <Route Component={Home} exact path='/e-commerce' />
         </Routes>
         <Routes>
           <Route Component={Register} path="/user_register" />
