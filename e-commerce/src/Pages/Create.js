@@ -10,21 +10,24 @@ function Create() {
   const brandName = useRef();
   const brandValue = useRef();
   const brandPrice = useRef();
+  const [count,setCount]=useState(0)
+  console.log(count);
+  const toDo = useRef();
   const brandPriceOffer = useRef();
   const brandDesc = useRef();
   const brandCategory = useRef();
   const navigate = useNavigate();
   const location = useLocation();
   const [createProduct, setCreateProduct] = useState([]);
-
+  const [toDos, setToDos] = useState([]);
   const [image, setImage] = useState([]);
   const [imageHover, setImageHover] = useState([]);
   const [rating, setRating] = useState();
-  console.log(rating);
+  console.log(toDos);
 
   let a = createProduct.reverse();
 
-  console.log(createProduct);
+  
 
   useEffect(() => {
     const fNameParse = JSON.parse(localStorage.getItem("image"));
@@ -41,16 +44,27 @@ function Create() {
 
   const store = (e) => {
     let val = e.target.files[0];
-    console.log(val.size);
+
+    console.log(val);
     const reader = new FileReader();
     reader.readAsDataURL(val);
+    console.log(reader);
     reader.addEventListener("load", () => {
       imageLoader = reader.result;
+      console.log(imageLoader);
       setImage((stateCopy) => {
         return [...stateCopy, { loader: imageLoader }];
       });
     });
   };
+
+  const toButton=()=>{
+
+    let uToDo=toDo.current.value;
+    setToDos((val)=>{
+        return[...val,uToDo]
+    })
+  }
   const jan = () => {
     let uBrand = brandName.current.value;
     let uBrandValue = brandValue.current.value;
@@ -81,6 +95,9 @@ function Create() {
       navigate("/admin", { state: { name: "shanibjan" } });
     }, 100);
   };
+  const names = ["Brian", "Paul", "Krug", "Halley"];
+  const listItems = names.map((name) => <li>{name}</li>);
+   console.log(listItems);
 
   return (
     <>
@@ -151,7 +168,7 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html"
+            accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html,.csv"
             onChange={store}
           />
           <br />
@@ -179,6 +196,42 @@ function Create() {
             Or Return to Home
           </a>
         </Link>
+      <div  >
+        <input ref={toDo} type="text" />
+        <button onClick={toButton} >add</button>
+
+        {toDos.map((to,index)=>{
+            return(
+              <>
+              {toDos?<p>{to}</p>:null}
+              <button onClick={()=>{
+                toDos.splice(index,1)
+                console.log(toDos);
+                setToDos(()=>{
+                  return[...toDos]
+              })
+              }} >remove</button>
+              <button onClick={()=>{
+               toDos.splice(index,1)
+               console.log(toDos);
+               setToDos(()=>{
+                 return[...toDos]
+             })
+              }} >update</button>
+              </>
+              
+              
+            )  
+          
+          })}
+      </div>
+      <div>
+        <button onClick={()=>{
+          setCount(count +1)
+        }} >add</button>
+        <p>{count}</p>
+      </div>
+
       </div>
     </>
   );

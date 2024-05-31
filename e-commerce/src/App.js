@@ -23,6 +23,7 @@ import ProductsFilter from "./Pages/ProductsFilter";
 import AllProducts from "./Pages/AllProducts";
 
 function App() {
+  
   return (
     <div className="App">
       <Router>

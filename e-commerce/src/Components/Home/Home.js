@@ -9,6 +9,7 @@ import Products from "../Products/Products";
 import Reviews from "../Reviews/Reviews";
 import Theme from "../Theme/Theme";
 
+
 function Home() {
   const location = useLocation();
   return (
