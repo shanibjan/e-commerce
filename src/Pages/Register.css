@@ -1,0 +1,77 @@
+.register{
+    width: 27%;
+    display: inline-block;
+    margin: 6% 0;
+}
+.register h1{
+    margin-bottom: 6%;
+    font-family: 'Gordita Bold';
+}
+.register h2{
+    font-family: 'Gordita Bold';
+    margin-bottom: 11%;
+}
+.informations input{
+    border: 1px solid #E9E7E7;
+    width: 100%;
+    height: 45px;
+    outline: none;
+    font-weight: 800;
+    font-size: 16px;
+    margin: 1% 0;
+    font-family: 'Gordita Regular', sans-serif;
+    padding: 2%;
+    color: #787676;
+    text-transform: capitalize;
+}
+
+.informations ::-ms-input-placeholder { /* Edge 12-18 */
+    color: #cfcccc;
+    font-family: 'Gordita Bold';
+  }
+  
+  ::placeholder {
+    color: #cfcccc;
+    font-family: 'Gordita Bold';
+  }
+.informations label{
+    float: left;
+    color: #787676;
+    margin-top: 5%;
+}
+.create{
+    display: block;
+    text-decoration: none;
+    background-color: #48CAB2;
+    padding: 9px 3%;
+    color: #fff;
+    margin: 21% 0 7%;
+    transition:  2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.create:hover{
+    background-color: #040404;
+   
+}
+.create p{
+    
+    color: aliceblue;
+    font-family: 'Gordita Bold';
+}
+.return-store{
+    text-decoration: none;
+    color: black;
+    font-family: 'Gordita Bold';
+    width: 42%;
+    display: block;
+    margin: 0 auto;
+}
+.return-store:after {
+    display:block;
+    content: '';
+    border-bottom: solid 2px #060606;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+  .return-store:hover:after {
+    transform: scaleX(1); 
+   }
