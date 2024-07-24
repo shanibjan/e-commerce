@@ -21,6 +21,8 @@ import Cart from "./Pages/Cart";
 import SearchProducts from "./Pages/SearchProducts";
 import ProductsFilter from "./Pages/ProductsFilter";
 import AllProducts from "./Pages/AllProducts";
+import WishList from "./Pages/WishList";
+import Order from "./Pages/Order";
 
 function App() {
   
@@ -60,6 +62,12 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={AllProducts} path="/all_products" />
+        </Routes>
+        <Routes>
+          <Route  Component={WishList} path="/wishlist" />
+        </Routes>
+        <Routes>
+          <Route  Component={Order} path="/order" />
         </Routes>
       </Router>
     </div>

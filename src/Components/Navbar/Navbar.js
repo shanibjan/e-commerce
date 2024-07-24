@@ -92,7 +92,7 @@ function Navbar({ userName }) {
   };
 
   const userLogOut = () => {
-    setUserLogin(false);
+    
     localStorage.removeItem("cart");
     //  localStorage.clear()
   };
@@ -107,6 +107,18 @@ function Navbar({ userName }) {
       window.alert("Please Login");
     }
   };
+
+  const wishListClick=(e)=>{
+    e.preventDefault()
+    if (userName.state != null) {
+      
+      navigate("/wishlist", {
+        state: { name: userName.state.name,email:userName.state.email },
+      });
+    } else {
+      window.alert("Please Login");
+    }
+  }
 
   return (
     <div className="navbar">
@@ -173,10 +185,10 @@ function Navbar({ userName }) {
             </Link>
           </ul>
         </div>
-        <a href="">
+        <a onClick={wishListClick}>
           <Love />
         </a>
-        <a onClick={cartMainClick} href="">
+        <a onClick={cartMainClick} >
           <Cart />
         </a>
         <samp className="cart-count">

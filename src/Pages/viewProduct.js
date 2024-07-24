@@ -9,6 +9,8 @@ import Cart2 from "../assets/Cart2";
 import { database } from "../firebase";
 import { onValue, ref, remove, set } from "firebase/database";
 import { uid } from "uid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function ViewProduct() {
   //   var _lsTotal = 0,
@@ -23,11 +25,13 @@ function ViewProduct() {
   // };
   const [smallImage, setSmallImage] = useState();
   const[data,setData]=useState([])
+  console.log(data);
   const [cart, setCart] = useState([]);
   const [size, setSize] = useState();
   const [qty, setQty] = useState(["1"]);
   const location = useLocation();
   const nav = useNavigate();
+  const [fav, setFav] = useState([]);
 
 
   useEffect(() => {
@@ -41,6 +45,27 @@ function ViewProduct() {
       }
     });
   }, []);
+  useEffect(() => {
+    onValue(ref(database, "fav"), (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const datas = Object.values(data);
+
+        setFav(datas);
+      } else {
+        setFav([]);
+      }
+    });
+  }, []);
+  let newFav = [];
+  if (location.state != null) {
+    fav.map((favs) => {
+      if (favs.userEmail == location.state.email) {
+        newFav.push(favs);
+      }
+    });
+  }
+  console.log(newFav);
   // const postView = JSON.parse(localStorage.getItem("post"));
   // console.log(postView);
 
@@ -112,6 +137,12 @@ function ViewProduct() {
   const bc = () => {
     setSmallImage(data[0].url2);
   };
+  const cd = () => {
+    setSmallImage(data[0].url3);
+  };
+  const de = () => {
+    setSmallImage(data[0].url4);
+  };
 
   return (
     <>
@@ -133,6 +164,17 @@ function ViewProduct() {
               src={item ? item.url2 : null}
               alt=""
             />
+            <img
+              onMouseOver={cd}
+              src={item ? item.url3 : null}
+              alt=""
+            />
+            <img
+              onMouseOver={de}
+              src={item ? item.url4 : null}
+              alt=""
+            />
+            
             
           </div>
           <img
@@ -140,6 +182,18 @@ function ViewProduct() {
             src={smallImage ? smallImage : item.url1}
             alt=""
           />
+          {newFav.map((list)=>{
+            console.log(list.uuid2);
+            console.log(item.uuid2);
+              if(list.uuid2==item.uuid || list.uuid2==item.uuid2){
+                return(
+                  <div className="heart-fav-over" >
+                    <FontAwesomeIcon icon={faHeart} />
+                  </div>
+                )
+                
+              }
+          })}
         </div>
         <div className="right-view">
           <div className="details-product-view">

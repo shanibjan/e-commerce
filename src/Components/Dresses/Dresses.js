@@ -58,12 +58,7 @@ function Dresses({ userName }) {
       }
     });
   }, []);
-  const prods = JSON.parse(localStorage.getItem("image"));
-  console.log(prodsFilter);
-
-  useEffect(() => {
-    localStorage.setItem("prods-filter", JSON.stringify(prodsFilter));
-  }, [prodsFilter]);
+  
 
   return (
     

@@ -109,7 +109,7 @@
   .carts{
     position: relative;
     margin: 5% 0;
-    
+    cursor: pointer;
     
   }
   .first-cart{
@@ -202,3 +202,23 @@
     opacity: 60%;
     margin-left: 9px 
   }
+  .heart-fav{
+    color: #48CAB2;
+    font-size: 26px;
+    cursor: pointer;
+  }
+  .wishlist{
+    background-color:#48CAB2 ;
+   color: white;
+   position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Gordita Bold';
+    cursor: pointer;
+    display: none;
+  }
+  

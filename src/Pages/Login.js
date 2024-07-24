@@ -40,7 +40,7 @@ function Login() {
     let uPassword = userPassword.current.value;
     email.current.value = null;
    
-    // const fNameParse = JSON.parse(localStorage.getItem("user_registration"));
+    const fNameParse = JSON.parse(localStorage.getItem("user_registration"));
     // console.log(fNameParse);
     if(data !=null){
       data.map((userDetails) => {

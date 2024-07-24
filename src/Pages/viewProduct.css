@@ -21,6 +21,7 @@
     height: 600px;
     margin: 0 auto;
     display: flex;
+    position: relative;
 }
 .left-view img{
     width: 72%;
@@ -110,5 +111,13 @@
   }
   .cap_head{
     text-transform: uppercase;
+  }
+  .heart-fav-over{
+    color: #48CAB2;
+    font-size: 26px;
+    cursor: pointer;
+    position: absolute;
+    right: 24px;
+    top: 9px;
   }
 

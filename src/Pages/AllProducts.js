@@ -13,6 +13,7 @@ function AllProducts() {
   const location = useLocation();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  console.log(data);
 
   useEffect(() => {
     onValue(ref(database, "products"), (snapshot) => {

@@ -77,6 +77,8 @@ function Create() {
       brand: uBrand,
           url1: image[0].loader,
           url2: image[1].loader,
+          url3: image[2].loader,
+          url4: image[3].loader,
           brandValue: uBrandValue,
           brandPrice: uBrandPrice,
           brandPriceOffer: uBrandPriceOffer,
@@ -180,21 +182,43 @@ function Create() {
             id="myFile"
             name="filename"
             multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif,.html,.csv"
+            accept=".jpg,.jpeg,.png"
             onChange={store}
           />
           <br />
 
-          <label htmlFor="">Product 2</label>
+           <label htmlFor="">Product 2</label>
           <br />
           <input
             type="file"
             id="myFile"
             name="filename"
             multiple
-            accept=".jpg,.jpeg,.png,.gif,.webp,.avif"
+            accept=".jpg,.jpeg,.png"
             onChange={store}
-          />
+          /> 
+          <br />
+          <label htmlFor="">Product 3</label>
+          <br />
+          <input
+            type="file"
+            id="myFile"
+            name="filename"
+            multiple
+            accept=".jpg,.jpeg,.png"
+            onChange={store}
+          /> 
+          <br />
+          <label htmlFor="">Product 4</label>
+          <br />
+          <input
+            type="file"
+            id="myFile"
+            name="filename"
+            multiple
+            accept=".jpg,.jpeg,.png"
+            onChange={store}
+          /> 
           <br />
           
         </div>

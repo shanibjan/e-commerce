@@ -1,118 +1,57 @@
-
-import React, { useEffect, useState } from "react";
-import Header from "../Components/Header/Header";
-import Navbar from "../Components/Navbar/Navbar";
-import Products from "../Components/Products/Products";
-import { useLocation, useNavigate } from "react-router-dom";
-import Cart2 from "../assets/Cart2";
-import Love from "../assets/Love";
-import Compare from "../assets/Compare";
-import Plus from "../assets/Plus";
+import React, { useEffect, useState } from 'react'
+import Header from '../Components/Header/Header'
+import Navbar from '../Components/Navbar/Navbar'
+import { useLocation, useNavigate } from 'react-router-dom';
 import { database } from "../firebase";
 import { onValue, ref, remove, set } from "firebase/database";
-import { uid } from "uid";
+import Cart2 from "../assets/Cart2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-function ProductsFilter() {
-  
+function WishList() {
     const location = useLocation();
-    const[data,setData]=useState([])
-  console.log(location);
-  const navigate = useNavigate();
-  const[lowtoH,setLowtoH]=useState([])
-  console.log(lowtoH);
-  const [fav, setFav] = useState([]);
+    const navigate = useNavigate();
+    const [fav, setFav] = useState([]);
+    console.log(fav);
 
+    useEffect(() => {
+        onValue(ref(database, "fav"), (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            const datas = Object.values(data);
+    
+            setFav(datas);
+          } else {
+            setFav([]);
+          }
+        });
+      }, []);
 
-  useEffect(() => {
-    onValue(ref(database, "product-filter"), (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const datas = Object.values(data);
-
-        setData(datas);
-       
-      }else{
-        setData([])
-      }
-    });
-  }, []);
-  useEffect(() => {
-    onValue(ref(database, "fav"), (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const datas = Object.values(data);
-
-        setFav(datas);
-      } else {
-        setFav([]);
-      }
-    });
-  }, []);
-
-  let newFav = [];
+      let newFav = [];
   if (location.state != null) {
     fav.map((favs) => {
       if (favs.userEmail == location.state.email) {
         newFav.push(favs);
       }
     });
+    console.log(newFav);
+    
   }
-
-  const addFav = (product) => {
-    let isFavo = false;
-    // console.log(newFav);
-    newFav.map((favItem) => {
-      if (favItem.uuid2 == product.uuid) {
-        isFavo = true;
-       
-      }
-    });
-
-    const uuid = uid();
-    if (location.state != null && isFavo == false) {
-      set(ref(database, "fav" + `/${uuid}`), {
-        brand: product.brand,
-        url1: product.url1,
-        brandValue: product.brandValue,
-        brandPrice: product.brandPrice,
-        brandPriceOffer: product.brandPriceOffer,
-        rating: product.rating,
-        date: new Date(),
-        category: product.category,
-        description: product.description,
-        uuid2: product.uuid,
-        uuid,
-        userEmail: location.state.email,
-      });
-    } else if(location.state == null ) {
-      window.alert("Please login ");
-    } else if(isFavo == true){
-      window.alert('Item already added to favourite')
-    }
-  };
-
-  const removed = (items) => {
-    // console.log(items.uuid);
-    remove(ref(database, "fav" + `/${items.uuid}`));
-  };
- 
   useEffect(() => {
-    let imageWrapper = document.querySelectorAll(".search-image-wrapper-pro");
-    // console.log(imageWrapper);
-    for (let i = 0; i < imageWrapper.length; i++) {
-      let itemsHover = imageWrapper[i].childNodes[3];
-      console.log(itemsHover);
-      imageWrapper[i].addEventListener("mouseenter", (e) => {
-        itemsHover.style.display = "flex";
-        // itemsHover.style.transition="5s cubic-bezier(0.075, 0.82, 0.165, 1)"
-      });
+    // let imageWrapper = document.querySelectorAll(".search-image-wrapper-pro");
+    // // console.log(imageWrapper);
+    // for (let i = 0; i < imageWrapper.length; i++) {
+    //   let itemsHover = imageWrapper[i].childNodes[3];
+    //   console.log(itemsHover);
+    //   imageWrapper[i].addEventListener("mouseenter", (e) => {
+    //     itemsHover.style.display = "flex";
+    //     // itemsHover.style.transition="5s cubic-bezier(0.075, 0.82, 0.165, 1)"
+    //   });
 
-      imageWrapper[i].addEventListener("mouseleave", (e) => {
-        itemsHover.style.display = "none";
-      });
-    }
+    //   imageWrapper[i].addEventListener("mouseleave", (e) => {
+    //     itemsHover.style.display = "none";
+    //   });
+    // }
     
     
     let cartAction = document.querySelectorAll(".admin-carts");
@@ -146,53 +85,18 @@ function ProductsFilter() {
       });
     }
   });
-  
-    useEffect(()=>{
-     if(lowtoH=="Popularity"){
-      data.sort((a,b)=>{
-        return b.rating.length-a.rating.length
-      })
-      set(ref(database, "product-filter"), data);
-     } 
-     else if(lowtoH=="Price: High to Low"){
-      data.sort((a,b)=>{
-        return b.brandPriceOffer-a.brandPriceOffer
-      })
-      set(ref(database, "product-filter"), data);
-     }
-     else if(lowtoH=="Price: Low to High"){
-      data.sort((a,b)=>{
-        return a.brandPriceOffer-b.brandPriceOffer
-      })
-      set(ref(database, "product-filter"), data);
-     }
-     else if(lowtoH=="Latest"){
-      data.sort((a,b)=>{
-        return new Date(b.date)-new Date(a.date)
-      })
-      set(ref(database, "product-filter"), data);
-     }
-    
-    },[lowtoH])
+  const removed = (result) => {
+    // console.log(items.uuid);
+    remove(ref(database, "fav" + `/${result.uuid}`));
+  };
   return (
     <>
-      <Header />
+    <Header />
       <Navbar userName={location} />
-      <div className="sort">
-      <select className="sorted" name="" id="" onChange={((e)=>{
-          setLowtoH(e.target[e.target.selectedIndex].text)
-        })}>
-        <option value="">Sort by</option>
-        <option value=""  >Price: Low to High</option>
-        <option value=""  >Price: High to Low</option>
-        <option value=""  >Popularity</option>
-        <option value=""  >Latest</option>
-      </select>
-      </div>
-     
-     
-      {data
-        ? data.map((result) => {
+      <h2 className='wish-items' >My Wishlist  {newFav.length} Items</h2>
+      {newFav
+        ? newFav.map((result) => {
+          console.log(result);
           let a = result
                 ? (result.brandPriceOffer * 100) / result.brandPrice
                 : null;
@@ -202,29 +106,31 @@ function ProductsFilter() {
             return (
               <div className="search-product-details">
                 <div className="search-image-wrapper-pro">
+                <div
+                                  onClick={() => {
+                                    removed(result);
+                                  }}
+                                  className="remove-fav"
+                                >
+                                  <FontAwesomeIcon icon={faTimes} />
+                                </div>
                   <img
                     src={result ? result.url1 : null}
                     className="admin-image"
                     alt="normal"
                   />
-                  <img
-                    src={result ? result.url2 : null}
-                    className="admin-image-hover"
-                    alt="hover"
-                  />
+                 
 
                   
                   <div className="admin-top-offer">
                     <h2 className="admin-product-ad">{perc} % OFF</h2>
                   </div>
-                  <div className="wishlist" onClick={() => {
-                          addFav(result);
-                        }} >Add to Wishlist</div>
+                 
                   
                 </div>
                 <div className="admin-stars">
                   <h2 className="admin-rating-star">{result.rating}</h2>
-                  <div>
+                  {/* <div>
                       {newFav
                         ? newFav.map((items) => {
                             if (result.uuid == items.uuid2) {
@@ -243,7 +149,7 @@ function ProductsFilter() {
                         : null}
 
                       
-                    </div>
+                    </div> */}
                 </div>
                 <a href="" className="admin-brand">
                   {result ? result.brand : null}
@@ -305,4 +211,4 @@ function ProductsFilter() {
   )
 }
 
-export default ProductsFilter
+export default WishList

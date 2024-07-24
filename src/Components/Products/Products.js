@@ -17,13 +17,14 @@ import imagePath from "../assetHelper/assetHelper.js";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../firebase.js";
 import { onValue, ref, remove, set } from "firebase/database";
+import { uid } from "uid";
 
 function Products({ userName }) {
-  const [data,setData]=useState([])
+  const [data, setData] = useState([]);
   const navigate = useNavigate();
   console.log(userName);
-  const [postDetails, setPostDetails] = useState([]);
-
+  const [fav, setFav] = useState([]);
+  const [favor, setFavor] = useState(false);
 
   useEffect(() => {
     onValue(ref(database, "products"), (snapshot) => {
@@ -32,27 +33,46 @@ function Products({ userName }) {
         const datas = Object.values(data);
 
         setData(datas);
-       
-      }else{
-        setData([])
+      } else {
+        setData([]);
       }
     });
   }, []);
-  const fNameParse = JSON.parse(localStorage.getItem("image"));
-  console.log(fNameParse);
+  useEffect(() => {
+    onValue(ref(database, "fav"), (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const datas = Object.values(data);
+
+        setFav(datas);
+      } else {
+        setFav([]);
+      }
+    });
+  }, []);
+  let newFav = [];
+  if (userName.state != null) {
+    fav.map((favs) => {
+      if (favs.userEmail == userName.state.email) {
+        newFav.push(favs);
+      }
+    });
+  }
+  console.log(newFav);
 
   let mainProducts = [];
   for (let i = 0; i <= 3; i++) {
-    if (data != null) {
+    if (data[i] != null) {
       mainProducts.push(data[i]);
     }
   }
-
+  console.log(mainProducts);
 
   useEffect(() => {
     let imageWrapper = document.querySelectorAll(".image-wrapper-pro");
     for (let i = 0; i < imageWrapper.length; i++) {
-      let itemsHover = imageWrapper[i].childNodes[2];
+      let itemsHover = imageWrapper[i].childNodes[3];
+      console.log(itemsHover);
       imageWrapper[i].addEventListener("mouseenter", (e) => {
         itemsHover.style.display = "grid";
         // itemsHover.style.transition="5s cubic-bezier(0.075, 0.82, 0.165, 1)"
@@ -93,6 +113,62 @@ function Products({ userName }) {
       });
     }
   });
+
+  const addFav = (product) => {
+    console.log(product);
+    let isFavo = false;
+    // console.log(newFav);
+    newFav.map((favItem) => {
+      if (favItem.uuid2 == product.uuid) {
+        isFavo = true;
+        setFavor(true);
+      }
+    });
+
+    const uuid = uid();
+    if (userName.state != null && isFavo == false) {
+      set(ref(database, "fav" + `/${uuid}`), {
+        brand: product.brand,
+        url1: product.url1,
+        url2: product.url2,
+        url3: product.url3,
+        url4: product.url4,
+        brandValue: product.brandValue,
+        brandPrice: product.brandPrice,
+        brandPriceOffer: product.brandPriceOffer,
+        rating: product.rating,
+        date: new Date(),
+        category: product.category,
+        description: product.description,
+        uuid2: product.uuid,
+        uuid,
+        userEmail: userName.state.email,
+      });
+    } else if(userName.state == null ) {
+      window.alert("Please login ");
+    } else if(isFavo == true){
+      window.alert('Item already added to favourite')
+    }
+  };
+
+  const removed = (items) => {
+    // console.log(items.uuid);
+    remove(ref(database, "fav" + `/${items.uuid}`));
+  };
+  const allProductsClick=(e)=>{
+    e.preventDefault()
+    if (userName.state != null) {
+      navigate("/all_products", {
+        state: {
+          name: userName.state.name,
+          email: userName.state.email,
+        },
+      });
+    } else {
+      navigate("/all_products");
+    }
+  }
+
   return (
     <div className="product">
       <h1>Top Products of This Week</h1>
@@ -103,8 +179,8 @@ function Products({ userName }) {
                 ? (product.brandPriceOffer * 100) / product.brandPrice
                 : null;
 
-              let b=Math.trunc(a)
-              let perc=100-b
+              let b = Math.trunc(a);
+              let perc = 100 - b;
               return (
                 <div className="product-details">
                   <div className="image-wrapper-pro">
@@ -135,14 +211,34 @@ function Products({ userName }) {
                         {product ? perc : null}% OFF
                       </h2>
                     </div>
+                    <div className="wishlist" onClick={() => {
+                          addFav(product);
+                        }} >Add to Wishlist</div>
                   </div>
                   <div className="stars">
                     <h2 className="rating-star">
                       {product ? product.rating : null}
                     </h2>
-                    <a  >
-                        <Love />
-                      </a>
+                    <div>
+                      {newFav
+                        ? newFav.map((items) => {
+                            if (product.uuid == items.uuid2) {
+                              return (
+                                <div
+                                  onClick={() => {
+                                    removed(items);
+                                  }}
+                                  className="heart-fav"
+                                >
+                                  <FontAwesomeIcon icon={faHeart} />
+                                </div>
+                              );
+                            }
+                          })
+                        : null}
+
+                      
+                    </div>
                   </div>
                   <a href="" className="brand">
                     {product ? product.brand : null}
@@ -157,12 +253,15 @@ function Products({ userName }) {
                   <a
                     onClick={() => {
                       let postDetail = [];
-                    postDetail.push(product);
-                    set(ref(database, "product-overview"), postDetail);
+                      postDetail.push(product);
+                      set(ref(database, "product-overview"), postDetail);
                       setTimeout(() => {
                         if (userName.state !== null) {
                           navigate("/view-product", {
-                            state: { name: userName.state.name,email:userName.state.email },
+                            state: {
+                              name: userName.state.name,
+                              email: userName.state.email,
+                            },
                           });
                         } else {
                           navigate("/view-product");
@@ -214,15 +313,7 @@ function Products({ userName }) {
           : "no items added"}
         {
           <div
-            onClick={() => {
-              if (userName.state != null) {
-                navigate("/all_products", {
-                  state: { name: userName.state.name,email:userName.state.email },
-                });
-              } else {
-                navigate("/all_products");
-              }
-            }}
+            onClick={allProductsClick}
             className="all-products"
           >
             <a className="all-products-text" href="">

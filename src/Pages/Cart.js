@@ -8,11 +8,14 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { database } from "../firebase";
 import { onValue, ref, remove, set } from "firebase/database";
+import { uid } from "uid";
 
 function Cart() {
   const location = useLocation();
+  const[paymentId,setPaymentId]=useState()
+  console.log(paymentId);
   const nav=useNavigate()
-  console.log(location);
+ 
   const [cart,setCart]=useState([])
   // console.log(cartItems.length);
   let totalSum = [];
@@ -36,7 +39,7 @@ function Cart() {
   }, []);
 
   const cancel = (items) => {
-
+    console.log(items.uuid);
     remove(ref(database, "cart" + `/${items.uuid}`));
   };
 
@@ -49,7 +52,46 @@ function Cart() {
       }
     }
   })
-  console.log(newCart);
+  const pay=()=>{
+    
+    const options = {
+      key: 'rzp_test_VYT3qiUFj68Unw',
+      key_secret: 'UUu8gOXV8YOdqIS2gYtQCTOv',
+      amount: priceSumInitial * 100,
+      currency: 'INR',
+      name: 'Your Company Name',
+      description: 'Test Transaction',
+     
+      handler: (response) => {
+        setPaymentId(response.razorpay_payment_id)
+        // You can also verify the payment on the server-side
+        // 5559 4265 3785 2759
+      },
+      prefill: {
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+        contact: '9999999999',
+      },
+      notes: {
+        address: 'Corporate Office',
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+
+    
+  }
+  useEffect(()=>{
+    if(paymentId){
+      nav('/order')
+    }else{
+      console.log('sam');
+    }
+  },[pay])
 
   return (
     <>
@@ -152,7 +194,7 @@ function Cart() {
               <span>₹ {priceSumInitial ? priceSumInitial : null}</span>
             </div>
             <div className="proceed-to-pay">
-              <a className="add-to-cart-text" href="">
+              <a className="add-to-cart-text" onClick={pay}>
                 PROCEED TO PAY
               </a>
             </div>

@@ -9,17 +9,19 @@ import Compare from "../assets/Compare";
 import Plus from "../assets/Plus";
 import { database } from "../firebase";
 import { onValue, ref, remove, set } from "firebase/database";
+import { uid } from "uid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function SearchProducts() {
   const location = useLocation();
+  const [fav, setFav] = useState([]);
   console.log(location);
   const navigate = useNavigate();
   const [postDetails, setPostDetails] = useState([]);
   const[lowtoH,setLowtoH]=useState([])
   const[data,setData]=useState([])
   console.log(data);
-  // const searched = JSON.parse(localStorage.getItem("search"));
-  // console.log(searched);
   useEffect(() => {
     onValue(ref(database, "product-search"), (snapshot) => {
       const data = snapshot.val();
@@ -35,20 +37,72 @@ function SearchProducts() {
   }, []);
 
   useEffect(() => {
-    const searchP = JSON.parse(localStorage.getItem("post"));
-    if (searchP) setPostDetails(searchP);
+    onValue(ref(database, "fav"), (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const datas = Object.values(data);
+
+        setFav(datas);
+      } else {
+        setFav([]);
+      }
+    });
   }, []);
 
+  let newFav = [];
+  if (location.state != null) {
+    fav.map((favs) => {
+      if (favs.userEmail == location.state.email) {
+        newFav.push(favs);
+      }
+    });
+  }
+
+  const addFav = (product) => {
+    let isFavo = false;
+    // console.log(newFav);
+    newFav.map((favItem) => {
+      if (favItem.uuid2 == product.uuid) {
+        isFavo = true;
+       
+      }
+    });
+
+    const uuid = uid();
+    if (location.state != null && isFavo == false) {
+      set(ref(database, "fav" + `/${uuid}`), {
+        brand: product.brand,
+        url1: product.url1,
+        brandValue: product.brandValue,
+        brandPrice: product.brandPrice,
+        brandPriceOffer: product.brandPriceOffer,
+        rating: product.rating,
+        date: new Date(),
+        category: product.category,
+        description: product.description,
+        uuid2: product.uuid,
+        uuid,
+        userEmail: location.state.email,
+      });
+    } else if(location.state == null ) {
+      window.alert("Please login ");
+    } else if(isFavo == true){
+      window.alert('Item already added to favourite')
+    }
+  };
+
+  const removed = (items) => {
+    // console.log(items.uuid);
+    remove(ref(database, "fav" + `/${items.uuid}`));
+  };
   useEffect(() => {
-    localStorage.setItem("post", JSON.stringify(postDetails));
-  }, [postDetails]);
-  useEffect(() => {
-    let imageWrapper = document.querySelectorAll(".admin-image-wrapper-pro");
+    let imageWrapper = document.querySelectorAll(".search-image-wrapper-pro");
     // console.log(imageWrapper);
     for (let i = 0; i < imageWrapper.length; i++) {
-      let itemsHover = imageWrapper[i].childNodes[2];
+      let itemsHover = imageWrapper[i].childNodes[3];
+      console.log(itemsHover);
       imageWrapper[i].addEventListener("mouseenter", (e) => {
-        itemsHover.style.display = "grid";
+        itemsHover.style.display = "flex";
         // itemsHover.style.transition="5s cubic-bezier(0.075, 0.82, 0.165, 1)"
       });
 
@@ -154,23 +208,36 @@ function SearchProducts() {
                     alt="hover"
                   />
 
-                  <div className="admin-items-hover">
-                    <a href="">
-                      <Love />
-                    </a>
-                    <a href="">
-                      <Compare />
-                    </a>
-                    <a href="">
-                      <Plus />
-                    </a>
-                  </div>
+                  
                   <div className="admin-top-offer">
                     <h2 className="admin-product-ad">{perc} % OFF</h2>
                   </div>
+                    <div className="wishlist" onClick={() => {
+                          addFav(result);
+                        }} >Add to Wishlist</div>
                 </div>
                 <div className="admin-stars">
                   <h2 className="admin-rating-star">{result.rating}</h2>
+                  <div>
+                      {newFav
+                        ? newFav.map((items) => {
+                            if (result.uuid == items.uuid2) {
+                              return (
+                                <div
+                                  onClick={() => {
+                                    removed(items);
+                                  }}
+                                  className="heart-fav"
+                                >
+                                  <FontAwesomeIcon icon={faHeart} />
+                                </div>
+                              );
+                            }
+                          })
+                        : null}
+
+                      
+                    </div>
                 </div>
                 <a href="" className="admin-brand">
                   {result ? result.brand : null}
