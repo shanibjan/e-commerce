@@ -23,6 +23,7 @@ import ProductsFilter from "./Pages/ProductsFilter";
 import AllProducts from "./Pages/AllProducts";
 import WishList from "./Pages/WishList";
 import Order from "./Pages/Order";
+import Orders from "./Pages/Orders";
 
 function App() {
   
@@ -68,6 +69,10 @@ function App() {
         </Routes>
         <Routes>
           <Route  Component={Order} path="/order" />
+        </Routes>
+
+        <Routes>
+          <Route  Component={Orders} path="/orders" />
         </Routes>
       </Router>
     </div>

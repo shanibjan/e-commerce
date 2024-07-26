@@ -9,7 +9,7 @@
 .product-view-cart{
     display: flex;
     position: relative;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 3% 6%;
     align-items: end;
     border: 1px solid #E9E7E7;
@@ -20,14 +20,12 @@
     font-size: 14px;
 }
 .right-view-cart{
-    width: 50%;
+   
     text-align: left;
-    margin: 0 auto;
-    align-items: center;
-    display: inline-grid;
+    margin-left: 12px;
 }
 .left-view-cart{
-    width: 40%;
+   
     height: 200PX;
 }
 .left-view-cart img{
@@ -86,6 +84,7 @@
 .totalamount{
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 .total-amount{
     display: flex;

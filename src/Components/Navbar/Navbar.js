@@ -119,7 +119,12 @@ function Navbar({ userName }) {
       window.alert("Please Login");
     }
   }
-
+const myOrder=()=>{
+  console.log('j');
+  navigate("/orders", {
+    state: { name: userName.state.name,email:userName.state.email },
+  });
+}
   return (
     <div className="navbar">
       <div className="logo">
@@ -174,8 +179,18 @@ function Navbar({ userName }) {
                 <a className="slide" href="" onClick={userLogOut}>
                   {userName.state != null ? "Logout" : null}
                 </a>
+               
               </li>
+             
+              
             </Link>
+           
+            <li>
+              <a className="slide"  onClick={myOrder} >
+                  {userName.state != null ? "My Orders" : null}
+                </a>
+              </li>
+           
             <Link style={{ textDecoration: "none" }} to="/admin-login">
               <li>
                 <a className="slide" href="">

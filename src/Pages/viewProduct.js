@@ -7,7 +7,7 @@ import img from "../images/collection-2.webp";
 import Products from "../Components/Products/Products";
 import Cart2 from "../assets/Cart2";
 import { database } from "../firebase";
-import { onValue, ref, remove, set } from "firebase/database";
+import { onValue, ref, remove, set,update } from "firebase/database";
 import { uid } from "uid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -23,15 +23,33 @@ function ViewProduct() {
   //   _lsTotal += _xLen;
   //   console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB")
   // };
+  
   const [smallImage, setSmallImage] = useState();
   const[data,setData]=useState([])
-  console.log(data);
+ const[added,setAdded]=useState(false)
   const [cart, setCart] = useState([]);
+ 
   const [size, setSize] = useState();
-  const [qty, setQty] = useState(["1"]);
+  const [qty, setQty] = useState(1);
+  console.log(typeof qty);
   const location = useLocation();
   const nav = useNavigate();
   const [fav, setFav] = useState([]);
+
+
+  useEffect(() => {
+    onValue(ref(database, "cart"), (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const datas = Object.values(data);
+
+        setCart(datas);
+       
+      }else{
+        setCart([])
+      }
+    });
+  }, []);
 
 
   useEffect(() => {
@@ -65,27 +83,15 @@ function ViewProduct() {
       }
     });
   }
-  console.log(newFav);
-  // const postView = JSON.parse(localStorage.getItem("post"));
-  // console.log(postView);
-
-  // useEffect(() => {
-  //   const cartItems = JSON.parse(localStorage.getItem("cart"));
-  //   if (cartItems) setCart(cartItems);
-  // }, []);
-  // console.log(smallImage);
-
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [cart]);
-  // const cartItems = JSON.parse(localStorage.getItem("cart"));
-
+ 
   function CartClick(e) {
-    e.preventDefault();
-    const uuid=uid()
-    if (location.state != null && size != null) {
-      set(ref(database,'cart' +`/${uuid}`),{
-        uuid,
+    let isOrdered=false
+   cart.map((cart)=>{
+    console.log(typeof cart.quantity);
+    console.log(typeof qty);
+     if(cart.overviewUuid==data[0].uuid && cart.size==size){
+     isOrdered=true
+      update(ref(database,'cart'+ `/${cart.uuid}`),{
         url: data[0].url1,
             brand: data[0].brand,
             brandValue: data[0].brandValue,
@@ -94,42 +100,51 @@ function ViewProduct() {
             priceOffer: data[0].brandPriceOffer,
             category: data[0].category,
             size: size,
-            quantity: qty,
-            userEmail:location.state.email
+            quantity: parseInt(cart.quantity)+parseInt(qty),
+            userEmail:location.state.email,
+            overviewUuid:data[0].uuid,
+        uuid:cart.uuid
       })
-      // setCart((img2) => {
-      //   return [
-      //     ...img2,
-      //     {
-      //       url: postView.url1,
-      //       tag: postView.tag,
-      //       brand: postView.brand,
-      //       brandValue: postView.brandValue,
-      //       rating: postView.rating,
-      //       price: postView.brandPrice,
-      //       priceOffer: postView.brandPriceOffer,
-      //       category: postView.category,
-      //       size: size,
-      //       quantity: qty,
-      //     },
-      //   ];
-      // });
+      window.alert(`You have already have this item in your bag .We have increased quantity by ${qty} `)
+     }
+   })
+   if(isOrdered==false){
 
-      window.alert("Item added to cart");
-     
-    } else {
-      if (size == null) {
-        let sizeP = document.querySelector(".size-product");
-        sizeP.style.boxShadow = "rgb(255 33 4 / 98%) 0px 0px 0px 1px";
-        sizeP.style.transition = "1s cubic-bezier(0.075, 0.82, 0.165, 1)";
-        sizeP.style.animation =
-          "shake .5s 3.4 cubic-bezier(0.455, 0.03, 0.515, 0.955)";
-      }
-      if (location.state == null) {
-        window.alert("Please login");
-        nav("/user_login");
-      }
-    }
+     e.preventDefault();
+     const uuid=uid()
+     if (location.state != null && size != null) {
+       set(ref(database,'cart' +`/${uuid}`),{
+         uuid,
+         url: data[0].url1,
+             brand: data[0].brand,
+             brandValue: data[0].brandValue,
+             rating: data[0].rating,
+             price: data[0].brandPrice,
+             priceOffer: data[0].brandPriceOffer,
+             category: data[0].category,
+             size: size,
+             quantity: qty,
+             userEmail:location.state.email,
+             overviewUuid:data[0].uuid
+       })
+       
+       window.alert("Item added to cart");
+       setAdded(true)
+      
+     } else {
+       if (size == null) {
+         let sizeP = document.querySelector(".size-product");
+         sizeP.style.boxShadow = "rgb(255 33 4 / 98%) 0px 0px 0px 1px";
+         sizeP.style.transition = "1s cubic-bezier(0.075, 0.82, 0.165, 1)";
+         sizeP.style.animation =
+           "shake .5s 3.4 cubic-bezier(0.455, 0.03, 0.515, 0.955)";
+       }
+       if (location.state == null) {
+         window.alert("Please login");
+         nav("/user_login");
+       }
+     }
+   }
   }
   const ab = () => {
     setSmallImage(data[0].url1);
@@ -143,7 +158,17 @@ function ViewProduct() {
   const de = () => {
     setSmallImage(data[0].url4);
   };
-
+  const cartMainClick = (e) => {
+    e.preventDefault()
+    if (location.state != null) {
+      
+      nav("/cart", {
+        state: { name: location.state.name,email:location.state.email },
+      });
+    } else {
+      window.alert("Please Login");
+    }
+  };
   return (
     <>
       <Header />
@@ -273,14 +298,23 @@ function ViewProduct() {
               <option value="5">10</option>
             </select>
           </div>
-          <div onClick={CartClick} className="add-to-cart">
-            <a className="cart-add" href="">
+          {added ?(          <div onClick={cartMainClick} className="add-to-cart">
+            <a className="cart-add" >
               <Cart2 />
             </a>
-            <a className="add-to-cart-text" href="">
+            <a className="add-to-cart-text" >
+              GO TO CART
+            </a>
+          </div>):(<div onClick={CartClick} className="add-to-cart">
+            <a className="cart-add" >
+              <Cart2 />
+            </a>
+            <a className="add-to-cart-text" >
               ADD TO CART
             </a>
-          </div>
+          </div>)}
+          
+
         </div>
       </div>
           )
